@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Register - Furniture E-Commerce</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#054C73",
+							secondary: "#F2F5FF",
+							textDark: "#333333",
+							textLight: "rgba(51, 51, 51, 0.5)",
+						},
+						fontFamily: {
+							montserrat: ["Montserrat", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+		<style>
+			body {
+				background: #ffffff;
+			}
+
+			.right-section {
+				background: linear-gradient(
+					180deg,
+					rgba(5, 76, 115, 0.89) 0%,
+					rgba(5, 76, 115, 0.89) 100%
+				);
+				background-size: cover;
+				background-position: center;
+				border-radius: 12px 12px 12px 12px;
+			}
+
+			input::placeholder {
+				color: rgba(51, 51, 51, 0.5);
+			}
+		</style>
+	</head>
+
+	<body class="font-montserrat">
+		<div class="min-h-screen flex items-center justify-center p-5">
+			<div class="flex w-[1440px] gap-12 p-12 bg-white shadow-lg rounded-xl">
+				<!-- Left Section -->
+				<div class="w-full">
+					<div class="w-full bg-secondary h-[933px] p-16 rounded-[20px]">
+						<h1 class="text-[32px] font-bold text-primary mb-3 text-center">
+							Create your account
+						</h1>
+						<p class="text-[18px] text-textDark mb-8 text-center">
+							Join us to access the latest collection<br />and product catalog
+						</p>
+
+						<button
+							type="button"
+							class="text-[18px] w-full flex justify-center items-center px-4 py-3 border border-gray-200 rounded-2xl text-sm font-bold text-textDark hover:bg-gray-50 transition duration-200 bg-white"
+						>
+							<svg
+								width="30"
+								height="30"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 48 48"
+								class="mr-3"
+							>
+								<path
+									fill="#FFC107"
+									d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+								></path>
+								<path
+									fill="#FF3D00"
+									d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+								></path>
+								<path
+									fill="#4CAF50"
+									d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+								></path>
+								<path
+									fill="#1976D2"
+									d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+								></path>
+							</svg>
+							Login With Google
+						</button>
+
+						<!-- Divider -->
+						<div class="flex items-center justify-center space-x-4 my-6">
+							<div class="flex-1 h-[1px] bg-[rgba(0,0,0,0.2)]"></div>
+							<span class="text-textDark text-[18px]">or</span>
+							<div class="flex-1 h-[1px] bg-[rgba(0,0,0,0.2)]"></div>
+						</div>
+
+						<!-- Form -->
+						<form class="space-y-5">
+							<div>
+								<label class="font-bold text-[18px] text-textDark block mb-1"
+									>Name<span class="text-red-500">*</span></label
+								>
+								<input
+									type="text"
+									placeholder="Enter your name"
+									class="w-full text-textLight focus:outline-none border border-[rgba(17,17,17,0.2)] rounded-[20px] px-6 py-4"
+								/>
+							</div>
+
+							<div>
+								<label class="font-bold text-[18px] text-textDark block mb-1"
+									>Email<span class="text-red-500">*</span></label
+								>
+								<input
+									type="email"
+									placeholder="Enter your email"
+									class="w-full text-textLight focus:outline-none border border-[rgba(17,17,17,0.2)] rounded-[20px] px-6 py-4"
+								/>
+							</div>
+
+							<div>
+								<label class="font-bold text-[18px] text-textDark block mb-1"
+									>Password<span class="text-red-500">*</span></label
+								>
+								<input
+									type="password"
+									placeholder="Enter your password"
+									class="w-full text-textLight focus:outline-none border border-[rgba(17,17,17,0.2)] rounded-[20px] px-6 py-4"
+								/>
+							</div>
+
+							<!-- Terms Checkbox -->
+							<div class="flex items-start space-x-3 mt-4">
+								<input
+									type="checkbox"
+									class="w-4 h-4 mt-1 border border-[rgba(0,0,0,0.2)] rounded"
+								/>
+								<label class="font-bold text-textDark text-[18px] leading-[1.4]"
+									>I agree to all Term, Privacy Policy and Fees</label
+								>
+							</div>
+
+							<!-- Sign Up Button -->
+							<button
+								type="button"
+								onclick="window.location.href='./login.html'"
+								class="w-full bg-primary text-white text-[18px] font-bold h-[56px] rounded-[20px] mt-4"
+							>
+								Sign Up
+							</button>
+						</form>
+
+						<!-- Login Link -->
+						<p class="text-center font-bold text-textDark text-[18px] mt-6">
+							Already have an account?
+							<a href="login.html    " class="text-primary">Sign In</a>
+						</p>
+					</div>
+				</div>
+
+				<!-- Right Section -->
+				<div class="w-full flex items-end justify-end relative">
+					<div class="z-20">
+						<img
+							class="w-[643px] h-[933px] rounded-tr-[75px] rounded-tl-[12px] rounded-br-[12px] rounded-bl-[75px] scale-x-[-1]"
+							src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D"
+							alt=""
+						/>
+						<div class="absolute bottom-8 right-4">
+							<h2
+								class="text-[32px] font-bold text-primary leading-[1.2] text-right"
+							>
+								Discovering the Best<br />
+								Furniture for your Home
+							</h2>
+							<p class="text-[18px] text-primary right-10">
+								Stylish, comfortable, and functional
+							</p>
+						</div>
+					</div>
+					<div
+						class="absolute right-section -top-12 -right-12 w-[643px] h-[933px] z-10"
+					></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

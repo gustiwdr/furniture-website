@@ -1,0 +1,295 @@
+p {
+	font-family: Montserrat, Arial;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	font-family: Montserrat, Arial;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+/* Header Section */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	padding: 15px 60px;
+	position: fixed;
+	background-color: white;
+	z-index: 1000;
+}
+
+.left-section {
+	color: #054c73;
+	font-size: 18px;
+}
+
+.middle-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 40px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.right-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+}
+
+.active {
+	color: #054c73;
+}
+
+/* Hero Section */
+.hero {
+	width: 100%;
+	height: 100vh;
+	background-image: url("../images/hero.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.hero-content {
+	background-color: #dfe9f4;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 20%;
+	bottom: 20%;
+	left: 50%;
+	right: 12%;
+	border-radius: 7px;
+}
+
+.hero-text {
+	padding: 30px;
+	position: relative;
+}
+
+.sub-title {
+	font-size: 12px;
+	font-weight: 600;
+	color: #333333;
+	letter-spacing: 5px;
+}
+
+.title {
+	font-size: 40px;
+	font-weight: bold;
+	padding: 15px 0px;
+	color: #054c73;
+}
+
+.description {
+	font-size: 16px;
+	font-weight: 500;
+	color: #333333;
+	line-height: 30px;
+}
+
+.general-button {
+	margin-top: 30px;
+	padding: 18px 55px;
+	background-color: #054c73;
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+}
+
+/* Service Section */
+.service {
+	background-color: #f2f5ff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 50px;
+	padding: 30px 100px;
+}
+
+.service-detail {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.service-text {
+	line-height: 25px;
+	color: #333333;
+	font-size: 14px;
+}
+
+.service-title {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+/* Inspiration Section */
+.inspiration,
+.category {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 50px;
+	padding: 30px;
+	margin-bottom: 30px;
+}
+
+.home-title {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+	text-align: center;
+	padding: 0px 0px 10px;
+}
+
+.home-desc {
+	font-size: 16px;
+	color: #666666;
+	text-align: center;
+	line-height: 30px;
+}
+
+.inspiration-image {
+	width: 80%;
+	height: 80%;
+	object-fit: cover;
+}
+
+/* Additional Section */
+.additional {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 50px 150px;
+	gap: 30px;
+	background-color: #f2f5ff;
+}
+
+.additional-image {
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+}
+
+/* Category Section */
+.category-image-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+}
+
+.dining,
+.living,
+.bedroom {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	font-weight: 500;
+}
+
+.category-image {
+	width: 300px;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Newspaper Section */
+.newspaper {
+	background-color: #f2f5ff;
+	padding: 50px 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.newspaper-content {
+	width: 400px;
+}
+
+.subscribe {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 30px;
+}
+
+input {
+	padding: 15px 20px;
+	border: 1px solid #054c73;
+	border-right: none;
+	border-radius: 3px 0 0 3px;
+	flex: 1;
+}
+
+input::placeholder {
+	color: rgb(219, 219, 219);
+}
+
+.subscribe-button {
+	padding: 15px 20px;
+	background-color: #054c73;
+	color: white;
+	border: none;
+	border: 1px solid #054c73;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+/* Footer Section */
+footer {
+	background-color: #054c73;
+	display: grid;
+	grid-template-columns: 1.5fr 2fr;
+	align-items: center;
+	gap: 30px;
+	padding: 30px 150px;
+	color: white;
+}
+
+.footer-title {
+	padding: 20px 0px;
+	font-weight: bold;
+}
+
+.footer-desc {
+	line-height: 30px;
+}
+
+.instagram-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+	font-weight: bold;
+}
+
+.instagram-gallery {
+	height: auto;
+	width: 500px;
+}

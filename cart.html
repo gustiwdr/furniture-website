@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cart - Furniture E-Commerce</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#054C73",
+							secondary: "#03344F",
+							dark: "#111111",
+							gray: "#979797",
+							lightGray: "#E5E5E5",
+							borderColor: "#DDDDDD",
+						},
+						fontFamily: {
+							montserrat: ["Montserrat", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
+		<style>
+				body {
+					font-family: 'Montserrat', sans-serif;
+					background-color: #FFFFFF;
+				}
+
+				.thin-border {
+					border-width: 1px;
+					color: gray;
+				}
+
+				.qty-control {
+					display: inline-flex;
+					align-items: center;
+				}
+
+				.qty-control button {
+					width: 24px;
+					height: 24px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: transparent;
+					color: #054C73'
+				}
+
+				.qty-control span {
+					min-width: 20px;
+					text-align: center;
+				}
+
+				table {
+					width: 100%;
+					border-collapse: collapse;
+				}
+
+				table th {
+					font-weight: 600;
+					color: #111111;
+					text-transform: uppercase;
+					font-size: 16px;
+					padding: 20px;
+					text-align: center;
+					border-bottom: 1px solid gray;
+				}
+
+				table td {
+					padding: 40px;
+					text-align: center;
+					vertical-align: middle;
+				}
+
+				.instagram-gallery {
+					height: auto;
+					width: 500px;
+				}
+
+			/* Header Section */
+			.header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 50px;
+				padding: 15px 60px;
+				position: fixed;
+				background-color: white;
+				z-index: 1000;
+			}
+
+			.left-section {
+				color: #054c73;
+				font-size: 18px;
+			}
+
+			.middle-section {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 40px;
+				font-weight: bold;
+				font-size: 16px;
+			}
+
+			.right-section {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 30px;
+			}
+
+			.active {
+				color: #054c73;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header Section -->
+		<header
+			class="fixed top-0 left-0 right-0 h-[50px] px-[60px] py-[15px] flex justify-between items-center bg-white z-[1000]"
+		>
+			<div class="left-section">
+				<h1 class="font-bold text-[32px]">Furniture</h1>
+			</div>
+
+			<div class="middle-section">
+				<div><a href="home.html">Home</a></div>
+				<div><a href="shop.html">Shop</a></div>
+				<div><a href="about-us.html">About Us</a></div>
+			</div>
+
+			<div class="right-section">
+				<div>
+					<img
+						src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_421)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_421' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_421' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_421' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpklEQVR4nO2cy2uVRxTAfxG8mocL3+22SF20WNBWq0TqovgAi7Z/h2myq7oSEdqNjxjdiqRV20ARBYuIaCs+qutWu6mt4iMmJpsu1EiNDJwLIdwz97tJ7jdzJvODs7n38n3nnDvfmTNnznyQyWQymUwmk8lkMpmatANbgD3ASeB34G9gFHglMiqf3ZLfuN9uBtpqXzJTZRnQA1wTR45PUV7JNbrlmhlhI3AOeD0N52oyJtfuZBbzGfBbE5yrya/yp84a3gH6gTclOnmiDADLSZyvZBIbDyyjwE4SpAL0NjiKnwCngC7JJlYAC4G5IgvlM/fd1/Lbpw1c3+lyWK6VBB3ApYLGDwFHgDXTuN/H8qcOF7znRdHRNIuBOwWMfQDsAlpn8N6t8jQ8LHD/26KrSdzC4WaB9Ku3ySPKOXwf8LKOLncsjuxKgXDxJ/BBiTp9CNwtEEZMxezeOgadCbRUbpf0zqfbIYzwRZ3s4hgwJ6B+LcDBOtnIlxhYjPjy5KPEQ59Hz5HY6yTf1wkXIUfyZObUCSOuIhht7UILGX9EWr7sAO55QkiUxSitQPSy5OyiUVZ5yrJXiIz1nkdwP/HzrUf/qEb1Oc+KbyZXe81M+x4pNpwlEpbJCq+Wkm5ZbYUez+p1KRErOGRkNFdp8xSiXM0kONcU5VwVzhpHFVuuxhDbtBl7Nfb4xJM5BX06N3uK9hZpAQYVmz4PqdheRakfsMsZxaZvQip1MubJY4p0KzadICC3FKVcSLHKVsWmGyGV+kdR6j3sskKx6X5IpUYUpRZhl8WKTS7HDoaW2rmtLKtUPCleMFJ09DzFJmdrMFIMHUsUm5ytwZhNk+GDGNM710RulW2KTddjXLC4Xjir9Cg2uQ7YYOxRlDqNXX5UbHK2BmOLotSgFGhSKiptCl0s11I819VpjXWeXRZXEo6y8O/awqzRp9hymYirXUOR9nJoOF2fx7z36duc7Upkc/ZdIm83eGhkVLcDjxUbfiIiOhUlnRwgfr6z0kCDnOPTql6uCTxWPvJkTlFMgpPZ6GlyvBtDelSDBcBfis7Olk+JlH7PIzgQYdvuzxbbdpETqb5GdJenxsJxj57DUi6Nmu0JHK3YiREOewyphpGOQDHZFy5MHRZCjpBdrGPQPWkCLzO70Ca+iXJBtrPM0Ca9EEUOdC5osh5FDnROFDdI5mNs6/52AcMeSc1kJleRbbKs1lZ8yY3sjgJhZHzCbO9aZ9dOsZ7dIqXOPk+BKGlnz5VJppHXSAxKw2G3tGm9L6+OqIi4nfaV8l2P7Iw8a+D6b0SnC6k527HD06IwXqIMiy6IE5N09iKZAP8P5OSBGmdSKp4KpNkJskqnnOMry8GX69Qukh3ZVTbIETNt82A6Mib15KKlzuSdjdQWuuRgTiM572R5LaN31xR3RmaFs6u0ypmR3dJpf1NejzkiteMxKV79Kx1E/dJ3sWmGyrFFnP1LKs4OTdITZGxkZ5fs7PN5ZJdDdnaJZGeXSHZ2icyT1C6nfpE42+LbHUw6+z+jPeLmnP0isj6WZJ0d9JB+ys4+IuHihTjZ3Jt7LeFico7LmUwmk8lkMpkMzeUtHb2WZFcSK0cAAAAASUVORK5CYII=' /%3E%3C/defs%3E%3C/svg%3E"
+						alt="search icon"
+					/>
+				</div>
+				<div>
+					<img
+						src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_420)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_420' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_420' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_420' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9ElEQVR4nO2cvWsUYRDGf0bMoWAQSSOxNlrYRq1SCP4FKtai2CRpIoKNoKZXUUFJYWxFFNJYqZ0xwa9a7SL4gd93EUTjK4tvkcL3krvb3ZmdnR88cEVgZh7udt/ZZwk4juM4juNIsAm4CnwFQkKfgPvACWCjSJcGuNbG4P/pNTAi3XTV6AN+dGh0piVgn3TzdTA60xtgs/QAli8dK3Vauvkqkd3cLgNfujD6pXTzllgPHGlj9i7pBq3xJGH0SenGrHE2YfRD6casMZIw+hewRbo5a0fBdwmzD0s3Z40bCaNvSjdmjYMJoz/Eb7yTEwPAz4TZe/Mq4vzjQcLo825QvkwmjH6Wc53aM5ww+g+wvfbu5MyrhNnH8y5Udy728MQvGFGWOl0A+os0+oCCQYMSZWYXRgNoKhgyKNBHCuaOgiGDAn0u2uhjCoYMCjRbtNHb4pEu1FzjlMBTBYMGYWV7ReGcUzBoENQiJbFHwbBBUNMawoBQA5UaeMwoGDgIaBkYLNPoQwqGDgJaQFEYEAxrCkVhQDCsUU1hQDCqVnzeUzo7FQwfLK3d3YQBwaBKWbtTXFJgQLC0dtc9DFhEmOzm8F2BEcHK2t2OuwqMCAVLxXuG1sOA5bLX7rqGAQsownIYMIUiLIcBoyjCahjQklq76xYGzKKQGQXGmFq76xQGDKOQAWNhgPjaXZcwYBrFTCowyNTanWKHAoPyUHYJ3IpyHikwqlfdpgLsV2BUL/oN7KYiXFdgWLc6Q4XYANxSYFqnugKso2L0xVPIkgID1/IG/1EqziBwKp6x38cH6Rquw2+Be8CY/0Mux3Ecx3GcbmgAE8DjmMW14ufxgnM5qboiDAEv2pxrn8e/sVJXhMYqw64cumGgrhgTHWxsYwbqijHfwcBzBuqK0exg4KaBumI0Oxj4m4G6Ysz7paMcxoVuSlJ1xWjEI9Rajln9BuqKMrTK0EUuLBJ1RemPP9G5eKNqxlcTxgr+RknVdRzHcRzHcRzHQRV/ASvoI7knhlT4AAAAAElFTkSuQmCC' /%3E%3C/defs%3E%3C/svg%3E"
+						alt="cart icon"
+						onclick="window.location.href='cart.html'"
+						style="cursor: pointer"
+					/>
+				</div>
+				<div>
+					<img
+						src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_419)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_419' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_419' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_419' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAADHElEQVR4nO2cy0uVQRiHn7IiWxRUWhCVYm2jRURRQkhJLVp2sxZBRaCL/oWWYdCFLojYKvMfCNq0ikrDMqOrWEE7IU83AsssJz54PxCxyzmcM/M68z7w2+iB4/swZ5zvnTkDhmEYhmEYhmEYRkmsA9qAHuAx8AH4ISnIz7LftQINpb1FuswDDgO9gCsy94EWoCp0EdrZDQyXIHh6hoDm0MVoZBHQVQbB09MJVIcuTgu1wEAFJOd5CNSQOLXyMa+U5KlTSU3K08WAB8lTR/ZCEqTLo+Q8HSRGcwDJefaQ0Dp5OKDoV6mss48ElJznIAnQp0D0PRLoXTgFmQTqiZg2BZLznCRiehQIztNNxAwqEJznERFTUCA4z3siZlyB4DzfiRinLNHilCVanLJEy7gCuUnM0QUFgpNYdQwqEJzEOvqGAsF5rhMxrQoEJ9HraJDOWWjJ2d9QR+T0KhB9lwRoUSB6PwlQ5eksx5/yIpU9w4xdAUU3kRidASRfJUGq5fSQL8kPUj2phJyHG/J0lmM5iVMD9Fd4JCd7wHGmaaSjQnNystPF39gpH/NyLOGSW10US7bGPSSniYp5XJ+UJ74DwNyi3zVx6qX50y1nqQuyeZBlVFqd3fKa6HsXhmEYhmEYhmEYybAE2AqcAC4At6QDl7VTR4BvkhHpi/TJa84Dx4EtwOLQRWhkpWzYXgPelrFz90a+nZv1TVaQKBuBduC5h6Z/3nB6CpwBNhA5a4BTcj2PD7n/aqOeBtYTEduBm0pOKM000m8De4E5zEIWAMeAZwpkuv/ME+AoMJ9ZQjY6XisQ50pMdiHAPs0jfLPsirhIcgfYhLJrIbJ/LD8VyHFlzi/goobppE7umnORp18uDAjCDuCzAgnOUz4Bjb4lN8pjsEssY8A2X5KXyQ60SzSjwFIfos8pKNYFzlkfokNePOWU5KUP0WMKCnWB89WH6HcKCnWBk7VgK84lBYW6wMk2GSrOKuCjgmJdoGTPDqvx+GWfLwqKdgEeWppCnPS8IquQCQUSXIUyITVeBtb6lmwYhmEYhmEYhmEYhoFCfgNnsqKzarSQ4AAAAABJRU5ErkJggg==' /%3E%3C/defs%3E%3C/svg%3E"
+						alt="user icon"
+					/>
+				</div>
+			</div>
+		</header>
+
+		<div class="container mx-auto px-7 pt-12">
+			<!-- Cart Title -->
+			<h2 class="text-[24px] font-bold text-dark mb-4">Your Cart</h2>
+
+			<!-- Cart Content -->
+			<div class="flex flex-col lg:flex-row gap-6">
+				<!-- Left Column - Cart Details -->
+				<div class="w-full">
+					<!-- Cart Items Table -->
+					<div class="border thin-border rounded mb-4">
+						<table>
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th>Product Name</th>
+									<th>Unit Price</th>
+									<th>Qty</th>
+									<th>Subtotal</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="flex justify-center">
+											<img
+												src="images/product1.png"
+												alt="FRIDHULT"
+												class="w-full h-[100px] object-cover"
+											/>
+										</div>
+									</td>
+									<td>
+										<p class="text-[14px] font-medium text-dark">FRIDHULT</p>
+									</td>
+									<td>
+										<p class="text-[14px] font-medium text-dark">
+											IDR3.495.000
+										</p>
+									</td>
+									<td>
+										<div class="flex justify-center">
+											<div class="qty-control border border-gray">
+												<button class="text-primary">-</button>
+												<span class="px-2 border-x">2</span>
+												<button class="text-primary">+</button>
+											</div>
+										</div>
+									</td>
+									<td>
+										<p class="text-[14px] font-medium text-dark">
+											IDR6.990.000
+										</p>
+									</td>
+									<td>
+										<button class="text-primary">
+											<svg
+												fill="#054C73"
+												width="30"
+												height="30"
+												viewBox="0 0 32 32"
+												version="1.1"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<title>cancel2</title>
+												<path
+													d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"
+												></path>
+											</svg>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="flex items-start justify-between mt-2 mx-7">
+			<!-- Coupon Code -->
+			<div class="flex mb-6">
+				<input
+					type="text"
+					placeholder="ENTER COUPON CODE"
+					class="border thin-border border-borderColor py-2 px-3 w-[346px] text-[14px] text-gray font-600"
+				/>
+				<button
+					class="bg-primary text-white py-2 px-3 w-[131px] text-[14px] font-semibold uppercase"
+				>
+					Apply
+				</button>
+			</div>
+
+			<!-- Right Column - Cart Total -->
+			<div class="w-full lg:w-1/2">
+				<h2 class="text-[24px] font-bold text-dark mb-4">Cart Total</h2>
+				<div>
+					<div
+						class="flex justify-between p-4 border border-b-0 rounded-t border-gray"
+					>
+						<h3 class="text-[14px] font-semibold text-dark uppercase">
+							Subtotal
+						</h3>
+						<p class="text-[14px] font-medium text-dark text-right">
+							IDR6.990.000
+						</p>
+					</div>
+					<div class="flex justify-between p-4 border border-gray">
+						<h3 class="text-[14px] font-semibold text-dark uppercase">Tax</h3>
+						<p class="text-[14px] font-medium text-dark text-right">
+							IDR768.900 (11%)
+						</p>
+					</div>
+					<div
+						class="flex justify-between p-4 border border-t-0 rounded-b border-gray"
+					>
+						<h3 class="text-[14px] font-semibold text-dark uppercase">Total</h3>
+						<p class="text-[14px] font-medium text-dark text-right">
+							IDR7.758.900
+						</p>
+					</div>
+					<button
+						class="bg-primary text-white w-full py-2 rounded text-[14px] font-semibold uppercase mt-4"
+					>
+						Proceed to Checkout
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="bg-secondary text-white mt-24 py-8">
+			<div
+				class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 ml-12"
+			>
+				<div>
+					<h2 class="text-[24px] font-bold mb-6">Furniture</h2>
+					<p class="text-[16px] leading-relaxed mb-6">
+						Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+						enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+					</p>
+					<h2 class="text-[24px] font-bold mb-10">Follow Us</h2>
+				</div>
+				<div class="col-span-2">
+					<h2 class="text-[24px] font-bold mb-3">Instagram Shop</h2>
+					<div>
+						<img
+							style="height: auto; width: 500px"
+							src="images/instagram-shop.png"
+							alt="instagram shop"
+						/>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
