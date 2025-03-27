@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Furniture E-Commerce</title>
+		<title>product-detail - Furniture E-Commerce</title>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +12,340 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="styles/product-detail.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
-	<body></body>
+	<body>
+	<!-- Header Section -->
+	<header class="header">
+		<div class="left-section">
+			<h1>Furniture</h1>
+		</div>
+
+		<div class="middle-section">
+			<div><a href="home.html">Home</a></div>
+			<div class="shop"><a href="shop.html">Shop</a></div>
+			<div><a href="about-us.html">About Us</a></div>
+		</div>
+
+		<div class="right-section">
+			<div>
+				<img
+					src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_421)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_421' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_421' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_421' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpklEQVR4nO2cy2uVRxTAfxG8mocL3+22SF20WNBWq0TqovgAi7Z/h2myq7oSEdqNjxjdiqRV20ARBYuIaCs+qutWu6mt4iMmJpsu1EiNDJwLIdwz97tJ7jdzJvODs7n38n3nnDvfmTNnznyQyWQymUwmk8lkMpmatANbgD3ASeB34G9gFHglMiqf3ZLfuN9uBtpqXzJTZRnQA1wTR45PUV7JNbrlmhlhI3AOeD0N52oyJtfuZBbzGfBbE5yrya/yp84a3gH6gTclOnmiDADLSZyvZBIbDyyjwE4SpAL0NjiKnwCngC7JJlYAC4G5IgvlM/fd1/Lbpw1c3+lyWK6VBB3ApYLGDwFHgDXTuN/H8qcOF7znRdHRNIuBOwWMfQDsAlpn8N6t8jQ8LHD/26KrSdzC4WaB9Ku3ySPKOXwf8LKOLncsjuxKgXDxJ/BBiTp9CNwtEEZMxezeOgadCbRUbpf0zqfbIYzwRZ3s4hgwJ6B+LcDBOtnIlxhYjPjy5KPEQ59Hz5HY6yTf1wkXIUfyZObUCSOuIhht7UILGX9EWr7sAO55QkiUxSitQPSy5OyiUVZ5yrJXiIz1nkdwP/HzrUf/qEb1Oc+KbyZXe81M+x4pNpwlEpbJCq+Wkm5ZbYUez+p1KRErOGRkNFdp8xSiXM0kONcU5VwVzhpHFVuuxhDbtBl7Nfb4xJM5BX06N3uK9hZpAQYVmz4PqdheRakfsMsZxaZvQip1MubJY4p0KzadICC3FKVcSLHKVsWmGyGV+kdR6j3sskKx6X5IpUYUpRZhl8WKTS7HDoaW2rmtLKtUPCleMFJ09DzFJmdrMFIMHUsUm5ytwZhNk+GDGNM710RulW2KTddjXLC4Xjir9Cg2uQ7YYOxRlDqNXX5UbHK2BmOLotSgFGhSKiptCl0s11I819VpjXWeXRZXEo6y8O/awqzRp9hymYirXUOR9nJoOF2fx7z36duc7Upkc/ZdIm83eGhkVLcDjxUbfiIiOhUlnRwgfr6z0kCDnOPTql6uCTxWPvJkTlFMgpPZ6GlyvBtDelSDBcBfis7Olk+JlH7PIzgQYdvuzxbbdpETqb5GdJenxsJxj57DUi6Nmu0JHK3YiREOewyphpGOQDHZFy5MHRZCjpBdrGPQPWkCLzO70Ca+iXJBtrPM0Ca9EEUOdC5osh5FDnROFDdI5mNs6/52AcMeSc1kJleRbbKs1lZ8yY3sjgJhZHzCbO9aZ9dOsZ7dIqXOPk+BKGlnz5VJppHXSAxKw2G3tGm9L6+OqIi4nfaV8l2P7Iw8a+D6b0SnC6k527HD06IwXqIMiy6IE5N09iKZAP8P5OSBGmdSKp4KpNkJskqnnOMry8GX69Qukh3ZVTbIETNt82A6Mib15KKlzuSdjdQWuuRgTiM572R5LaN31xR3RmaFs6u0ypmR3dJpf1NejzkiteMxKV79Kx1E/dJ3sWmGyrFFnP1LKs4OTdITZGxkZ5fs7PN5ZJdDdnaJZGeXSHZ2icyT1C6nfpE42+LbHUw6+z+jPeLmnP0isj6WZJ0d9JB+ys4+IuHihTjZ3Jt7LeFico7LmUwmk8lkMpkMzeUtHb2WZFcSK0cAAAAASUVORK5CYII=' /%3E%3C/defs%3E%3C/svg%3E"
+					alt="search icon"
+				/>
+			</div>
+			<div>
+				<img
+					src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_420)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_420' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_420' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_420' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9ElEQVR4nO2cvWsUYRDGf0bMoWAQSSOxNlrYRq1SCP4FKtai2CRpIoKNoKZXUUFJYWxFFNJYqZ0xwa9a7SL4gd93EUTjK4tvkcL3krvb3ZmdnR88cEVgZh7udt/ZZwk4juM4juNIsAm4CnwFQkKfgPvACWCjSJcGuNbG4P/pNTAi3XTV6AN+dGh0piVgn3TzdTA60xtgs/QAli8dK3Vauvkqkd3cLgNfujD6pXTzllgPHGlj9i7pBq3xJGH0SenGrHE2YfRD6casMZIw+hewRbo5a0fBdwmzD0s3Z40bCaNvSjdmjYMJoz/Eb7yTEwPAz4TZe/Mq4vzjQcLo825QvkwmjH6Wc53aM5ww+g+wvfbu5MyrhNnH8y5Udy728MQvGFGWOl0A+os0+oCCQYMSZWYXRgNoKhgyKNBHCuaOgiGDAn0u2uhjCoYMCjRbtNHb4pEu1FzjlMBTBYMGYWV7ReGcUzBoENQiJbFHwbBBUNMawoBQA5UaeMwoGDgIaBkYLNPoQwqGDgJaQFEYEAxrCkVhQDCsUU1hQDCqVnzeUzo7FQwfLK3d3YQBwaBKWbtTXFJgQLC0dtc9DFhEmOzm8F2BEcHK2t2OuwqMCAVLxXuG1sOA5bLX7rqGAQsownIYMIUiLIcBoyjCahjQklq76xYGzKKQGQXGmFq76xQGDKOQAWNhgPjaXZcwYBrFTCowyNTanWKHAoPyUHYJ3IpyHikwqlfdpgLsV2BUL/oN7KYiXFdgWLc6Q4XYANxSYFqnugKso2L0xVPIkgID1/IG/1EqziBwKp6x38cH6Rquw2+Be8CY/0Mux3Ecx3GcbmgAE8DjmMW14ufxgnM5qboiDAEv2pxrn8e/sVJXhMYqw64cumGgrhgTHWxsYwbqijHfwcBzBuqK0exg4KaBumI0Oxj4m4G6Ysz7paMcxoVuSlJ1xWjEI9Rajln9BuqKMrTK0EUuLBJ1RemPP9G5eKNqxlcTxgr+RknVdRzHcRzHcRzHQRV/ASvoI7knhlT4AAAAAElFTkSuQmCC' /%3E%3C/defs%3E%3C/svg%3E"
+					alt="cart icon"
+				/>
+			</div>
+			<div>
+				<img
+					src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_419)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_419' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_419' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_419' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAADHElEQVR4nO2cy0uVQRiHn7IiWxRUWhCVYm2jRURRQkhJLVp2sxZBRaCL/oWWYdCFLojYKvMfCNq0ikrDMqOrWEE7IU83AsssJz54PxCxyzmcM/M68z7w2+iB4/swZ5zvnTkDhmEYhmEYhmEYRkmsA9qAHuAx8AH4ISnIz7LftQINpb1FuswDDgO9gCsy94EWoCp0EdrZDQyXIHh6hoDm0MVoZBHQVQbB09MJVIcuTgu1wEAFJOd5CNSQOLXyMa+U5KlTSU3K08WAB8lTR/ZCEqTLo+Q8HSRGcwDJefaQ0Dp5OKDoV6mss48ElJznIAnQp0D0PRLoXTgFmQTqiZg2BZLznCRiehQIztNNxAwqEJznERFTUCA4z3siZlyB4DzfiRinLNHilCVanLJEy7gCuUnM0QUFgpNYdQwqEJzEOvqGAsF5rhMxrQoEJ9HraJDOWWjJ2d9QR+T0KhB9lwRoUSB6PwlQ5eksx5/yIpU9w4xdAUU3kRidASRfJUGq5fSQL8kPUj2phJyHG/J0lmM5iVMD9Fd4JCd7wHGmaaSjQnNystPF39gpH/NyLOGSW10US7bGPSSniYp5XJ+UJ74DwNyi3zVx6qX50y1nqQuyeZBlVFqd3fKa6HsXhmEYhmEYhmEYybAE2AqcAC4At6QDl7VTR4BvkhHpi/TJa84Dx4EtwOLQRWhkpWzYXgPelrFz90a+nZv1TVaQKBuBduC5h6Z/3nB6CpwBNhA5a4BTcj2PD7n/aqOeBtYTEduBm0pOKM000m8De4E5zEIWAMeAZwpkuv/ME+AoMJ9ZQjY6XisQ50pMdiHAPs0jfLPsirhIcgfYhLJrIbJ/LD8VyHFlzi/goobppE7umnORp18uDAjCDuCzAgnOUz4Bjb4lN8pjsEssY8A2X5KXyQ60SzSjwFIfos8pKNYFzlkfokNePOWU5KUP0WMKCnWB89WH6HcKCnWBk7VgK84lBYW6wMk2GSrOKuCjgmJdoGTPDqvx+GWfLwqKdgEeWppCnPS8IquQCQUSXIUyITVeBtb6lmwYhmEYhmEYhmEYhoFCfgNnsqKzarSQ4AAAAABJRU5ErkJggg==' /%3E%3C/defs%3E%3C/svg%3E"
+					alt="user icon"
+				/>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Hero Section -->
+		<div class="hero">
+			<div class="product-view">
+				<div class="product-image">
+					<img src="images/product1.png" alt="image error">
+				</div>
+				<div class="product-text">
+					<p class="product-text-title">FRIDHULT</p>
+					<div class="star">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="star-reviews">(24 reviews)</span>
+					</div>
+					<p class="product-price">IDR3.495.000</p>
+					<div class="product-desc-container">
+						<p class="description-title">Description</p>
+						<p class="description-sub">FRIDHULT sofa bed is designed to use as little space as possible, while maximizing the sleeping surface. Perfect if you live in a small space and want to be able to easily transform your sofa into a bed.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="additional-container">
+				<div class="additional-image-container">
+					<div class="additional-img">
+						<img src="images/fridhult-add-1.png" alt="">
+					</div>
+					<div class="additional-img">
+						<img src="images/fridhult-add-2.png" alt="">
+					</div>
+					<div class="additional-img">
+						<img src="images/fridhult-add-3.png" alt="">
+					</div>
+					<div class="additional-img">
+						<img src="images/fridhult-add-4.png" alt="">
+					</div>
+				</div>
+
+				<div class="additional-button-container">
+					<div class="upper-button">
+						<div class="summation-button">	
+							<button class="qty-btn">-</button>
+							<span class="qty-value">2</span>
+							<button class="qty-btn">+</button>
+						</div>
+
+						<div class="add-to-cart-button">
+							<button class="add-to-cart-btn">Add to Cart</button>
+						</div>
+					</div>
+
+					<div class="add-to-wishlist-button">
+						<button class="add-to-wishlist-btn">Add to Wishlist</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Product Details Section -->
+		<div class="product-details-section">
+			<p class="product-details-title">Product Details</p>
+
+			<div class="product-details-container">
+			<p class="product-details-sub">Small, neat dimensions and minimalist armrests make FRIDHULT sofa bed easy to fit, even in limited spaces, while maximising the sleeping surface.</p>
+			<p class="product-details-spec">Spesifications</p>
+				<div class="spec-container">
+					<div class="spec-item-row">
+						<div class="spec-item-column">						
+							<div class="spec-category">Color</div>
+							<div class="spec-value">Yellow</div>
+						</div>
+
+						<div class="spec-item-column-1">						
+							<div class="spec-category">Fabric</div>
+							<div class="spec-value">100% polyester</div>
+						</div>
+					</div>
+
+					<div class="spec-item-row">
+						<div class="spec-item-column">
+							<div class="spec-category">Legs</div>
+							<div class="spec-value">ABS plastic</div>
+						</div>
+
+						<div class="spec-item-column-1">
+							<div class="spec-category">Filling</div>
+							<div class="spec-value">100% polyester</div>
+						</div>						
+					</div>
+					
+					<div class="spec-item-row-1">
+						<div class="spec-item-column">
+							<div class="spec-category">Lining</div>
+							<div class="spec-value">100% polypropylene</div>
+						</div>
+
+						<div class="spec-item-column-1">
+							<div class="spec-category">Warranty</div>
+							<div class="spec-value">10-year guarantee</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!-- Customer Reviews Section -->
+	 <div class="customer-reviews-section">
+		<p class="customer-reviews-title">Customer Reviews (20)</p>
+
+		<div class="customer-reviews-container">
+			<div class="single-container">
+				<div class="left-container">
+					<p class="left-container-text">4</p>
+					<span class="fa fa-star"></span>					
+				</div>
+				<div class="right-container">
+					<p class="right-container-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+					<div class="cs-img">
+						<div>
+							<img src="images/cs-img-1.png" alt="image-error">
+						</div>
+						<div>
+							<img src="images/cs-img-2.png" alt="image-error">
+						</div>
+					</div>
+
+					<div class="cs-profile">
+						<p>John Doe</p>
+						<p>11 Oct 2025</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="single-container">
+				<div class="left-container">
+					<p class="left-container-text">4</p>
+					<span class="fa fa-star"></span>					
+				</div>
+				<div class="right-container">
+					<p class="right-container-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>	
+					<div class="cs-profile">
+						<p>John Doe</p>
+						<p>11 Oct 2025</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="single-container">
+				<div class="left-container">
+					<p class="left-container-text">4</p>
+					<span class="fa fa-star"></span>					
+				</div>
+				<div class="right-container">
+					<p class="right-container-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>	
+					<div class="cs-profile-1">
+						<p>John Doe</p>
+						<p>11 Oct 2025</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="view-all-text">View All 20 reviews</p>
+	 </div>
+	 <!-- Similar Product Section -->
+	 <div class="similiar-product-section">
+		<p class="similiar-product-title">Similiar Products</p>
+
+		<div class="product-container">
+			<div class="product-column">
+				<div class="product-img">
+					<img src="images/similiar-1.png" alt="image-error">
+					<span class="fa fa-heart"></span>
+				</div>
+				
+				<div class="desc-product">
+					<p class="desc-product-title">LYCKSELE HÅVET</p>
+					<div class="star">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="star-reviews">(36 reviews)</span>
+					</div>
+					<div class="price-button">
+						<p>IDR4.795.000</p>
+						<div class="add-to-cart-similar">
+							<img src="images/cart.png" alt="">
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="product-column">
+				<div class="product-img">
+					<img src="images/similiar-2.png" alt="image-error">
+					<span class="fa fa-heart"></span>
+				</div>
+				
+				<div class="desc-product">
+					<p class="desc-product-title">HAMMARN</p>
+					<div class="star">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="star-reviews">(36 reviews)</span>
+					</div>
+					<div class="price-button">
+						<p>IDR1.795.000</p>
+						<div class="add-to-cart-similar">
+							<img src="images/cart.png" alt="">
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="product-column">
+				<div class="product-img">
+					<img src="images/similiar-3.png" alt="image-error">
+					<span class="fa fa-heart"></span>
+				</div>
+				
+				<div class="desc-product">
+					<p class="desc-product-title">ÄLVDALEN</p>
+					<div class="star">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="star-reviews">(36 reviews)</span>
+					</div>
+					<div class="price-button">
+						<p>IDR4.495.000</p>
+						<div class="add-to-cart-similar">
+							<img src="images/cart.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-column">
+				<div class="product-img">
+					<img src="images/similiar-4.png" alt="image-error">
+					<span class="fa fa-heart"></span>
+				</div>
+				
+				<div class="desc-product">
+					<p class="desc-product-title">LYCKSELE LÖVÅS</p>
+					<div class="star">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="star-reviews">(36 reviews)</span>
+					</div>
+					<div class="price-button">
+						<p>IDR4.795.000</p>
+						<div class="add-to-cart-similar">
+							<img src="images/cart.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	 </div>
+
+	</main>
+
+	<!-- Footer Section -->
+	<footer>
+		<div class="footer-content">
+			<p class="footer-title">Furniture</p>
+			<p class="footer-desc">
+				Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+				ad minim veniam, quis nostrud exercitation ullamco laboris.
+			</p>
+			<p class="footer-title">Follow Us</p>
+		</div>
+		<div class="instagram-content">
+			<p>Instagram Shop</p>
+			<img
+				class="instagram-gallery"
+				src="images/instagram-shop.png"
+				alt="instagram shop"
+			/>
+		</div>
+	</footer>
+	</body>
 </html>
