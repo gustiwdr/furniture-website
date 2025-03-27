@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryTailwind: '#054C73',
+                        secondary: '#03344F',
+                        dark: '#111111',    
+                        gray: '#979797',
+                        lightGray: '#E5E5E5',
+                        borderColor: '#DDDDDD'
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <title>Checkout - Billing Address</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+    	    padding: 0;
+        }
+        .checkout-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .checkout-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .btn-checkout {
+            background-color: #214a74;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 500;
+        }
+        .btn-checkout:hover {
+            background-color: #1a3a5e;
+        }
+        .order-summary {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .total-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        nav.navbar {
+            border-bottom: 1px solid #ddd;
+        }
+        nav.navbar .navbar-brand {
+            font-size: 20px;
+            font-weight: bold;
+            color: #193c5f;
+        }
+        nav.navbar .navbar-brand:hover {
+            color: #1a3a5e;
+            text-decoration: none;
+        }
+        nav.navbar .nav-link {
+            font-size: 1rem;
+            color: #333;
+            margin-right: 15px;
+        }
+        nav.navbar .nav-link:hover {
+            color: #0b243d;
+        }
+        nav.navbar .nav-link.active {
+            font-weight: bold;
+            color: #112b44;
+        }
+        nav.navbar .d-flex a {
+            color: #1a084b;
+            font-size: 1.2rem;
+        }
+        nav.navbar .d-flex a:hover {
+            color: #214a74;
+        }
+
+       /* Footer Section */
+        footer {
+            background-color: #054c73;
+            display: grid;
+            grid-template-columns: 1.5fr 2fr;
+            align-items: center;
+            gap: 30px;
+            padding: 30px 150px;
+            color: white;
+        }
+
+        .footer-title {
+            padding: 20px 0px;
+            font-weight: bold;
+        }
+
+        .footer-desc {
+            line-height: 30px;
+        }
+
+        .instagram-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            font-weight: bold;
+        }
+
+        .instagram-gallery {
+            height: auto;
+            width: 500px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!--nav-->
+    <nav class="bg-white py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-[32px] font-bold text-primaryTailwind">Furniture</h1>
+            <div class="flex items-center space-x-8">              
+                <div class="flex space-x-6">
+                    <a href="home.html" class="text-[18px] font-bold text-dark">Home</a>
+                    <a href="shop.html" class="text-[18px] font-bold text-primaryTailwind">Shop</a>
+                    <a href="about-us.html" class="text-[18px] font-bold text-dark">About Us</a>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <button>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                            stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.08416 2.7512C2.22155 2.36044 2.6497 2.15503 3.04047 2.29242L3.34187 2.39838C3.95839 2.61511 4.48203 2.79919 4.89411 3.00139C5.33474 3.21759 5.71259 3.48393 5.99677 3.89979C6.27875 4.31243 6.39517 4.76515 6.4489 5.26153C6.47295 5.48373 6.48564 5.72967 6.49233 6H17.1305C18.8155 6 20.3323 6 20.7762 6.57708C21.2202 7.15417 21.0466 8.02369 20.6995 9.76275L20.1997 12.1875C19.8846 13.7164 19.727 14.4808 19.1753 14.9304C18.6236 15.38 17.8431 15.38 16.2821 15.38H10.9792C8.19028 15.38 6.79583 15.38 5.92943 14.4662C5.06302 13.5523 4.99979 12.5816 4.99979 9.64L4.99979 7.03832C4.99979 6.29837 4.99877 5.80316 4.95761 5.42295C4.91828 5.0596 4.84858 4.87818 4.75832 4.74609C4.67026 4.61723 4.53659 4.4968 4.23336 4.34802C3.91052 4.18961 3.47177 4.03406 2.80416 3.79934L2.54295 3.7075C2.15218 3.57012 1.94678 3.14197 2.08416 2.7512Z" fill="#1C274C"/>
+                        <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" fill="#1C274C"/>
+                        <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" fill="#1C274C"/>
+                        </svg>
+                </button>
+                <button>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="6" r="4" fill="#1C274C"/>
+                        <path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" fill="#1C274C"/>
+                        </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+            <!-- Billing Address Form -->
+            <div class="col-lg-8">
+                <div class="checkout-container">
+                    <div class="checkout-header">
+                        <h2 class="text-black" style="font-weight: bold; font-size: 24px;">Billing Information</h2>
+                    </div>
+                    
+                    <form id="billingForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone No.</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Phone No." required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address1" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address1" placeholder="Address" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="location" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="location" placeholder="Location" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="zip" class="form-label">Postal/Zip Code</label>
+                                <input type="text" class="form-control" id="zip" placeholder="Postal/Zip Code" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" placeholder="Country" required>
+                        </div>
+                    </form>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="cart.html" class="btn btn-outline-secondary">Back to Cart</a>
+                            <button type="submit" class="btn btn-checkout text-white">Continue to Shipping</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <div class="checkout-container">
+                    <div class="checkout-header">
+                        <h5 class="fw-bold">YOUR ORDER</h5>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <span style="font-weight: bold; color: black;">Product</span>
+                            <span style="font-weight:bold; color: black;">Total</span>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <span>FRIDHULT x 2</span>
+                            <span>IDR6.990.000</span>
+                        </div>
+                        <hr>
+                        <div class="summary-item">
+                            <span>Tax</span>
+                            <span>IDR768.900 (11%)</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Shipping</span>
+                            <span>Free shipping</span>
+                        </div>
+                        <div class="summary-item total-price">
+                            <span>Total</span>
+                            <span>IDR7.758.900</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h6 class="mb-3">Payment Methods</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="directBankTransfer" value="directBankTransfer" checked>
+                            <label class="form-check-label" for="directBankTransfer">
+                                Direct Bank Transfer
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="checkPayments" value="checkPayments">
+                            <label class="form-check-label" for="checkPayments">
+                                Check Payments
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal">
+                            <label class="form-check-label" for="paypal">
+                                PayPal
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-title">Furniture</p>
+            <p class="footer-desc">
+                Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
+            <p class="footer-title">Follow Us</p>
+        </div>
+        <div class="instagram-content">
+            <p>Instagram Shop</p>
+            <img
+                class="instagram-gallery"
+                src="images/instagram-shop.png"
+                alt="instagram shop"
+            />
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
