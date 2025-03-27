@@ -4,130 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logins - Furniture E-Commerce</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login - Furniture E-Commerce</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#054C73',
-                        secondary: '#F2F5FF',
-                        textDark: '#333333',
-                        textLight: 'rgba(51, 51, 51, 0.5)',
-                    },
-                    fontFamily: {
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background: #FFFFFF;
-        }
-
-        .right-section {
-            background: linear-gradient(180deg, rgba(5, 76, 115, 0.89) 0%, rgba(5, 76, 115, 0.89) 100%);
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px 12px 12px 12px;
-        }
-
-        input::placeholder {
-            color: rgba(51, 51, 51, 0.5);
-        }
-    </style>
+    <link rel="stylesheet" href="styles/login.css">
 </head>
 
-<body class="font-montserrat">
-    <div class="min-h-screen flex items-center justify-center p-5">
-        <div class="flex w-[1440px] gap-12 p-12 bg-white shadow-lg rounded-xl">
-
+<body>
+    <div class="container">
+        <div class="main-content">
             <!-- Left Section -->
-            <div class="w-full flex items-end justify-end relative">
-                <div class="z-20">
-                <img class= "w-[643px] h-[933px] rounded-tr-[12px] rounded-tl-[75px] rounded-br-[75px] rounded-bl-[12px] scale-x-[-1]" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-                <div class="absolute bottom-8 left-16">
-                    <h2 class="text-[32px] font-bold text-primary leading-[1.2] text-left">
-                        Elevate Your Space with<br>
-                        Perfect Furniture</h2>
-                    <p class="text-[18px] text-primary right-10">Bringing Back the Perfect Touch to Your Home</p>
+            <div class="left-section">
+                <div class="image-container">
+                    <img class="main-image" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Furniture">
+                    <div class="image-text">
+                        <h2>Elevate Your Space with<br>Perfect Furniture</h2>
+                        <p>Bringing Back the Perfect Touch to Your Home</p>
+                    </div>
                 </div>
-                </div>
-                <div class="absolute right-section -top-12 -left-12 w-[643px] h-[933px] z-10">
-            </div>
+                <div class="right-section-bg"></div>
             </div>
 
             <!-- Right Section -->  
-            <div class="w-full">
-                <div class="w-full bg-secondary h-[933px] p-16 rounded-[20px]">
-                    <h1 class="text-[32px] font-bold text-primary mt-12 mb-3 text-center">Welcome Back</h1>
-                    <p class="text-[18px] text-textDark mb-4 text-center">Enter your email and password to access<br>your account
-                        catalog</p>                            
+            <div class="right-section">
+                <div class="form-container">
+                    <h1>Welcome Back</h1>
+                    <p class="subtitle">Enter your email and password to access<br>your account catalog</p>                            
 
                     <!-- Form -->
-                    <form class="space-y-5">
-                        <div>
-                            <label class="font-bold text-[18px] text-textDark block mb-1">Name</label>
-                            <input type="text" placeholder="Enter your name"
-                                class="w-full text-textLight focus:outline-none border border-[rgba(17,17,17,0.2)] rounded-[20px] px-6 py-4">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Enter your name">
                         </div>
 
-                        <div>
-                            <label class="font-bold text-[18px] text-textDark block mb-1">Password</span></label>
-                            <input type="password" placeholder="Enter your password"
-                                class="w-full text-textLight focus:outline-none border border-[rgba(17,17,17,0.2)] rounded-[20px] px-6 py-4">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password">
                         </div>
 
                         <!-- Terms Checkbox -->
-                        <div class="flex items-center justify-between">
-                        <div class="flex items-start space-x-3">
-                            <input type="checkbox" class="w-4 h-4 mt-1 border border-[rgba(0,0,0,0.2)] rounded">
-                            <label class="font-bold text-textDark text-[18px] leading-[1.4]">Remember Me</label>
-                        </div>
-                        <a class="font-bold text-textDark text-[18px]" href="">Forget Password</a>
+                        <div class="form-options">
+                            <div class="checkbox-group">
+                                <input type="checkbox">
+                                <label>Remember Me</label>
+                            </div>
+                            <a class="forgot-password" href="">Forget Password</a>
                         </div>
 
                         <!-- Sign Up Button -->
-                        <button type="button" onclick="window.location.href='./home.html'" 
-                            class="w-full bg-primary text-white text-[18px] font-bold h-[56px] rounded-[20px] mt-4">
+                        <button type="button" onclick="window.location.href='./home.html'" class="signup-btn">
                             Sign Up
                         </button>
-                        <!-- Login Link -->
-                        <button type="button"
-                        class="text-[18px] w-full flex justify-center items-center px-4 py-3 border border-gray-200 rounded-2xl text-sm font-bold text-textDark hover:bg-gray-50 transition duration-200 bg-white">
-                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
-                            class="mr-3">
-                            <path fill="#FFC107"
-                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                            <path fill="#FF3D00"
-                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                            </path>
-                            <path fill="#4CAF50"
-                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                            </path>
-                            <path fill="#1976D2"
-                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                        </svg>
-                        Login With Google
+                        
+                        <!-- Google Login Button -->
+                        <button type="button" class="google-btn">
+                            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="google-icon">
+                                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                            </svg>
+                            Login With Google
                         </button> 
-
                     </form>
 
                     <!-- Login Link -->
-                    <p class="text-center font-bold text-textDark text-[18px] mt-48">
-                        Don't have an account? <a href="index.html" class="text-primary">Sign Up</a>
+                    <p class="signup-link">
+                        Don't have an account? <a href="index.html">Sign Up</a>
                     </p>                    
-
                 </div>
             </div>            
         </div>
     </div>
 </body>
-
 </html>

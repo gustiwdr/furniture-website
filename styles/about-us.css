@@ -1,0 +1,408 @@
+p {
+	font-family: Montserrat, Arial;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	font-family: Montserrat, Arial;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+/* Header Section */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	padding: 15px 60px;
+	position: sticky;
+	background-color: white;
+	z-index: 1000;
+}
+
+.left-section {
+	color: #054c73;
+	font-size: 18px;
+}
+
+.middle-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 40px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.right-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+}
+
+.active {
+	color: #054c73;
+}
+
+.middle-section .text-sec {
+	color: #054c73;
+}
+
+.hero{
+	width: 100%;
+	height: 100vh;
+	background-image: url("../images/hero-about-us.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.hero-container{
+	top: 70%; 
+    left: 50%; 
+	position: absolute;
+	background-color: #DFE9F4;
+	width: 1200px;
+	height: auto;
+	border-radius: 10px;
+	transform: translate(-50%, -50%); 	
+}
+
+.hero-text {
+	padding: 30px;
+	position: relative;
+	z-index: 2;
+}	
+
+.hero-text p{
+	text-align: center;
+	font-weight: bold;
+	font-size: 46px;
+	color: #054c73;
+}	
+
+/* Service Section */
+.service {
+	background-color: #f2f5ff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 50px;
+	padding: 30px 100px;
+}
+
+.service-detail {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.service-text {
+	line-height: 25px;
+	color: #333333;
+	font-size: 14px;
+}
+
+.service-title {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+/* how it works section*/
+.how-it-works-section{
+	background-color: white;	
+	padding: 30px 100px;
+	margin-bottom: 50px;
+}
+
+ .title-works{		
+	text-align: center;
+	justify-content: center;
+	align-items: center;	
+	margin-bottom: 30px;
+}
+
+.title-works .title-works-1{
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.title-works .sub-txt-works{
+	line-height: 25px;
+	color: #333333;
+	font-size: 15px;
+}
+
+.works-image-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.img-container{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.img-pos{
+	position: relative;
+	
+}
+
+.img-pos img{
+	width: 381px;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 10px;
+}
+
+.img-num{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 60px;
+	background-color: #111111;
+	border-radius: 100%;
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;	
+	justify-content: center;
+	color: white;
+	transform: translateY(50%) translateX(-50%);
+	border: 15px solid white;
+	font-weight: bold;
+	font-size: 18px;	
+}
+
+.txt-img-pos{
+	margin-top: 60px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;	
+}	
+
+.txt-img-pos-1{
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.txt-img-pos-2{
+	line-height: 25px;
+	color: #333333;
+	font-size: 15px;
+}
+
+/* testimonials section */
+.testimonials{
+	background-color: white;	
+	padding: 30px 100px;
+}
+
+.testimonials-title{
+	text-align: center;
+	justify-content: center;
+	align-items: center;	
+	margin-bottom: 50px;
+}
+
+.testimonials-title .title-testi-1{ 
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.testimonials-title .sub-txt-testi{ 
+	line-height: 25px;
+	color: #333333;
+	font-size: 15px;
+}
+
+.testimonials-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 100px;
+}
+
+.individual-container{
+	background-color: #F2F5FF;
+	border-radius: 7px;
+	padding: 20px;
+	box-shadow: 0.2px 0 5px 0 rgba(0, 0, 0, 0.25) inset;
+	max-width: 365px;
+}
+
+.star{
+	color: #FFC800;
+	padding-bottom: 10px;
+}
+
+.test-text{
+	font-size: 14px;
+	color: #111111;
+	font-weight: 500;
+}
+
+.profile-container{
+	padding-top: 20px;
+	display: flex;
+	gap: 20px;	
+	align-items: center;
+}
+
+.test-name-1{
+	color: #054c73;
+	font-weight: bold;
+	padding-bottom: 2px;
+	font-size: 18px;
+}
+
+.test-job{
+	color: #979797;
+	font-weight: 600;
+	font-size: 15px;
+}
+
+/* Mailing section*/
+.mailing-section{
+	background-color: #F2F5FF;
+	padding: 30px 100px;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
+
+.mailing-title{
+	margin-top: 20px;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+}
+
+.mailing-title .mailing-title-1{
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.mailing-title .sub-text-mailing{	
+	line-height: 30px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	color: rgba(102, 102, 102, 0.7);
+}
+
+.email-input-container{
+	margin-top: 30px;
+	margin-bottom: 50px;
+	display: flex;
+	max-width: 486px;	
+	height: 50px;
+}
+
+
+.email-input {
+    border: 1px solid #111111;
+	border-right: 0;
+    padding: 12px 12px;
+    width: 346px;
+    font-size: 16px;
+    color: rgba(1, 28, 66, 0.1);	
+	border-radius: 3px 0 0 3px ;
+}
+
+input::placeholder {
+	color:  rgba(1, 28, 66, 0.3);; 	 
+  }
+
+.email-input-btn {
+	border-radius: 0 3px 3px 0;
+    background-color: #054C73;
+    color: white;
+    padding: 8px 12px;
+    width: 131px;
+    font-size: 14px;
+    font-weight: bold;
+	border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Section */
+footer {
+	background-color: #054c73;
+	display: grid;
+	grid-template-columns: 1.5fr 2fr;
+	align-items: center;
+	gap: 30px;
+	padding: 30px 150px;
+	color: white;
+}
+
+.footer-title {
+	padding: 20px 0px;
+	font-weight: bold;
+}
+
+.footer-desc {
+	line-height: 30px;
+}
+
+.instagram-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+	font-weight: bold;
+}
+
+.instagram-gallery {
+	height: auto;
+	width: 500px;
+}

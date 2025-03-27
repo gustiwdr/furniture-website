@@ -1,0 +1,235 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.main-content {
+    display: flex;
+    gap: 48px;
+    padding: 48px;
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+/* Left Section Styles */
+.left-section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.image-container {
+    position: relative;
+    z-index: 20;
+}
+
+.main-image {
+    width: 643px;
+    height: 933px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 75px;
+    border-bottom-right-radius: 75px;
+    border-bottom-left-radius: 12px;
+    transform: scaleX(-1);
+    object-fit: cover;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 32px;
+    left: 64px;
+}
+
+.image-text h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #054C73;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.image-text p {
+    font-size: 18px;
+    color: #054C73;
+}
+
+.right-section-bg {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(5, 76, 115, 0.89) 0%, rgba(5, 76, 115, 0.89) 100%);
+    width: 643px;
+    height: 933px;
+    z-index: 10;
+    top: -48px;
+    left: -48px;
+    border-radius: 12px;
+}
+
+/* Right Section Styles */
+.right-section {
+    width: 100%;
+}
+
+.form-container {
+    width: 100%;
+    background: #F2F5FF;
+    height: 933px;
+    padding: 64px;
+    border-radius: 20px;
+}
+
+.form-container h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #054C73;
+    margin-top: 48px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 18px;
+    color: #333333;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-group input {
+    width: 100%;
+    color: rgba(51, 51, 51, 0.5);
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    border-radius: 20px;
+    padding: 16px 24px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: rgba(51, 51, 51, 0.5);
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.checkbox-group input {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.checkbox-group label {
+    font-weight: 700;
+    color: #333333;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.forgot-password {
+    font-weight: 700;
+    color: #333333;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* Buttons */
+.signup-btn {
+    width: 100%;
+    background: #054C73;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    height: 56px;
+    border-radius: 20px;
+    margin-top: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.google-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid rgba(209, 213, 219, 1);
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333333;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.google-btn:hover {
+    background: rgba(249, 250, 251, 1);
+}
+
+.google-icon {
+    margin-right: 12px;
+}
+
+/* Signup Link */
+.signup-link {
+    text-align: center;
+    font-weight: 700;
+    color: #333333;
+    font-size: 18px;
+    margin-top: 192px;
+}
+
+.signup-link a {
+    color: #054C73;
+    text-decoration: none;
+}
