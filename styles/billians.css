@@ -56,224 +56,222 @@ body {
 	color: #054c73;
 }
 
-.active-text{
-    color: #054c73;
+.active-text {
+	color: #054c73;
 }
 
-.hero{
-    display: flex;
-    padding: 30px 60px;
-    justify-content: space-between;
+.hero {
+	display: flex;
+	gap: 50px;
+	padding: 30px 60px;
+	justify-content: space-between;
 }
 
-.left-container-form{
-    width: 100%;
+.left-container-form {
+	width: 100%;
 }
 
-.hero-title{
-    font-weight: bold;
-    font-size: 24px;
-    color: #111111;
-    margin-bottom: 30px;
+.hero-title {
+	font-weight: bold;
+	font-size: 24px;
+	color: #111111;
+	margin-bottom: 30px;
 }
 
-.billing-information-form{
-    max-width: 750px; 
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
+.billing-information-form {
+	max-width: 750px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
-.first-input{    
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.first-input {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
+.form-group {
+	display: flex;
+	flex-direction: column;
 }
 
-
-.form-group label{
-    font-size: 20px;
-    color: #111111;
-    font-weight: 500;
-    margin-bottom: 10px;
+.form-group label {
+	font-size: 20px;
+	color: #111111;
+	font-weight: 500;
+	margin-bottom: 10px;
 }
 
-.form-group input{
-    border: 1px solid #111111;
-    padding: 15px;
-    width: 335px;
-    border-radius: 10px;    
+.form-group input {
+	border: 1px solid #111111;
+	padding: 15px;
+	width: 335px;
+	border-radius: 10px;
 }
 
-.form-group ::placeholder{
-    color: #979797;
-    font-weight: 500;
-    font-size: 14px;
+.form-group ::placeholder {
+	color: #979797;
+	font-weight: 500;
+	font-size: 14px;
 }
 
-.form-group-long{
-    display: flex;
-    flex-direction: column;
+.form-group-long {
+	display: flex;
+	flex-direction: column;
 }
 
-.form-group-long label{
-    font-size: 20px;
-    color: #111111;
-    font-weight: 500;
-    margin-bottom: 10px;
+.form-group-long label {
+	font-size: 20px;
+	color: #111111;
+	font-weight: 500;
+	margin-bottom: 10px;
 }
 
-.form-group-long input{
-    border: 1px solid #111111;
-    padding: 15px;
-    border-radius: 10px;
+.form-group-long input {
+	border: 1px solid #111111;
+	padding: 15px;
+	border-radius: 10px;
 }
 
-.form-group-long ::placeholder{
-    color: #979797;
-    font-weight: 500;
-    font-size: 14px;
+.form-group-long ::placeholder {
+	color: #979797;
+	font-weight: 500;
+	font-size: 14px;
 }
 
 /* order Section */
-
-.right-container-order{ 
-    width: 100%; 
-    padding: 35px 40px 40px 110px;  
+.right-container-order {
+	width: 100%;
+	padding: 35px 10px 40px 10px;
+	max-width: 1000px;
 }
 
-.order-detail-container{
-    max-width: 466px;
-    display: flex;
-    flex-direction: column;
-    background-color: #F2F5FF;
-    padding: 20px;
-    border-radius: 7px;
-    box-shadow: 0.2px 0 5px 0 rgba(0, 0, 0, 0.25) inset;
-    
+.order-detail-container {
+	max-width: 466px;
+	display: flex;
+	flex-direction: column;
+	background-color: #f2f5ff;
+	padding: 20px;
+	border-radius: 7px;
+	box-shadow: 0.2px 0 5px 0 rgba(0, 0, 0, 0.25) inset;
 }
 
-.order-detail-title{
-    color: #111111;
-    font-weight: bold;
-    font-size: 20px;
+.order-detail-title {
+	color: #111111;
+	font-weight: bold;
+	font-size: 20px;
 }
 
-.head-order{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #111111;
-    padding: 20px 0;
+.head-order {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #111111;
+	padding: 20px 0;
 }
 
-.head-order p{
-    color: #111111;
-    font-size: 18px;
-    font-weight: bold;
+.head-order p {
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
 }
 
-.order-value{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #111111;
-    padding: 20px 0;
+.order-value {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #111111;
+	padding: 20px 0;
 }
 
-.order-value p{
-    color: #111111;
-    font-size: 18px;
-    font-weight: 500;
+.order-value p {
+	color: #111111;
+	font-size: 18px;
+	font-weight: 500;
 }
 
-.detail-value{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0 0 0;
+.detail-value {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0 0 0;
 }
 
-.option-detail-value{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0 0 0;
+.option-detail-value {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0 0 0;
 }
 
-.option-detail-value .total-text{
-    font-size: 18px;
-    font-weight: bold;
-    color: #111111;
+.option-detail-value .total-text {
+	font-size: 18px;
+	font-weight: bold;
+	color: #111111;
 }
 
-.option-detail-value .total-value{
-    font-size: 18px;
-    font-weight: bold;
-    color: #111111;
+.option-detail-value .total-value {
+	font-size: 18px;
+	font-weight: bold;
+	color: #111111;
 }
 
-.radio-button-container{
-    padding: 20px 0 20px 0;
+.radio-button-container {
+	padding: 20px 0 20px 0;
 }
 
-.radio-button{
-    padding: 10px 0 0 0;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.radio-button {
+	padding: 10px 0 0 0;
+	display: flex;
+	align-items: center;
+	gap: 5px;
 }
 
-.radio-button label{
-    color: #111111;
-    font-weight: 500;
+.radio-button label {
+	color: #111111;
+	font-weight: 500;
 }
 
-.radio-button input{
-    color: #054c73;
+.radio-button input {
+	color: #054c73;
 }
 
 input[type="radio"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    border-radius: 50%;
-    outline: none;
-    background-color: white;
-    position: relative;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 1px solid #111111;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+	border-radius: 50%;
+	outline: none;
+	background-color: white;
+	position: relative;
+	content: "";
+	display: inline-block;
+	visibility: visible;
+	border: 1px solid #111111;
 }
 
 input[type="radio"]:checked {
-    border: 2px solid black;
-    position: relative;
-    background-color: #054c73;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 1px solid black;    
+	border: 2px solid black;
+	position: relative;
+	background-color: #054c73;
+	content: "";
+	display: inline-block;
+	visibility: visible;
+	border: 1px solid black;
 }
 
-.payment-button{
-    margin-top: 30px;
-    background-color: #054C73;
-    color: white;
-    width: 100%;
-    padding: 16px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-top: 16px;
-    border: none;
-    cursor: pointer;
+.payment-button {
+	margin-top: 30px;
+	background-color: #054c73;
+	color: white;
+	width: 100%;
+	padding: 16px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-top: 16px;
+	border: none;
+	cursor: pointer;
 }
 
 /* Footer Section */
