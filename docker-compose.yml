@@ -9,8 +9,10 @@ services:
       - ./login.html:/usr/share/nginx/html/login.html
       - ./home.html:/usr/share/nginx/html/home.html
       - ./shop.html:/usr/share/nginx/html/shop.html
-      - .product-detail.html:/usr/share/nginx/html/product-detail.html
+      - ./product-detail.html:/usr/share/nginx/html/product-detail.html
       - ./cart.html:/usr/share/nginx/html/cart.html
+      - ./about-us.html:/usr/share/nginx/html/about-us.html
+      - ./billians.html:/usr/share/nginx/html/billians.html
       - ./script.js:/usr/share/nginx/html/script.js
       - ./styles:/usr/share/nginx/styles
       - ./images:/usr/share/nginx/images
