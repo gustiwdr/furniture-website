@@ -46,6 +46,9 @@
 					alt="user icon"
 				/>
 			</div>
+			<div>
+				<a href="#" id="hamburger-menu"><i class="fa fa-bars"></i></a>
+			</div>
 		</div>
 	</header>
 
@@ -54,7 +57,7 @@
 		<div class="hero">
 			<div class="product-view">
 				<div class="product-image">
-					<img src="images/product1.png" alt="image error">
+					<img src="images/product1.png" alt="image error">					
 				</div>
 				<div class="product-text">
 					<p class="product-text-title">FRIDHULT</p>
@@ -244,7 +247,6 @@
 					</div>
 
 				</div>
-
 			</div>
 
 			<div class="product-column">
@@ -354,6 +356,18 @@
                 window.location.href = "cart.html"; 
             });
         });
+
+		const middleSection = document.querySelector('.middle-section');
+		const hamburger = document.querySelector('#hamburger-menu');
+
+		hamburger.onclick = () => {
+			middleSection.classList.toggle('open');
+		};
+		document.addEventListener('click', function(e) {
+			if (!hamburger.contains(e.target) && !middleSection.contains(e.target)) {
+				middleSection.classList.remove('open');
+			}
+		});
     </script>
 
 	</body>
