@@ -13,9 +13,10 @@
     />
 
     <link rel="stylesheet" href="styles/billians.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-
     <!-- Header Section -->
     <header class="header">
         <div class="left-section">
@@ -47,13 +48,16 @@
                     alt="user icon"
                 />
             </div>
+            <div>
+                <a href="#" id="hamburger-menu"><i class="fa fa-bars"></i></a>
+            </div>
         </div>
     </header>
 
     <main>
         <!--Hero Section-->
         <div class="hero">            
-            <!--form sectiom-->
+            <!--form section-->
             <div class="left-container-form">
 
                 <p class="hero-title">Billing Information</p>                
@@ -188,6 +192,22 @@
             />
         </div>		
     </footer>
+
+    <script>
+
+        const middleSection = document.querySelector('.middle-section');
+		const hamburger = document.querySelector('#hamburger-menu');
+
+		hamburger.onclick = () => {
+			middleSection.classList.toggle('open');
+		};
+		document.addEventListener('click', function(e) {
+			if (!hamburger.contains(e.target) && !middleSection.contains(e.target)) {
+				middleSection.classList.remove('open');
+			}
+		});
+
+    </script>
     
 </body>
 </html>
