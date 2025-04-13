@@ -6,6 +6,7 @@
     <title>Cart - Furniture E-Commerce</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<!-- Header Section -->
@@ -39,6 +40,9 @@
 					alt="user icon"
 				/>
 			</div>
+            <div>
+                <a href="#" id="hamburger-menu"><i class="fa fa-bars"></i></a>
+            </div>
 		</div>
 	</header>
 
@@ -155,6 +159,18 @@
                 window.location.href = "billians.html"; 
             });
         });
+
+        const middleSection = document.querySelector('.middle-section');
+		const hamburger = document.querySelector('#hamburger-menu');
+
+		hamburger.onclick = () => {
+			middleSection.classList.toggle('open');
+		};
+		document.addEventListener('click', function(e) {
+			if (!hamburger.contains(e.target) && !middleSection.contains(e.target)) {
+				middleSection.classList.remove('open');
+			}
+		});
     </script>
     
 </body>
