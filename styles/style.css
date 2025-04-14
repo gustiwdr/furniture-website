@@ -78,7 +78,7 @@ body {
 .hero-content {
 	background-color: #dfe9f4;
 	width: auto;
-	height: auto;
+	height: fit-content;
 	position: absolute;
 	top: 20%;
 	bottom: 20%;
@@ -196,6 +196,21 @@ body {
 	background-color: #f2f5ff;
 }
 
+.additional-title{
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+	text-align: left;
+	padding: 0px 0px 10px;
+}
+
+.additional-desc{
+	font-size: 16px;
+	color: #666666;
+	text-align: left;
+	line-height: 30px;
+}
+
 .additional-image {
 	width: 50%;
 	height: 50%;
@@ -222,7 +237,7 @@ body {
 }
 
 .category-image {
-	width: 300px;
+	width: 300px;	
 	height: 100%;
 	object-fit: cover;
 }
@@ -299,6 +314,7 @@ footer {
 
 .instagram-gallery {
 	height: auto;
+	max-width: 100%;
 	width: 500px;
 }
 
@@ -307,6 +323,15 @@ footer {
 @media (max-width:1200px) {
 	footer{
 		padding: 30px 100px;
+	}
+}
+
+@media (max-width: 970px){
+	.category{
+		padding: 30px 50px;
+	}
+	.category-image{
+		max-width: 100%;
 	}
 }
 
@@ -319,6 +344,22 @@ footer {
 		justify-content: center;
 		padding: 30px 40px;
 	}
+}
+
+@media (max-width: 811px) {
+	.service-detail {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.category {
+		padding: 30px 70px;
+	}
+ 
+	.hero-content {
+		top: 25%;
+		width: 350px;
+	} 
 }
 
 @media (max-width:768px){
@@ -339,22 +380,78 @@ footer {
 		z-index: 10;
 	}
 
-	.middle-section.open{
+	.middle-section.open {
 		right: 0;
 		opacity: 1;
 		pointer-events: auto;
 	}
 
-	.middle-section a{       
+	.middle-section a {       
         display: block;
         padding: 20px;
     }
 
-    .middle-section a::after{
+    .middle-section a::after {
         transform-origin:0 0;
     }
 
-    .middle-section a:hover::after{
+    .middle-section a:hover::after {
         transform:scaleX(0.2);
     }
+}
+
+@media (max-width: 756px) {
+	.hero-content {
+		width: 300px;
+		top: 20%;
+
+	}
+}
+
+@media (max-width: 629px) {
+	.right-section {
+		gap: 20px;
+	}
+
+	.hero-content {
+		transform: translateX(-50%);
+		width: 70%;
+	}
+
+	.additional {
+		padding: 50px 100px;
+	}
+}
+
+@media (max-width: 534px) {
+	.service {
+		padding: 30px 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.right-section {
+		gap: 10px;
+	}
+
+	.hero-content {
+		top: 23%;
+	} 
+	.additional {
+		padding: 50px;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.additional-title{
+		text-align: center;
+	}
+
+	.additional-desc{
+		text-align: center;
+	}
+
+	.additional-image {
+		display: none;
+	}
 }
