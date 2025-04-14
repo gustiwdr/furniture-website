@@ -56,6 +56,14 @@ body {
 	color: #054c73;
 }
 
+#hamburger-menu{
+	display: none;
+}
+
+#hamburger-menu .fa{
+	font-size: 30px;
+}
+
 /* Hero Section */
 .hero {
 	width: 100%;
@@ -292,4 +300,61 @@ footer {
 .instagram-gallery {
 	height: auto;
 	width: 500px;
+}
+
+/*responsive style*/
+
+@media (max-width:1200px) {
+	footer{
+		padding: 30px 100px;
+	}
+}
+
+@media (max-width: 920px) {
+	footer{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+		padding: 30px 40px;
+	}
+}
+
+@media (max-width:768px){
+	#hamburger-menu{
+		display: inline-block;
+	}
+
+	.middle-section {
+		position: fixed;
+		display: block;
+        top: 79px;
+        right: -100%;
+        background-color: #fff;
+        width: 300px;
+        height: 100vh;
+		flex-direction: column;
+		transition: all 0.3s ease-in-out; 
+		z-index: 10;
+	}
+
+	.middle-section.open{
+		right: 0;
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.middle-section a{       
+        display: block;
+        padding: 20px;
+    }
+
+    .middle-section a::after{
+        transform-origin:0 0;
+    }
+
+    .middle-section a:hover::after{
+        transform:scaleX(0.2);
+    }
 }

@@ -21,3 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 });
+
+const middleSection = document.querySelector('.middle-section');
+const hamburger = document.querySelector('#hamburger-menu');
+
+hamburger.onclick = () => {
+	middleSection.classList.toggle('open');
+};
+document.addEventListener('click', function(e) {
+	if (!hamburger.contains(e.target) && !middleSection.contains(e.target)) {
+		middleSection.classList.remove('open');
+	}
+});
