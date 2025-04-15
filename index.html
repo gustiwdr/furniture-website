@@ -1,88 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register - Furniture E-Commerce</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/index.css" />
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Register - Furniture E-Commerce</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="styles/tailwind.output.css" />
+	</head>
 
-<body>
-    <div class="container">
-        <div class="main-content">
-            <!-- Left Section -->
-            <div class="left-section">
-                <div class="form-container">
-                    <h1>Create your account</h1>
-                    <p class="subtitle">Join us to access the latest collection<br />and product catalog</p>
+	<body
+		class="font-[Montserrat] bg-white min-h-screen flex items-center justify-center p-5"
+	>
+		<div class="w-full max-w-[1440px]">
+			<div
+				class="main-content flex gap-12 p-12 bg-white shadow-lg rounded-xl lg:p-8 md:flex-col md:gap-8 sm:p-6 sm:shadow-none sm:rounded-none xs:p-4"
+			>
+				<!-- Left Section -->
+				<div class="left-section w-full">
+					<div
+						class="form-container w-full bg-[#f2f5ff] h-[933px] p-16 rounded-[20px] lg:p-12 lg:h-auto lg:min-h-[800px] md:max-w-[600px] md:mx-auto md:h-auto sm:p-8 xs:p-6 xs:rounded-[12px]"
+					>
+						<h1
+							class="text-[32px] font-bold text-[#054c73] mb-3 text-center sm:text-[28px] xs:text-[24px]"
+						>
+							Create your account
+						</h1>
+						<p
+							class="subtitle text-[18px] text-[#333] mb-8 text-center sm:text-[16px] sm:mb-6 xs:text-[14px]"
+						>
+							Join us to access the latest collection<br />and product catalog
+						</p>
 
-                    <button type="button" class="google-btn">
-                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="google-icon">
-                            <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                            <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
-                            <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
-                            <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                        </svg>
-                        Login With Google
-                    </button>
+						<button
+							type="button"
+							class="google-btn w-full flex justify-center items-center py-3 px-4 border border-gray-300 rounded-xl text-[14px] font-bold text-[#333] bg-white cursor-pointer transition hover:bg-gray-50 mb-0"
+						>
+							<svg
+								width="30"
+								height="30"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 48 48"
+								class="google-icon mr-3"
+							>
+								<path
+									fill="#FFC107"
+									d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+								></path>
+								<path
+									fill="#FF3D00"
+									d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+								></path>
+								<path
+									fill="#4CAF50"
+									d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+								></path>
+								<path
+									fill="#1976D2"
+									d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+								></path>
+							</svg>
+							Login With Google
+						</button>
 
-                    <!-- Divider -->
-                    <div class="divider">
-                        <div class="divider-line"></div>
-                        <span class="divider-text">or</span>
-                        <div class="divider-line"></div>
-                    </div>
+						<!-- Divider -->
+						<div
+							class="divider flex items-center justify-center gap-4 my-6 xs:my-5"
+						>
+							<div class="divider-line flex-1 h-px bg-black/20"></div>
+							<span class="divider-text text-[#333] text-[18px] sm:text-[16px]"
+								>or</span
+							>
+							<div class="divider-line flex-1 h-px bg-black/20"></div>
+						</div>
 
-                    <!-- Form -->
-                    <form class="register-form">
-                        <div class="form-group">
-                            <label>Name<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your name" />
-                        </div>
+						<!-- Form -->
+						<form class="register-form flex flex-col gap-5">
+							<div class="form-group mb-2 xs:mb-1">
+								<label
+									class="font-bold text-[18px] text-[#333] block mb-1 sm:text-[16px]"
+									>Name<span class="required text-red-500">*</span></label
+								>
+								<input
+									type="text"
+									placeholder="Enter your name"
+									class="w-full text-[#333]/50 border border-black/20 rounded-[20px] py-4 px-6 text-[16px] outline-none placeholder:text-[#333]/50 sm:py-3 sm:px-5 sm:text-[14px]"
+								/>
+							</div>
 
-                        <div class="form-group">
-                            <label>Email<span class="required">*</span></label>
-                            <input type="email" placeholder="Enter your email" />
-                        </div>
+							<div class="form-group mb-2 xs:mb-1">
+								<label
+									class="font-bold text-[18px] text-[#333] block mb-1 sm:text-[16px]"
+									>Email<span class="required text-red-500">*</span></label
+								>
+								<input
+									type="email"
+									placeholder="Enter your email"
+									class="w-full text-[#333]/50 border border-black/20 rounded-[20px] py-4 px-6 text-[16px] outline-none placeholder:text-[#333]/50 sm:py-3 sm:px-5 sm:text-[14px]"
+								/>
+							</div>
 
-                        <div class="form-group">
-                            <label>Password<span class="required">*</span></label>
-                            <input type="password" placeholder="Enter your password" />
-                        </div>
+							<div class="form-group mb-2 xs:mb-1">
+								<label
+									class="font-bold text-[18px] text-[#333] block mb-1 sm:text-[16px]"
+									>Password<span class="required text-red-500">*</span></label
+								>
+								<input
+									type="password"
+									placeholder="Enter your password"
+									class="w-full text-[#333]/50 border border-black/20 rounded-[20px] py-4 px-6 text-[16px] outline-none placeholder:text-[#333]/50 sm:py-3 sm:px-5 sm:text-[14px]"
+								/>
+							</div>
 
-                        <!-- Terms Checkbox -->
-                        <div class="checkbox-group">
-                            <input type="checkbox" />
-                            <label>I agree to all Term, Privacy Policy and Fees</label>
-                        </div>
+							<!-- Terms Checkbox -->
+							<div class="checkbox-group flex items-start gap-3 mt-4">
+								<input
+									type="checkbox"
+									class="w-4 h-4 mt-1 border border-black/20 rounded"
+								/>
+								<label
+									class="font-bold text-[#333] text-[18px] leading-snug sm:text-[16px]"
+									>I agree to all Term, Privacy Policy and Fees</label
+								>
+							</div>
 
-                        <!-- Sign Up Button -->
-                        <button type="button" onclick="window.location.href='./login.html'" class="signup-btn">
-                            Sign Up
-                        </button>
-                    </form>
+							<!-- Sign Up Button -->
+							<button
+								type="button"
+								onclick="window.location.href='./login.html'"
+								class="signup-btn w-full bg-[#054c73] text-white text-[18px] font-bold h-14 rounded-[20px] mt-4 border-none cursor-pointer sm:h-12 sm:text-[16px]"
+							>
+								Sign Up
+							</button>
+						</form>
 
-                    <!-- Login Link -->
-                    <p class="login-link">
-                        Already have an account?
-                        <a href="login.html" class="login-link-text">Sign In</a>
-                    </p>
-                </div>
-            </div>
+						<!-- Login Link -->
+						<p
+							class="login-link text-center font-bold text-[#333] text-[18px] mt-6 xs:text-[16px]"
+						>
+							Already have an account?
+							<a
+								href="login.html"
+								class="login-link-text text-[#054c73] no-underline"
+								>Sign In</a
+							>
+						</p>
+					</div>
+				</div>
 
-            <!-- Right Section -->
-            <div class="right-section">
-                <div class="image-container">
-                    <img class="main-image" src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D" alt="Furniture" />
-                    <div class="image-text">
-                        <h2>Discovering the Best<br />Furniture for your Home</h2>
-                        <p>Stylish, comfortable, and functional</p>
-                    </div>
-                </div>
-                <div class="right-section-bg"></div>
-            </div>
-        </div>
-    </div>
-</body>
+				<!-- Right Section -->
+				<div
+					class="right-section w-full relative flex items-end justify-end lg:hidden"
+				>
+					<div class="image-container relative z-20">
+						<img
+							class="main-image w-[643px] h-[933px] rounded-tr-[75px] rounded-tl-[12px] rounded-br-[12px] rounded-bl-[75px] scale-x-[-1] object-cover lg:h-auto lg:min-h-[800px] sm:hidden"
+							src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D"
+							alt="Furniture"
+						/>
+						<div class="image-text absolute bottom-8 right-4">
+							<h2
+								class="text-[32px] font-bold text-[#054c73] leading-tight mb-2 text-right sm:text-[28px]"
+							>
+								Discovering the Best<br />Furniture for your Home
+							</h2>
+							<p class="text-[18px] text-[#054c73]">
+								Stylish, comfortable, and functional
+							</p>
+						</div>
+					</div>
+					<div
+						class="right-section-bg absolute bg-gradient-to-b from-[#054c73]/90 to-[#054c73]/90 w-[643px] h-[933px] z-10 -top-12 -right-12 rounded-[12px] lg:h-auto lg:min-h-[800px] sm:hidden"
+					></div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
