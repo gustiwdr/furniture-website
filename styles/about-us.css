@@ -504,6 +504,19 @@ footer {
 
 }
 
+@media (max-width: 574px) {
+	.works-image-container {
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		align-items: center;	
+	}
+
+	.img-pos img{
+		width: 300px;
+	}
+}
+
 @media (max-width: 480px) {
 	.right-section{
 		gap: 10px;
