@@ -5,23 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart - Furniture E-Commerce</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/cart.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+			<script>
+				tailwind.config = {
+					theme: {
+						colors: {
+							primary: "#054c73",
+							lightbg: "#f2f5ff",
+							textdark: "#333333",
+							errored: "#ef4444",
+						},
+						fontFamily: {
+							montserrat: ['"Montserrat"', "sans-serif"],
+						}
+					}
+				}
+			</script>
+			<style type="text/tailwindcss">
+				p {
+					font-family: Montserrat, Arial;
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
+				a {
+					text-decoration: none;
+					color: inherit;
+				}
+			</style>
 </head>
-<body>
+<body class="font-montserrat bg-[#ffffff]">
 	<!-- Header Section -->
-	<header class="header">
-		<div class="left-section">
+	<header class="flex justify-between items-center top-0 right-0 left-0 h-[50px] px-[60px] py-[40px] sticky bg-[#ffffff] z-[1000]">
+		<div class="text-[36px] font-bold text-primary">
 			<h1>Furniture</h1>
 		</div>
 
-		<div class="middle-section">
+        <div class="flex justify-between items-center gap-[40px] font-bold text-[16px]">
 			<div><a href="home.html">Home</a></div>
-			<div class="shop"><a href="shop.html">Shop</a></div>
+			<div class="text-primary"><a href="shop.html">Shop</a></div>
 			<div><a href="about-us.html">About Us</a></div>
 		</div>
 
-		<div class="right-section">
+        <div class="flex justify-between items-center gap-[30px]">
 			<div>
 				<img
 					src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_421)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_421' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_421' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_421' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpklEQVR4nO2cy2uVRxTAfxG8mocL3+22SF20WNBWq0TqovgAi7Z/h2myq7oSEdqNjxjdiqRV20ARBYuIaCs+qutWu6mt4iMmJpsu1EiNDJwLIdwz97tJ7jdzJvODs7n38n3nnDvfmTNnznyQyWQymUwmk8lkMpmatANbgD3ASeB34G9gFHglMiqf3ZLfuN9uBtpqXzJTZRnQA1wTR45PUV7JNbrlmhlhI3AOeD0N52oyJtfuZBbzGfBbE5yrya/yp84a3gH6gTclOnmiDADLSZyvZBIbDyyjwE4SpAL0NjiKnwCngC7JJlYAC4G5IgvlM/fd1/Lbpw1c3+lyWK6VBB3ApYLGDwFHgDXTuN/H8qcOF7znRdHRNIuBOwWMfQDsAlpn8N6t8jQ8LHD/26KrSdzC4WaB9Ku3ySPKOXwf8LKOLncsjuxKgXDxJ/BBiTp9CNwtEEZMxezeOgadCbRUbpf0zqfbIYzwRZ3s4hgwJ6B+LcDBOtnIlxhYjPjy5KPEQ59Hz5HY6yTf1wkXIUfyZObUCSOuIhht7UILGX9EWr7sAO55QkiUxSitQPSy5OyiUVZ5yrJXiIz1nkdwP/HzrUf/qEb1Oc+KbyZXe81M+x4pNpwlEpbJCq+Wkm5ZbYUez+p1KRErOGRkNFdp8xSiXM0kONcU5VwVzhpHFVuuxhDbtBl7Nfb4xJM5BX06N3uK9hZpAQYVmz4PqdheRakfsMsZxaZvQip1MubJY4p0KzadICC3FKVcSLHKVsWmGyGV+kdR6j3sskKx6X5IpUYUpRZhl8WKTS7HDoaW2rmtLKtUPCleMFJ09DzFJmdrMFIMHUsUm5ytwZhNk+GDGNM710RulW2KTddjXLC4Xjir9Cg2uQ7YYOxRlDqNXX5UbHK2BmOLotSgFGhSKiptCl0s11I819VpjXWeXRZXEo6y8O/awqzRp9hymYirXUOR9nJoOF2fx7z36duc7Upkc/ZdIm83eGhkVLcDjxUbfiIiOhUlnRwgfr6z0kCDnOPTql6uCTxWPvJkTlFMgpPZ6GlyvBtDelSDBcBfis7Olk+JlH7PIzgQYdvuzxbbdpETqb5GdJenxsJxj57DUi6Nmu0JHK3YiREOewyphpGOQDHZFy5MHRZCjpBdrGPQPWkCLzO70Ca+iXJBtrPM0Ca9EEUOdC5osh5FDnROFDdI5mNs6/52AcMeSc1kJleRbbKs1lZ8yY3sjgJhZHzCbO9aZ9dOsZ7dIqXOPk+BKGlnz5VJppHXSAxKw2G3tGm9L6+OqIi4nfaV8l2P7Iw8a+D6b0SnC6k527HD06IwXqIMiy6IE5N09iKZAP8P5OSBGmdSKp4KpNkJskqnnOMry8GX69Qukh3ZVTbIETNt82A6Mib15KKlzuSdjdQWuuRgTiM572R5LaN31xR3RmaFs6u0ypmR3dJpf1NejzkiteMxKV79Kx1E/dJ3sWmGyrFFnP1LKs4OTdITZGxkZ5fs7PN5ZJdDdnaJZGeXSHZ2icyT1C6nfpE42+LbHUw6+z+jPeLmnP0isj6WZJ0d9JB+ys4+IuHihTjZ3Jt7LeFico7LmUwmk8lkMpkMzeUtHb2WZFcSK0cAAAAASUVORK5CYII=' /%3E%3C/defs%3E%3C/svg%3E"
@@ -41,57 +70,66 @@
 				/>
 			</div>
             <div>
-                <a href="#" id="hamburger-menu"><i class="fa fa-bars"></i></a>
+                <a href="#" id="hamburger-menu" class="hidden"><i class="fa fa-bars text-[18px]"></i></a>
             </div>
 		</div>
 	</header>
 
-    <div class="main-container">
+    <div class="max-w-[1440px] mx-auto py-[80px] px-[60px]">
         <!-- Cart Title -->
-        <h2 class="cart-title">Your Cart</h2>
+        <h2 class="text-[24px] font-[700] text-[#111111] mb-[24px]">Your Cart</h2>
 
         <!-- Cart Content -->
-        <div class="cart-content">        
+        <div class="flex flex-col gap-[24px]">        
             <div class="cart-details">             
-                <div class="cart-table-container">
-                    <table class="cart-table">
+                <div class="overflow-x-auto border border-[#111111] rounded-[10px] mb-4">
+                    <table class="w-full border-collapse">
                         <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Product Name</th>
-                                <th>Unit Price</th>
-                                <th>Qty</th>
-                                <th>Subtotal</th>
-                                <th>Action</th>
+                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+                                >Image</th>
+                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+                                >Product Name</th>
+                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+                                >Unit Price</th>
+                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+                                >Qty</th>
+                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+                                >Subtotal</th>
+                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+                                >Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="px-[40px] py-[40px] text-center align-middle">
                                     <div class="product-image-container">
-                                        <img src="images/product1.png" alt="FRIDHULT" class="product-image">
+                                        <img src="images/product1.png" alt="FRIDHULT" class="w-full object-cover h-[113px]">
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="product-name">FRIDHULT</p>
+                                <td class="px-[40px] py-[40px] text-center align-middle">
+                                    <p class="text-[14px] font-[500] text-[#111111]">FRIDHULT</p>
                                 </td>
-                                <td>
-                                    <p class="product-price">IDR3.495.000</p>
+                                <td class="px-[40px] py-[40px] text-center align-middle">
+                                    <p class="text-[14px] font-[500] text-[#111111]">IDR3.495.000</p>
                                 </td>
-                                <td>
-                                    <div class="quantity-control">
-                                        <div class="qty-control">
-                                            <button class="qty-btn">-</button>
-                                            <span class="qty-value">2</span>
-                                            <button class="qty-btn">+</button>
+                                <td class="px-[40px] py-[40px] text-center align-middle">
+                                    <div class="flex justify-center">
+                                        <div class="inline-flex items-center border border-[#979797]">
+                                            <button class="w-6 h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
+                                            >-</button>
+                                            <span class="min-w-[12px] min-h-6 flex items-center justify-center px-2 border-l border-r border-[#979797]"
+                                            >2</span>
+                                            <button class="w-6 h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
+                                            >+</button>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="product-subtotal">IDR6.990.000</p>
+                                <td class="px-[40px] py-[40px] text-center align-middle">
+                                    <p class="text-[14px] font-[500] text-[#111111]">IDR6.990.000</p>
                                 </td>
-                                <td>
-                                    <button class="remove-btn">
+                                <td class="px-[40px] py-[40px] text-center align-middle">
+                                    <button class="bg-[#ffffff] border-none">
                                         <svg fill="#054C73" width="50" height="50" viewBox="0 0 32 32">
                                             <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path>
                                         </svg>
@@ -104,54 +142,57 @@
             </div>
         </div>
 
-        <div class="cart-actions">
+        <div class="flex items-start justify-between mt-[10px]">
             <!-- Coupon Code -->
-            <div class="coupon-section">
-                <input type="text" placeholder="ENTER COUPON CODE" class="coupon-input">
-                <button class="coupon-btn">Apply</button>
+            <div class="flex mb-[24px] w-[476px] max-w-full">
+                <input type="text" placeholder="ENTER COUPON CODE" class="border border-[#111111] px-[12px] py-[12px] w-[346px] max-w-full text-sm text-[#979797] font-medium"
+                >
+                <button class="bg-[#054C73] text-[#ffffff] px-3 py-2 w-[131px] max-w-full text-sm font-semibold uppercase border-none cursor-pointer"
+                >Apply</button>
             </div>
 
             <!-- Right Column - Cart Total -->
-            <div class="cart-total">
-                <h2 class="cart-total-title">Cart Total</h2>
-                <div class="total-details">
-                    <div class="total-row">
-                        <h3>Subtotal</h3>
-                        <p>IDR6.990.000</p>
+            <div class="w-full max-w-[714px] pl-[60px]">
+                <h2 class="text-[24px] font-[700] text-[#111111] mb-[16px]">Cart Total</h2>
+                <div class="border border-[#111111] rounded-[10px] flex justify-between flex-col uppercase">
+                    <div class="flex items-center justify-between px-[16px] py-[16px] text-[14px]">
+                        <h3 class="font-[600]">Subtotal</h3>
+                        <p class="font-[600]">IDR6.990.000</p>
                     </div>
-                    <div class="total-row tax-row">
-                        <h3>Tax</h3>
-                        <p>IDR768.900 (11%)</p>
+                    <div class="flex items-center justify-between px-[16px] py-[16px] text-[14px] border-t border-b border-[#111111]">
+                        <h3 class="font-[600]">Tax</h3>
+                        <p class="font-[600]">IDR768.900 (11%)</p>
                     </div>
-                    <div class="total-row">
-                        <h3>Total</h3>
-                        <p>IDR7.758.900</p>
+                    <div class="flex items-center justify-between px-[16px] py-[16px] text-[14px]">
+                        <h3 class="font-[600]">Total</h3>
+                        <p class="font-[600]">IDR7.758.900</p>
                     </div>                    
                 </div>
-				<button class="checkout-btn">Proceed to Checkout</button>
+				<button class="bg-primary text-[#ffffff] w-full p-4 rounded-[10px] text-sm font-semibold uppercase mt-4 border-none cursor-pointer"
+                >Proceed to Checkout</button>
             </div>
         </div>
     </div>
 
-	<!-- Footer Section -->
-	<footer>
-		<div class="footer-content">
-			<p class="footer-title">Furniture</p>
-			<p class="footer-desc">
-				Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-				ad minim veniam, quis nostrud exercitation ullamco laboris.
-			</p>
-			<p class="footer-title">Follow Us</p>
-		</div>
-		<div class="instagram-content">
-			<p>Instagram Shop</p>
-			<img
-				class="instagram-gallery"
-				src="images/instagram-shop.png"
-				alt="instagram shop"
-			/>
-		</div>
-	</footer>
+    <!--Footer Section-->
+    <footer class="bg-primary grid [grid-template-columns:1.5fr_2fr] items-center gap-[30px] px-[150px] py-[30px] text-[#ffffff]">
+        <div class="footer-content">
+            <p class="py-[20px] font-bold">Furniture</p>
+            <p class="leading-[30px]">
+                Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
+            <p class="py-[20px] font-bold">Follow Us</p>
+        </div>
+        <div class="flex flex-col justify-center font-bold gap-[20px]">
+            <p>Instagram Shop</p>
+            <img
+                class="h-auto w-[500px] max-w-full"
+                src="images/instagram-shop.png"
+                alt="instagram shop"
+            />
+        </div>	
+    </footer>	
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {                     

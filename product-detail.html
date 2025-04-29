@@ -11,23 +11,50 @@
 			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="styles/product-detail.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					colors: {
+						primary: "#054c73",
+						lightbg: "#f2f5ff",
+						textdark: "#333333",
+						errored: "#ef4444",
+					},
+					fontFamily: {
+						montserrat: ['"Montserrat"', "sans-serif"],
+					}
+				}
+			}
+		</script>
+		<style type="text/tailwindcss">
+			p {
+				font-family: Montserrat, Arial;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+		</style>
 	</head>
-	<body>
-	<!-- Header Section -->
-	<header class="header">
-		<div class="left-section">
-			<h1>Furniture</h1>
+<body class="font-montserrat bg-[#ffffff]">	
+		<!-- Header Section -->
+	<header class="flex justify-between items-center top-0 right-0 left-0 h-[50px] px-[60px] py-[40px] sticky bg-[#ffffff] z-[1000]">
+		<div class="text-[36px] font-bold text-primary">
+				<h1>Furniture</h1>
 		</div>
 
-		<div class="middle-section">
+		<div class="flex justify-between items-center gap-[40px] font-bold text-[16px]">
 			<div><a href="home.html">Home</a></div>
-			<div class="shop"><a href="shop.html">Shop</a></div>
+			<div class="text-primary"><a href="shop.html">Shop</a></div>
 			<div><a href="about-us.html">About Us</a></div>
 		</div>
 
-		<div class="right-section">
+		<div class="flex justify-between items-center gap-[30px]">
 			<div>
 				<img
 					src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_421)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_421' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_421' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_421' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpklEQVR4nO2cy2uVRxTAfxG8mocL3+22SF20WNBWq0TqovgAi7Z/h2myq7oSEdqNjxjdiqRV20ARBYuIaCs+qutWu6mt4iMmJpsu1EiNDJwLIdwz97tJ7jdzJvODs7n38n3nnDvfmTNnznyQyWQymUwmk8lkMpmatANbgD3ASeB34G9gFHglMiqf3ZLfuN9uBtpqXzJTZRnQA1wTR45PUV7JNbrlmhlhI3AOeD0N52oyJtfuZBbzGfBbE5yrya/yp84a3gH6gTclOnmiDADLSZyvZBIbDyyjwE4SpAL0NjiKnwCngC7JJlYAC4G5IgvlM/fd1/Lbpw1c3+lyWK6VBB3ApYLGDwFHgDXTuN/H8qcOF7znRdHRNIuBOwWMfQDsAlpn8N6t8jQ8LHD/26KrSdzC4WaB9Ku3ySPKOXwf8LKOLncsjuxKgXDxJ/BBiTp9CNwtEEZMxezeOgadCbRUbpf0zqfbIYzwRZ3s4hgwJ6B+LcDBOtnIlxhYjPjy5KPEQ59Hz5HY6yTf1wkXIUfyZObUCSOuIhht7UILGX9EWr7sAO55QkiUxSitQPSy5OyiUVZ5yrJXiIz1nkdwP/HzrUf/qEb1Oc+KbyZXe81M+x4pNpwlEpbJCq+Wkm5ZbYUez+p1KRErOGRkNFdp8xSiXM0kONcU5VwVzhpHFVuuxhDbtBl7Nfb4xJM5BX06N3uK9hZpAQYVmz4PqdheRakfsMsZxaZvQip1MubJY4p0KzadICC3FKVcSLHKVsWmGyGV+kdR6j3sskKx6X5IpUYUpRZhl8WKTS7HDoaW2rmtLKtUPCleMFJ09DzFJmdrMFIMHUsUm5ytwZhNk+GDGNM710RulW2KTddjXLC4Xjir9Cg2uQ7YYOxRlDqNXX5UbHK2BmOLotSgFGhSKiptCl0s11I819VpjXWeXRZXEo6y8O/awqzRp9hymYirXUOR9nJoOF2fx7z36duc7Upkc/ZdIm83eGhkVLcDjxUbfiIiOhUlnRwgfr6z0kCDnOPTql6uCTxWPvJkTlFMgpPZ6GlyvBtDelSDBcBfis7Olk+JlH7PIzgQYdvuzxbbdpETqb5GdJenxsJxj57DUi6Nmu0JHK3YiREOewyphpGOQDHZFy5MHRZCjpBdrGPQPWkCLzO70Ca+iXJBtrPM0Ca9EEUOdC5osh5FDnROFDdI5mNs6/52AcMeSc1kJleRbbKs1lZ8yY3sjgJhZHzCbO9aZ9dOsZ7dIqXOPk+BKGlnz5VJppHXSAxKw2G3tGm9L6+OqIi4nfaV8l2P7Iw8a+D6b0SnC6k527HD06IwXqIMiy6IE5N09iKZAP8P5OSBGmdSKp4KpNkJskqnnOMry8GX69Qukh3ZVTbIETNt82A6Mib15KKlzuSdjdQWuuRgTiM572R5LaN31xR3RmaFs6u0ypmR3dJpf1NejzkiteMxKV79Kx1E/dJ3sWmGyrFFnP1LKs4OTdITZGxkZ5fs7PN5ZJdDdnaJZGeXSHZ2icyT1C6nfpE42+LbHUw6+z+jPeLmnP0isj6WZJ0d9JB+ys4+IuHihTjZ3Jt7LeFico7LmUwmk8lkMpkMzeUtHb2WZFcSK0cAAAAASUVORK5CYII=' /%3E%3C/defs%3E%3C/svg%3E"
@@ -47,38 +74,38 @@
 				/>
 			</div>
 			<div>
-				<a href="#" id="hamburger-menu"><i class="fa fa-bars"></i></a>
+				<a href="#" id="hamburger-menu" class="hidden"><i class="fa fa-bars text-[18px]"></i></a>
 			</div>
 		</div>
 	</header>
 
 	<main>
 		<!-- Hero Section -->
-		<div class="hero">
-			<div class="product-view">
-				<div class="product-image">
-					<img src="images/product1.png" alt="image error">					
+		<div class="flex flex-col py=[30px] px-[60px]">
+			<div class="flex items-center justify-center gap-[70px]">
+				<div class="flex items-center justify-center">
+					<img src="images/product1.png" alt="image error" class="w-[515px] max-w-[302px] object-cover aspect-square">					
 				</div>
-				<div class="product-text">
-					<p class="product-text-title">FRIDHULT</p>
-					<div class="star">
+				<div class="px-[10px] py-[10px]">
+					<p class="font-bold text-[#111111] text-[32px] mb-[10px]">FRIDHULT</p>
+					<div class="text-[#FFC800] pb-[10px]">
 						<span class="fa fa-star"></span>
 						<span class="fa fa-star"></span>
 						<span class="fa fa-star"></span>
 						<span class="fa fa-star"></span>
 						<span class="fa fa-star"></span>
-						<span class="star-reviews">(24 reviews)</span>
+						<span class="text-[#979797]">(24 reviews)</span>
 					</div>
-					<p class="product-price">IDR3.495.000</p>
-					<div class="product-desc-container">
-						<p class="description-title">Description</p>
-						<p class="description-sub">FRIDHULT sofa bed is designed to use as little space as possible, while maximizing the sleeping surface. Perfect if you live in a small space and want to be able to easily transform your sofa into a bed.</p>
+					<p class="text-primary font-bold text-[24px]">IDR3.495.000</p>
+					<div class="mt-[30px]">
+						<p class="font-bold text-[#111111] text-[20px] mb-[10px]">Description</p>
+						<p class="font-medium text-[#979797] text-[15px] leading-[30px] mb-[10px]">FRIDHULT sofa bed is designed to use as little space as possible, while maximizing the sleeping surface. Perfect if you live in a small space and want to be able to easily transform your sofa into a bed.</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="additional-container">
-				<div class="additional-image-container">
+			<div class="flex justify-start mt-[50px] gap-[80px]">
+				<div class="flex justify-between gap-[40px]">
 					<div class="additional-img">
 						<img src="images/fridhult-add-1.png" alt="">
 					</div>
@@ -93,262 +120,269 @@
 					</div>
 				</div>
 
-				<div class="additional-button-container">
-					<div class="upper-button">
-						<div class="summation-button">	
-							<button class="qty-btn">-</button>
-							<span class="qty-value">2</span>
-							<button class="qty-btn">+</button>
+				<div class="flex flex-col items-stretch w-[690px]">
+					<div class="flex items-center justify-between gap-[20px]">
+						<div class="inline-flex items-center border border-[#979797]">	
+							<button class="w-[60px] h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
+							>-</button>
+							<span class="min-w-[60px] min-h-6 flex items-center justify-center px-2 border-l border-r border-[#979797]"
+							>2</span>
+							<button class="w-[60px] h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
+							>+</button>
 						</div>
 
-						<div class="add-to-cart-button">
-							<button class="add-to-cart-btn">Add to Cart</button>
-						</div>
-					</div>
-
-					<div class="add-to-wishlist-button">
-						<button class="add-to-wishlist-btn">Add to Wishlist</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Product Details Section -->
-		<div class="product-details-section">
-			<p class="product-details-title">Product Details</p>
-
-			<div class="product-details-container">
-			<p class="product-details-sub">Small, neat dimensions and minimalist armrests make FRIDHULT sofa bed easy to fit, even in limited spaces, while maximising the sleeping surface.</p>
-			<p class="product-details-spec">Spesifications</p>
-				<div class="spec-container">
-					<div class="spec-item-row">
-						<div class="spec-item-column">						
-							<div class="spec-category">Color</div>
-							<div class="spec-value">Yellow</div>
-						</div>
-
-						<div class="spec-item-column-1">						
-							<div class="spec-category">Fabric</div>
-							<div class="spec-value">100% polyester</div>
+						<div class="w-full">
+							<button class="w-full max-w-[468px] block p-3 bg-[#054C73] text-[#ffffff] font-bold border-none rounded-[8px] text-lg text-center cursor-pointer"
+							>Add to Cart</button>
 						</div>
 					</div>
 
-					<div class="spec-item-row">
-						<div class="spec-item-column">
-							<div class="spec-category">Legs</div>
-							<div class="spec-value">ABS plastic</div>
-						</div>
-
-						<div class="spec-item-column-1">
-							<div class="spec-category">Filling</div>
-							<div class="spec-value">100% polyester</div>
-						</div>						
-					</div>
-					
-					<div class="spec-item-row-1">
-						<div class="spec-item-column">
-							<div class="spec-category">Lining</div>
-							<div class="spec-value">100% polypropylene</div>
-						</div>
-
-						<div class="spec-item-column-1">
-							<div class="spec-category">Warranty</div>
-							<div class="spec-value">10-year guarantee</div>
-						</div>					
+					<div class="w-full mt-[15px]">
+						<button class="w-full max-w-[690px] block p-3 bg-[#ffffff] text-[#054C73] font-bold text-lg border border-[#054C73] rounded-[7px] text-center cursor-pointer"
+						>Add to Wishlist</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
+	<!-- Product Details Section -->
+	<div class="px-[60px] py-[30px]">
+		<p class="font-bold text-[24px] text-[#111111] mb-[20px]">Product Details</p>
+	
+		<div class="border border-[#111111] rounded-[10px] px-[50px] py-[5px]">
+		<p class="font-medium text-[15px] text-[#979797] mt-[10px] mb-0">
+			Small, neat dimensions and minimalist armrests make FRIDHULT sofa bed easy to fit, even in limited spaces, while maximising the sleeping surface.
+		</p>
+	
+		<p class="mt-[15px] font-bold text-[20px] text-[#111111]">Spesifications</p>
+	
+		<div class="w-full mx-auto">
+			<div class="flex justify-between items-start py-[10px] border-b border-[#111111]">
+			<div class="text-start">
+				<div class="text-[#979797] text-[15px] font-medium">Color</div>
+				<div class="text-[#111111] text-[15px] font-bold">Yellow</div>
+			</div>
+	
+			<div class="text-start w-1/2">
+				<div class="text-[#979797] text-[15px] font-medium">Fabric</div>
+				<div class="text-[#111111] text-[15px] font-bold">100% polyester</div>
+			</div>
+			</div>
+	
+			<div class="flex justify-between items-start py-[10px] border-b border-[#111111]">
+			<div class="text-start">
+				<div class="text-[#979797] text-[15px] font-medium">Legs</div>
+				<div class="text-[#111111] text-[15px] font-bold">ABS plastic</div>
+			</div>
+	
+			<div class="text-start w-1/2">
+				<div class="text-[#979797] text-[15px] font-medium">Filling</div>
+				<div class="text-[#111111] text-[15px] font-bold">100% polyester</div>
+			</div>
+			</div>
+	
+			<div class="flex justify-between items-start py-[10px]">
+			<div class="text-start">
+				<div class="text-[#979797] text-[15px] font-medium">Lining</div>
+				<div class="text-[#111111] text-[15px] font-bold">100% polypropylene</div>
+			</div>
+	
+			<div class="text-start w-1/2">
+				<div class="text-[#979797] text-[15px] font-medium">Warranty</div>
+				<div class="text-[#111111] text-[15px] font-bold">10-year guarantee</div>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+  
 
 	<!-- Customer Reviews Section -->
-	 <div class="customer-reviews-section">
-		<p class="customer-reviews-title">Customer Reviews (20)</p>
-
-		<div class="customer-reviews-container">
-			<div class="single-container">
-				<div class="left-container">
-					<p class="left-container-text">4</p>
-					<span class="fa fa-star"></span>					
-				</div>
-				<div class="right-container">
-					<p class="right-container-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
-					<div class="cs-img">
-						<div>
-							<img src="images/cs-img-1.png" alt="image-error">
-						</div>
-						<div>
-							<img src="images/cs-img-2.png" alt="image-error">
-						</div>
-					</div>
-
-					<div class="cs-profile">
-						<p>John Doe</p>
-						<p>11 Oct 2025</p>
-					</div>
-				</div>
+	<div class="py-[30px] px-[60px]">
+		<p class="font-bold text-[24px] text-[#111111]">Customer Reviews (20)</p>
+	
+		<div class="mt-[20px]">
+		<div class="flex justify-start items-center gap-[40px]">
+			<div class="bg-[#054C73] text-[#ffffff] flex justify-center items-center w-[78px] py-[10px] px-[20px] gap-[2px]">
+			<p class="font-bold text-[25px]">4</p>
+			<span class="fa fa-star text-[23px]"></span>
 			</div>
-
-			<div class="single-container">
-				<div class="left-container">
-					<p class="left-container-text">4</p>
-					<span class="fa fa-star"></span>					
-				</div>
-				<div class="right-container">
-					<p class="right-container-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>	
-					<div class="cs-profile">
-						<p>John Doe</p>
-						<p>11 Oct 2025</p>
-					</div>
-				</div>
+			<div class="py-[10px]">
+			<p class="text-[#979797] text-[15px] font-medium leading-[25px]">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+			</p>
+			<div class="flex gap-[15px] py-[10px]">
+				<div><img src="images/cs-img-1.png" alt="image-error"></div>
+				<div><img src="images/cs-img-2.png" alt="image-error"></div>
 			</div>
-
-			<div class="single-container">
-				<div class="left-container">
-					<p class="left-container-text">4</p>
-					<span class="fa fa-star"></span>					
-				</div>
-				<div class="right-container">
-					<p class="right-container-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>	
-					<div class="cs-profile-1">
-						<p>John Doe</p>
-						<p>11 Oct 2025</p>
-					</div>
-				</div>
+			<div class="flex gap-[20px] pb-[10px] border-b border-black text-[#979797] text-[15px] font-medium leading-[25px]">
+				<p>John Doe</p>
+				<p>11 Oct 2025</p>
+			</div>
 			</div>
 		</div>
-		<p class="view-all-text">View All 20 reviews</p>
-	 </div>
-	 <!-- Similar Product Section -->
-	 <div class="similiar-product-section">
-		<p class="similiar-product-title">Similiar Products</p>
-
-		<div class="product-container">
-			<div class="product-column">
-				<div class="product-img">
-					<img src="images/similiar-1.png" alt="image-error">
-					<span class="fa fa-heart"></span>
-				</div>
-				
-				<div class="desc-product">
-					<p class="desc-product-title">LYCKSELE HÅVET</p>
-					<div class="star">
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="star-reviews">(36 reviews)</span>
-					</div>
-					<div class="price-button">
-						<p>IDR4.795.000</p>
-						<div class="add-to-cart-similar">
-							<img src="images/cart.png" alt="">
-						</div>
-					</div>
-
-				</div>
+	
+		<div class="flex justify-start items-center gap-[40px] mt-[20px]">
+			<div class="bg-[#054C73] text-[#ffffff] flex justify-center items-center w-[78px] py-[10px] px-[20px] gap-[2px]">
+			<p class="font-bold text-[25px]">4</p>
+			<span class="fa fa-star text-[23px]"></span>
 			</div>
-
-			<div class="product-column">
-				<div class="product-img">
-					<img src="images/similiar-2.png" alt="image-error">
-					<span class="fa fa-heart"></span>
-				</div>
-				
-				<div class="desc-product">
-					<p class="desc-product-title">HAMMARN</p>
-					<div class="star">
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="star-reviews">(36 reviews)</span>
-					</div>
-					<div class="price-button">
-						<p>IDR1.795.000</p>
-						<div class="add-to-cart-similar">
-							<img src="images/cart.png" alt="">
-						</div>
-					</div>
-
-				</div>
+			<div class="py-[10px]">
+			<p class="text-[#979797] text-[15px] font-medium leading-[25px]">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+			</p>
+			<div class="flex gap-[20px] pb-[10px] border-b border-black text-[#979797] text-[15px] font-medium leading-[25px]">
+				<p>John Doe</p>
+				<p>11 Oct 2025</p>
 			</div>
-
-			<div class="product-column">
-				<div class="product-img">
-					<img src="images/similiar-3.png" alt="image-error">
-					<span class="fa fa-heart"></span>
-				</div>
-				
-				<div class="desc-product">
-					<p class="desc-product-title">ÄLVDALEN</p>
-					<div class="star">
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="star-reviews">(36 reviews)</span>
-					</div>
-					<div class="price-button">
-						<p>IDR4.495.000</p>
-						<div class="add-to-cart-similar">
-							<img src="images/cart.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="product-column">
-				<div class="product-img">
-					<img src="images/similiar-4.png" alt="image-error">
-					<span class="fa fa-heart"></span>
-				</div>
-				
-				<div class="desc-product">
-					<p class="desc-product-title">LYCKSELE LÖVÅS</p>
-					<div class="star">
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="star-reviews">(36 reviews)</span>
-					</div>
-					<div class="price-button">
-						<p>IDR4.795.000</p>
-						<div class="add-to-cart-similar">
-							<img src="images/cart.png" alt="">
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
+	
+		<div class="flex justify-start items-center gap-[40px] mt-[20px]">
+			<div class="bg-[#054C73] text-[#ffffff] flex justify-center items-center w-[78px] py-[10px] px-[20px] gap-[2px]">
+			<p class="font-bold text-[25px]">4</p>
+			<span class="fa fa-star text-[23px]"></span>
+			</div>
+			<div class="py-[10px]">
+			<p class="text-[#979797] text-[15px] font-medium leading-[25px]">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries			</p>
+			<div class="flex gap-[20px] pb-[10px] text-[#979797] text-[15px] font-medium leading-[25px]">
+				<p>John Doe</p>
+				<p>11 Oct 2025</p>
+			</div>
+			</div>
+		</div>
+		</div>
+		<p class="font-medium text-[20px] text-[#111111] mt-[20px]">View All 20 reviews</p>
+	</div>
 
-	 </div>
-
+		<!-- Similar Product Section -->
+	<div class="py-[50px] px-[60px]">
+		<p class="text-[24px] font-bold text-[#111111] mb-[20px]">Similiar Products</p>
+	
+		<div class="mb-[30px] flex flex-nowrap justify-between gap-[30px]">
+		<div class="relative box-border">
+			<div class="flex justify-center relative">
+			<img src="images/similiar-1.png" alt="image-error" class="max-w-full">
+			<span class="fa fa-heart absolute top-0 right-0 text-[#ffffff]" style="-webkit-text-stroke: 1px #054C73;"></span>
+			</div>
+	
+			<div class="bg-[#F2F5FF] p-[20px] rounded-b-[7px] shadow-inner">
+			<p class="font-bold text-[18px] text-[#111111] mb-[10px]">LYCKSELE HÅVET</p>
+			<div class="flex items-center gap-[2px] text-[#FFC800]">
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="text-[#979797] text-sm">(36 reviews)</span>
+			</div>
+			<div class="flex items-center justify-between gap-[20px] mt-2">
+				<p class="text-[#333333] text-[18px] font-bold">IDR4.795.000</p>
+				<div class="cursor-pointer">
+				<img src="images/cart.png" alt="" class="w-[50px]">
+				</div>
+			</div>
+			</div>
+		</div>
+	
+		<div class="relative box-border">
+			<div class="flex justify-center relative">
+			<img src="images/similiar-2.png" alt="image-error" class="max-w-full">
+			<span class="fa fa-heart absolute top-0 right-0 text-[#ffffff]" style="-webkit-text-stroke: 1px #054C73;"></span>
+			</div>
+	
+			<div class="bg-[#F2F5FF] p-[20px] rounded-b-[7px] shadow-inner">
+			<p class="font-bold text-[18px] text-[#111111] mb-[10px]">HAMMARN</p>
+			<div class="flex items-center gap-[2px] text-[#FFC800]">
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="text-[#979797] text-sm">(36 reviews)</span>
+			</div>
+			<div class="flex items-center justify-between gap-[20px] mt-2">
+				<p class="text-[#333333] text-[18px] font-bold">IDR1.795.000</p>
+				<div class="cursor-pointer">
+				<img src="images/cart.png" alt="" class="w-[50px]">
+				</div>
+			</div>
+			</div>
+		</div>
+	
+		<div class="relative box-border">
+			<div class="flex justify-center relative">
+			<img src="images/similiar-3.png" alt="image-error" class="max-w-full">
+			<span class="fa fa-heart absolute top-0 right-0 text-[#ffffff]" style="-webkit-text-stroke: 1px #054C73;"></span>
+			</div>
+	
+			<div class="bg-[#F2F5FF] p-[20px] rounded-b-[7px] shadow-inner">
+			<p class="font-bold text-[18px] text-[#111111] mb-[10px]">ÄLVDALEN</p>
+			<div class="flex items-center gap-[2px] text-[#FFC800]">
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="text-[#979797] text-sm">(36 reviews)</span>
+			</div>
+			<div class="flex items-center justify-between gap-[20px] mt-2">
+				<p class="text-[#333333] text-[18px] font-bold">IDR4.495.000</p>
+				<div class="cursor-pointer">
+				<img src="images/cart.png" alt="" class="w-[50px]">
+				</div>
+			</div>
+			</div>
+		</div>
+	
+		<div class="relative box-border">
+			<div class="flex justify-center relative">
+			<img src="images/similiar-4.png" alt="image-error" class="max-w-full">
+			<span class="fa fa-heart absolute top-0 right-0 text-[#ffffff]" style="-webkit-text-stroke: 1px #054C73;"></span>
+			</div>
+	
+			<div class="bg-[#F2F5FF] p-[20px] rounded-b-[7px] shadow-inner">
+			<p class="font-bold text-[18px] text-[#111111] mb-[10px]">LYCKSELE LÖVÅS</p>
+			<div class="flex items-center gap-[2px] text-[#FFC800]">
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+				<span class="text-[#979797] text-sm">(36 reviews)</span>
+			</div>
+			<div class="flex items-center justify-between gap-[20px] mt-2">
+				<p class="text-[#333333] text-[18px] font-bold">IDR4.795.000</p>
+				<div class="cursor-pointer">
+				<img src="images/cart.png" alt="" class="w-[50px]">
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>  
 	</main>
 
-	<!-- Footer Section -->
-	<footer>
+	<!--Footer Section-->
+	<footer class="bg-primary grid [grid-template-columns:1.5fr_2fr] items-center gap-[30px] px-[150px] py-[30px] text-[#ffffff]">
 		<div class="footer-content">
-			<p class="footer-title">Furniture</p>
-			<p class="footer-desc">
+			<p class="py-[20px] font-bold">Furniture</p>
+			<p class="leading-[30px]">
 				Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 				ad minim veniam, quis nostrud exercitation ullamco laboris.
 			</p>
-			<p class="footer-title">Follow Us</p>
+			<p class="py-[20px] font-bold">Follow Us</p>
 		</div>
-		<div class="instagram-content">
+		<div class="flex flex-col justify-center font-bold gap-[20px]">
 			<p>Instagram Shop</p>
 			<img
-				class="instagram-gallery"
+				class="h-auto w-[500px] max-w-full"
 				src="images/instagram-shop.png"
 				alt="instagram shop"
 			/>
-		</div>
-	</footer>
+		</div>	
+	</footer>	
 
 	<script>
         document.addEventListener("DOMContentLoaded", function () {                     
