@@ -1,43 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
-	const links = document.querySelectorAll(".middle-section a");
+	// ===== ACTIVE LINK HANDLING =====
 	const currentPath = window.location.pathname.split("/").pop();
+	const menuLinks = document.querySelectorAll(
+		"#mobile-menu a, .middle-section a"
+	);
 
-	links.forEach((link) => {
+	menuLinks.forEach((link) => {
+		const linkPath = link.getAttribute("href");
 		if (
-			link.getAttribute("href") === currentPath ||
-			(currentPath === "" && link.getAttribute("href") === "#")
+			linkPath === currentPath ||
+			(currentPath === "" && (linkPath === "#" || linkPath === "index.html"))
 		) {
-			link.classList.add("active");
+			link.classList.add("text-primary");
 		} else {
-			link.classList.remove("active");
+			link.classList.remove("text-primary");
 		}
-	});
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+		link.addEventListener("click", function () {
+			// Remove from all
+			menuLinks.forEach((l) => l.classList.remove("text-primary"));
+			// Add to current
+			this.classList.add("text-primary");
+
+			// Hide mobile menu on click
+			const mobileMenu = document.getElementById("mobile-menu");
+			if (mobileMenu) {
+				mobileMenu.classList.add("hidden");
+			}
+		});
+	});
+
+	// ===== PRODUCT CARD CLICK =====
 	document.querySelectorAll(".product-card").forEach((card) => {
 		card.addEventListener("click", function () {
 			window.location.href = "product-detail.html";
 		});
 	});
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-	document.querySelectorAll(".cart-button").forEach((card) => {
-		card.addEventListener("click", function () {
+	// ===== CART BUTTON CLICK =====
+	document.querySelectorAll(".cart-button").forEach((btn) => {
+		btn.addEventListener("click", function () {
 			window.location.href = "cart.html";
 		});
 	});
-});
 
-const middleSection = document.querySelector('.middle-section');
-const hamburger = document.querySelector('#hamburger-menu');
+	// ===== HAMBURGER MENU TOGGLE =====
+	const hamburger = document.getElementById("hamburger-menu");
+	const mobileMenu = document.getElementById("mobile-menu");
 
-hamburger.onclick = () => {
-	middleSection.classList.toggle('open');
-};
-document.addEventListener('click', function(e) {
-	if (!hamburger.contains(e.target) && !middleSection.contains(e.target)) {
-		middleSection.classList.remove('open');
+	if (hamburger && mobileMenu) {
+		hamburger.addEventListener("click", () => {
+			mobileMenu.classList.toggle("hidden");
+		});
 	}
 });
