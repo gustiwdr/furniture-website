@@ -22,6 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+	document.querySelectorAll(".cart-button").forEach((card) => {
+		card.addEventListener("click", function () {
+			window.location.href = "cart.html";
+		});
+	});
+});
+
 const middleSection = document.querySelector('.middle-section');
 const hamburger = document.querySelector('#hamburger-menu');
 

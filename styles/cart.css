@@ -422,13 +422,6 @@ footer {
     }
 }   
 
-/* @media (max-width: 650px) {
-    .header{
-        padding: 15px 45px;
-    }
-    
-} */
-
 @media (max-width: 512px) {
         .right-section {
         gap: 10px;
