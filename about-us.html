@@ -84,12 +84,12 @@
 
 		<body class="font-montserrat bg-[#ffffff]">	
 			<!-- Header Section -->
-			<header class="flex justify-between items-center top-0 right-0 left-0 h-[50px] px-[60px] py-[40px] sticky bg-[#ffffff] z-[1000] md:px-[30px] sm:py-[40px]">
-				<div class="text-[36px] font-bold text-primary  md:text-[30px] sm:text-[24px]">
+			<header class="flex justify-between items-center top-0 right-0 left-0 h-[50px] px-[40px] py-[40px] sticky bg-[#ffffff] z-[1000] md:px-[40px] min-[800px]:px-[60px]">
+				<div class="text-[24px] font-bold text-primary  md:text-[30px] sm:text-[24px] min-[800px]:text-[36px]">
 					<h1>Furniture</h1>
 				</div>
 
-				<div class="hidden md:flex md:justify-between items-center gap-[40px] font-bold text-[16px] md:gap-[20px]">
+				<div class="hidden md:flex md:justify-between items-center gap-[20px] font-bold text-[16px] sm:gap-[20px] min-[769]:gap-[40px]">
 					<div><a href="home.html">Home</a></div>
 					<div><a href="shop.html">Shop</a></div>
 					<div class="text-primary"><a href="about-us.html">About Us</a></div>
@@ -101,7 +101,7 @@
 					<div class="text-primary"><a href="about-us.html">About Us</a></div>
 				</div>
 
-				<div class="flex justify-between items-center gap-[30px] md:gap-[15px]">
+				<div class="flex justify-between items-center gap-[15px] md:gap-[30px]">
 					<div>
 						<img
 							src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_421)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_421' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_421' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_421' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpklEQVR4nO2cy2uVRxTAfxG8mocL3+22SF20WNBWq0TqovgAi7Z/h2myq7oSEdqNjxjdiqRV20ARBYuIaCs+qutWu6mt4iMmJpsu1EiNDJwLIdwz97tJ7jdzJvODs7n38n3nnDvfmTNnznyQyWQymUwmk8lkMpmatANbgD3ASeB34G9gFHglMiqf3ZLfuN9uBtpqXzJTZRnQA1wTR45PUV7JNbrlmhlhI3AOeD0N52oyJtfuZBbzGfBbE5yrya/yp84a3gH6gTclOnmiDADLSZyvZBIbDyyjwE4SpAL0NjiKnwCngC7JJlYAC4G5IgvlM/fd1/Lbpw1c3+lyWK6VBB3ApYLGDwFHgDXTuN/H8qcOF7znRdHRNIuBOwWMfQDsAlpn8N6t8jQ8LHD/26KrSdzC4WaB9Ku3ySPKOXwf8LKOLncsjuxKgXDxJ/BBiTp9CNwtEEZMxezeOgadCbRUbpf0zqfbIYzwRZ3s4hgwJ6B+LcDBOtnIlxhYjPjy5KPEQ59Hz5HY6yTf1wkXIUfyZObUCSOuIhht7UILGX9EWr7sAO55QkiUxSitQPSy5OyiUVZ5yrJXiIz1nkdwP/HzrUf/qEb1Oc+KbyZXe81M+x4pNpwlEpbJCq+Wkm5ZbYUez+p1KRErOGRkNFdp8xSiXM0kONcU5VwVzhpHFVuuxhDbtBl7Nfb4xJM5BX06N3uK9hZpAQYVmz4PqdheRakfsMsZxaZvQip1MubJY4p0KzadICC3FKVcSLHKVsWmGyGV+kdR6j3sskKx6X5IpUYUpRZhl8WKTS7HDoaW2rmtLKtUPCleMFJ09DzFJmdrMFIMHUsUm5ytwZhNk+GDGNM710RulW2KTddjXLC4Xjir9Cg2uQ7YYOxRlDqNXX5UbHK2BmOLotSgFGhSKiptCl0s11I819VpjXWeXRZXEo6y8O/awqzRp9hymYirXUOR9nJoOF2fx7z36duc7Upkc/ZdIm83eGhkVLcDjxUbfiIiOhUlnRwgfr6z0kCDnOPTql6uCTxWPvJkTlFMgpPZ6GlyvBtDelSDBcBfis7Olk+JlH7PIzgQYdvuzxbbdpETqb5GdJenxsJxj57DUi6Nmu0JHK3YiREOewyphpGOQDHZFy5MHRZCjpBdrGPQPWkCLzO70Ca+iXJBtrPM0Ca9EEUOdC5osh5FDnROFDdI5mNs6/52AcMeSc1kJleRbbKs1lZ8yY3sjgJhZHzCbO9aZ9dOsZ7dIqXOPk+BKGlnz5VJppHXSAxKw2G3tGm9L6+OqIi4nfaV8l2P7Iw8a+D6b0SnC6k527HD06IwXqIMiy6IE5N09iKZAP8P5OSBGmdSKp4KpNkJskqnnOMry8GX69Qukh3ZVTbIETNt82A6Mib15KKlzuSdjdQWuuRgTiM572R5LaN31xR3RmaFs6u0ypmR3dJpf1NejzkiteMxKV79Kx1E/dJ3sWmGyrFFnP1LKs4OTdITZGxkZ5fs7PN5ZJdDdnaJZGeXSHZ2icyT1C6nfpE42+LbHUw6+z+jPeLmnP0isj6WZJ0d9JB+ys4+IuHihTjZ3Jt7LeFico7LmUwmk8lkMpkMzeUtHb2WZFcSK0cAAAAASUVORK5CYII=' /%3E%3C/defs%3E%3C/svg%3E"
