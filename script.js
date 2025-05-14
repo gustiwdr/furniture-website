@@ -30,6 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 
+	window.addEventListener("DOMContentLoaded", () => {
+		const header = document.querySelector("header");
+		const hero = document.querySelector(".hero-section"); // tambahin class ini ke div hero
+		const headerHeight = header.offsetHeight;
+
+		hero.style.height = `calc(100vh - ${headerHeight}px)`;
+	});
+
 	// ===== PRODUCT CARD CLICK =====
 	document.querySelectorAll(".product-card").forEach((card) => {
 		card.addEventListener("click", function () {
