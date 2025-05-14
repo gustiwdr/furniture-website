@@ -731,6 +731,14 @@ video {
   top: 100%;
 }
 
+.right-2 {
+  right: 0.5rem;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -2829,6 +2837,16 @@ video {
   padding-bottom: 9px;
 }
 
+.py-\[120px\] {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.py-\[60px\] {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 .pb-\[10px\] {
   padding-bottom: 10px;
 }
@@ -3191,6 +3209,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-current {
+  color: currentColor;
 }
 
 .text-opacity-50 {

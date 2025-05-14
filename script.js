@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// ===== CART BUTTON CLICK =====
-	document.querySelectorAll(".cart-button").forEach((btn) => {
-		btn.addEventListener("click", function () {
+	document
+		.querySelector(".add-to-cart-btn")
+		.addEventListener("click", function () {
 			window.location.href = "cart.html";
 		});
-	});
 
 	// ===== HAMBURGER MENU TOGGLE =====
 	const hamburger = document.getElementById("hamburger-menu");
