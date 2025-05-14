@@ -1,260 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart - Furniture E-Commerce</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cart - Furniture E-Commerce</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-			<script>
-				tailwind.config = {
-					theme: {
-						colors: {
-							primary: "#054c73",
-							lightbg: "#f2f5ff",
-							textdark: "#333333",
-							errored: "#ef4444",
-						},
-						fontFamily: {
-							montserrat: ['"Montserrat"', "sans-serif"],
-						}
-					}
-				}
-			</script>
-			<style type="text/tailwindcss">
-				p {
-					font-family: Montserrat, Arial;
-					margin-top: 0;
-					margin-bottom: 0;
-				}
-
-				a {
-					text-decoration: none;
-					color: inherit;
-				}
-			</style>
-            <style>
-                .middle-section {
-                        position: fixed;
-                        display: block;
-                        top: 79px;
-                        right: -100%;
-                        background-color: #fff;
-                        width: 300px;
-                        height: 100vh;
-                        flex-direction: column;
-                        transition: all 0.3s ease-in-out; 
-                        z-index: 10;
-                    }
-    
-                    .middle-section.open{
-                        right: 0;
-                        opacity: 1;
-                        pointer-events: auto;
-                    }
-    
-                    .middle-section a{       
-                        display: block;
-                        padding: 20px;
-                    }
-    
-                    .middle-section a::after{
-                        transform-origin:0 0;
-                    }
-    
-                    .middle-section a:hover::after{
-                        transform:scaleX(0.2);
-                    }
-                </style>
-</head>
-<body class="font-montserrat bg-[#ffffff]">
-	<!-- Header Section -->
-    <header class="flex justify-between items-center top-0 right-0 left-0 h-[50px] px-[40px] py-[40px] sticky bg-[#ffffff] z-[1000] md:px-[40px] min-[800px]:px-[60px]">
-        <div class="text-[24px] font-bold text-primary  md:text-[30px] sm:text-[24px] min-[800px]:text-[36px]">
-            <h1>Furniture</h1>
-        </div>
-
-        <div class="hidden md:flex md:justify-between items-center gap-[20px] font-bold text-[16px] sm:gap-[20px] min-[769px]:gap-[40px]">
-            <div><a href="home.html">Home</a></div>
-            <div class="text-primary"><a href="shop.html">Shop</a></div>
-            <div><a href="about-us.html">About Us</a></div>
-        </div>
-
-        <div class="middle-section block md:hidden">
-            <div><a href="home.html">Home</a></div>
-            <div class="text-primary"><a href="shop.html">Shop</a></div>
-            <div><a href="about-us.html">About Us</a></div>
-        </div>
-
-        <div class="flex justify-between items-center gap-[15px] md:gap-[30px]">
-            <div>
-                <img
-                    src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_421)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_421' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_421' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_421' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpklEQVR4nO2cy2uVRxTAfxG8mocL3+22SF20WNBWq0TqovgAi7Z/h2myq7oSEdqNjxjdiqRV20ARBYuIaCs+qutWu6mt4iMmJpsu1EiNDJwLIdwz97tJ7jdzJvODs7n38n3nnDvfmTNnznyQyWQymUwmk8lkMpmatANbgD3ASeB34G9gFHglMiqf3ZLfuN9uBtpqXzJTZRnQA1wTR45PUV7JNbrlmhlhI3AOeD0N52oyJtfuZBbzGfBbE5yrya/yp84a3gH6gTclOnmiDADLSZyvZBIbDyyjwE4SpAL0NjiKnwCngC7JJlYAC4G5IgvlM/fd1/Lbpw1c3+lyWK6VBB3ApYLGDwFHgDXTuN/H8qcOF7znRdHRNIuBOwWMfQDsAlpn8N6t8jQ8LHD/26KrSdzC4WaB9Ku3ySPKOXwf8LKOLncsjuxKgXDxJ/BBiTp9CNwtEEZMxezeOgadCbRUbpf0zqfbIYzwRZ3s4hgwJ6B+LcDBOtnIlxhYjPjy5KPEQ59Hz5HY6yTf1wkXIUfyZObUCSOuIhht7UILGX9EWr7sAO55QkiUxSitQPSy5OyiUVZ5yrJXiIz1nkdwP/HzrUf/qEb1Oc+KbyZXe81M+x4pNpwlEpbJCq+Wkm5ZbYUez+p1KRErOGRkNFdp8xSiXM0kONcU5VwVzhpHFVuuxhDbtBl7Nfb4xJM5BX06N3uK9hZpAQYVmz4PqdheRakfsMsZxaZvQip1MubJY4p0KzadICC3FKVcSLHKVsWmGyGV+kdR6j3sskKx6X5IpUYUpRZhl8WKTS7HDoaW2rmtLKtUPCleMFJ09DzFJmdrMFIMHUsUm5ytwZhNk+GDGNM710RulW2KTddjXLC4Xjir9Cg2uQ7YYOxRlDqNXX5UbHK2BmOLotSgFGhSKiptCl0s11I819VpjXWeXRZXEo6y8O/awqzRp9hymYirXUOR9nJoOF2fx7z36duc7Upkc/ZdIm83eGhkVLcDjxUbfiIiOhUlnRwgfr6z0kCDnOPTql6uCTxWPvJkTlFMgpPZ6GlyvBtDelSDBcBfis7Olk+JlH7PIzgQYdvuzxbbdpETqb5GdJenxsJxj57DUi6Nmu0JHK3YiREOewyphpGOQDHZFy5MHRZCjpBdrGPQPWkCLzO70Ca+iXJBtrPM0Ca9EEUOdC5osh5FDnROFDdI5mNs6/52AcMeSc1kJleRbbKs1lZ8yY3sjgJhZHzCbO9aZ9dOsZ7dIqXOPk+BKGlnz5VJppHXSAxKw2G3tGm9L6+OqIi4nfaV8l2P7Iw8a+D6b0SnC6k527HD06IwXqIMiy6IE5N09iKZAP8P5OSBGmdSKp4KpNkJskqnnOMry8GX69Qukh3ZVTbIETNt82A6Mib15KKlzuSdjdQWuuRgTiM572R5LaN31xR3RmaFs6u0ypmR3dJpf1NejzkiteMxKV79Kx1E/dJ3sWmGyrFFnP1LKs4OTdITZGxkZ5fs7PN5ZJdDdnaJZGeXSHZ2icyT1C6nfpE42+LbHUw6+z+jPeLmnP0isj6WZJ0d9JB+ys4+IuHihTjZ3Jt7LeFico7LmUwmk8lkMpkMzeUtHb2WZFcSK0cAAAAASUVORK5CYII=' /%3E%3C/defs%3E%3C/svg%3E"
-                    alt="search icon"
-                />
-            </div>
-            <div>
-                <img
-                    src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_420)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_420' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_420' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_420' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9ElEQVR4nO2cvWsUYRDGf0bMoWAQSSOxNlrYRq1SCP4FKtai2CRpIoKNoKZXUUFJYWxFFNJYqZ0xwa9a7SL4gd93EUTjK4tvkcL3krvb3ZmdnR88cEVgZh7udt/ZZwk4juM4juNIsAm4CnwFQkKfgPvACWCjSJcGuNbG4P/pNTAi3XTV6AN+dGh0piVgn3TzdTA60xtgs/QAli8dK3Vauvkqkd3cLgNfujD6pXTzllgPHGlj9i7pBq3xJGH0SenGrHE2YfRD6casMZIw+hewRbo5a0fBdwmzD0s3Z40bCaNvSjdmjYMJoz/Eb7yTEwPAz4TZe/Mq4vzjQcLo825QvkwmjH6Wc53aM5ww+g+wvfbu5MyrhNnH8y5Udy728MQvGFGWOl0A+os0+oCCQYMSZWYXRgNoKhgyKNBHCuaOgiGDAn0u2uhjCoYMCjRbtNHb4pEu1FzjlMBTBYMGYWV7ReGcUzBoENQiJbFHwbBBUNMawoBQA5UaeMwoGDgIaBkYLNPoQwqGDgJaQFEYEAxrCkVhQDCsUU1hQDCqVnzeUzo7FQwfLK3d3YQBwaBKWbtTXFJgQLC0dtc9DFhEmOzm8F2BEcHK2t2OuwqMCAVLxXuG1sOA5bLX7rqGAQsownIYMIUiLIcBoyjCahjQklq76xYGzKKQGQXGmFq76xQGDKOQAWNhgPjaXZcwYBrFTCowyNTanWKHAoPyUHYJ3IpyHikwqlfdpgLsV2BUL/oN7KYiXFdgWLc6Q4XYANxSYFqnugKso2L0xVPIkgID1/IG/1EqziBwKp6x38cH6Rquw2+Be8CY/0Mux3Ecx3GcbmgAE8DjmMW14ufxgnM5qboiDAEv2pxrn8e/sVJXhMYqw64cumGgrhgTHWxsYwbqijHfwcBzBuqK0exg4KaBumI0Oxj4m4G6Ysz7paMcxoVuSlJ1xWjEI9Rajln9BuqKMrTK0EUuLBJ1RemPP9G5eKNqxlcTxgr+RknVdRzHcRzHcRzHQRV/ASvoI7knhlT4AAAAAElFTkSuQmCC' /%3E%3C/defs%3E%3C/svg%3E"
-                    alt="cart icon"
-                />
-            </div>
-            <div>
-                <img
-                    src="data:image/svg+xml, %3Csvg width='30' height='44' viewBox='0 0 30 44' fill='none' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' %3E%3Crect y='0.119141' width='30' height='43.5714' fill='url(%23pattern0_401_419)' /%3E%3Cdefs%3E%3Cpattern id='pattern0_401_419' patternContentUnits='objectBoundingBox' width='1' height='1' %3E%3Cuse xlink:href='%23image0_401_419' transform='matrix(0.0111111 0 0 0.00765027 0 0.155738)' /%3E%3C/pattern%3E%3Cimage id='image0_401_419' width='90' height='90' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAADHElEQVR4nO2cy0uVQRiHn7IiWxRUWhCVYm2jRURRQkhJLVp2sxZBRaCL/oWWYdCFLojYKvMfCNq0ikrDMqOrWEE7IU83AsssJz54PxCxyzmcM/M68z7w2+iB4/swZ5zvnTkDhmEYhmEYhmEYRkmsA9qAHuAx8AH4ISnIz7LftQINpb1FuswDDgO9gCsy94EWoCp0EdrZDQyXIHh6hoDm0MVoZBHQVQbB09MJVIcuTgu1wEAFJOd5CNSQOLXyMa+U5KlTSU3K08WAB8lTR/ZCEqTLo+Q8HSRGcwDJefaQ0Dp5OKDoV6mss48ElJznIAnQp0D0PRLoXTgFmQTqiZg2BZLznCRiehQIztNNxAwqEJznERFTUCA4z3siZlyB4DzfiRinLNHilCVanLJEy7gCuUnM0QUFgpNYdQwqEJzEOvqGAsF5rhMxrQoEJ9HraJDOWWjJ2d9QR+T0KhB9lwRoUSB6PwlQ5eksx5/yIpU9w4xdAUU3kRidASRfJUGq5fSQL8kPUj2phJyHG/J0lmM5iVMD9Fd4JCd7wHGmaaSjQnNystPF39gpH/NyLOGSW10US7bGPSSniYp5XJ+UJ74DwNyi3zVx6qX50y1nqQuyeZBlVFqd3fKa6HsXhmEYhmEYhmEYybAE2AqcAC4At6QDl7VTR4BvkhHpi/TJa84Dx4EtwOLQRWhkpWzYXgPelrFz90a+nZv1TVaQKBuBduC5h6Z/3nB6CpwBNhA5a4BTcj2PD7n/aqOeBtYTEduBm0pOKM000m8De4E5zEIWAMeAZwpkuv/ME+AoMJ9ZQjY6XisQ50pMdiHAPs0jfLPsirhIcgfYhLJrIbJ/LD8VyHFlzi/goobppE7umnORp18uDAjCDuCzAgnOUz4Bjb4lN8pjsEssY8A2X5KXyQ60SzSjwFIfos8pKNYFzlkfokNePOWU5KUP0WMKCnWB89WH6HcKCnWBk7VgK84lBYW6wMk2GSrOKuCjgmJdoGTPDqvx+GWfLwqKdgEeWppCnPS8IquQCQUSXIUyITVeBtb6lmwYhmEYhmEYhmEYhoFCfgNnsqKzarSQ4AAAAABJRU5ErkJggg==' /%3E%3C/defs%3E%3C/svg%3E"
-                    alt="user icon"
-                />
-            </div>
-            <div>
-                <a href="#" id="hamburger-menu" class="inline-block md:hidden cursor-pointer z-20 p-4 text-[26px]"><i class="fa fa-bars"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <div class="max-w-[1440px] mx-auto py-[70px] px-[60px]">
-        <!-- Cart Title -->
-        <h2 class="text-[24px] font-[700] text-[#111111] mb-[24px]">Your Cart</h2>
-
-        <!-- Cart Content -->
-        <div class="flex flex-col gap-[24px]">        
-            <div class="cart-details">             
-                <div class="overflow-x-auto border border-[#111111] rounded-[10px] mb-4">
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr>
-                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
-                                >Image</th>
-                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
-                                >Product Name</th>
-                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
-                                >Unit Price</th>
-                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
-                                >Qty</th>
-                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
-                                >Subtotal</th>
-                                <th class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
-                                >Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="px-[40px] py-[40px] text-center align-middle">
-                                    <div class="flex justify-center">
-                                        <div class="relative w-[113px] aspect-square">
-                                            <img src="images/product1.png" alt="FRIDHULT"
-                                                 class="absolute inset-0 w-full h-full object-cover rounded" />
-                                        </div>                                    
-                                    </div>
-                                </td>
-                                <td class="px-[40px] py-[40px] text-center align-middle">
-                                    <p class="text-[14px] font-[500] text-[#111111]">FRIDHULT</p>
-                                </td>
-                                <td class="px-[40px] py-[40px] text-center align-middle">
-                                    <p class="text-[14px] font-[500] text-[#111111]">IDR3.495.000</p>
-                                </td>
-                                <td class="px-[40px] py-[40px] text-center align-middle">
-                                    <div class="flex justify-center">
-                                        <div class="inline-flex items-center border border-[#979797]">
-                                            <button class="w-6 h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
-                                            >-</button>
-                                            <span class="min-w-[12px] min-h-6 flex items-center justify-center px-2 border-l border-r border-[#979797]"
-                                            >2</span>
-                                            <button class="w-6 h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
-                                            >+</button>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-[40px] py-[40px] text-center align-middle">
-                                    <p class="text-[14px] font-[500] text-[#111111]">IDR6.990.000</p>
-                                </td>
-                                <td class="px-[40px] py-[40px] text-center align-middle">
-                                    <button class="bg-[#ffffff] border-none">
-                                        <svg fill="#054C73" width="50" height="50" viewBox="0 0 32 32">
-                                            <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path>
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex items-start justify-between mt-[10px] flex-col min-[769px]:flex-row">
-            <!-- Coupon Code -->
-            <div class="flex mb-[24px] w-[476px] max-w-full">
-                <input type="text" placeholder="ENTER COUPON CODE" class="border border-[#111111] px-[12px] py-[12px] w-[346px] max-w-full text-sm text-[#979797] font-medium"
-                >
-                <button class="bg-[#054C73] text-[#ffffff] px-3 py-2 w-[131px] max-w-full text-sm font-semibold uppercase border-none cursor-pointer"
-                >Apply</button>
-            </div>
-
-            <!-- Right Column - Cart Total -->
-            <div class="w-full max-w-[714px] min-[769px]:pl-[60px]">
-                <h2 class="text-[24px] font-[700] text-[#111111] mb-[16px]">Cart Total</h2>
-                <div class="border border-[#111111] rounded-[10px] flex justify-between flex-col uppercase">
-                    <div class="flex items-center justify-between px-[16px] py-[16px] text-[14px]">
-                        <h3 class="font-[600]">Subtotal</h3>
-                        <p class="font-[600]">IDR6.990.000</p>
-                    </div>
-                    <div class="flex items-center justify-between px-[16px] py-[16px] text-[14px] border-t border-b border-[#111111]">
-                        <h3 class="font-[600]">Tax</h3>
-                        <p class="font-[600]">IDR768.900 (11%)</p>
-                    </div>
-                    <div class="flex items-center justify-between px-[16px] py-[16px] text-[14px]">
-                        <h3 class="font-[600]">Total</h3>
-                        <p class="font-[600]">IDR7.758.900</p>
-                    </div>                    
-                </div>
-				<button class="checkout-btn bg-primary text-[#ffffff] w-full p-4 rounded-[10px] text-sm font-semibold uppercase mt-4 border-none cursor-pointer"
-                >Proceed to Checkout</button>
-            </div>
-        </div>
-    </div>
-
-    <!--Footer Section-->
-    <footer class="bg-primary flex flex-col text-center min-[769px]:text-start py-[30px] px-[40px] min-[769px]:grid [grid-template-columns:1.5fr_2fr] items-center gap-[30px] md:px-[150px] text-[#ffffff]">
-        <div class="footer-content">
-            <p class="py-[20px] font-bold">Furniture</p>
-            <p class="leading-[30px]">
-                Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-            <p class="py-[20px] font-bold">Follow Us</p>
-        </div>
-        <div class="flex flex-col justify-center font-bold gap-[20px]">
-            <p>Instagram Shop</p>
-            <img
-                class="h-auto w-[500px] max-w-full"
-                src="images/instagram-shop.png"
-                alt="instagram shop"
-            />
-        </div>	
-    </footer>	
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {                     
-            document.querySelector(".checkout-btn").addEventListener("click", function () {
-                window.location.href = "billians.html"; 
-            });
-        });
-
-        const middleSection = document.querySelector('.middle-section');
-		const hamburger = document.querySelector('#hamburger-menu');
-
-		hamburger.onclick = () => {
-			middleSection.classList.toggle('open');
-		};
-		document.addEventListener('click', function(e) {
-			if (!hamburger.contains(e.target) && !middleSection.contains(e.target)) {
-				middleSection.classList.remove('open');
+		<link rel="stylesheet" href="styles/tailwind.output.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<style type="text/tailwindcss">
+			p {
+				font-family: Montserrat, Arial;
+				margin-top: 0;
+				margin-bottom: 0;
 			}
-		});
-    </script>
-    
-</body>
+
+			a {
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body class="font-montserrat bg-[#ffffff]">
+		<!-- Header Section -->
+		<header
+			class="w-full flex justify-between items-center px-4 py-3 bg-white shadow-md fixed z-10 md:px-14"
+		>
+			<div class="left-section">
+				<h1 class="text-2xl text-primary font-bold tracking-wide">Furniture</h1>
+			</div>
+			<!-- Icons -->
+			<div class="right-section flex items-center space-x-4">
+				<a href="#"><i class="fa fa-search"></i></a>
+				<a href="#"><i class="fa fa-shopping-cart"></i></a>
+				<a href="#"><i class="fa fa-user"></i></a>
+				<a href="#" id="hamburger-menu" class="block md:hidden">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+			<!-- Desktop Nav -->
+			<div
+				class="middle-section hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2 font-bold"
+			>
+				<a href="/home.html">Home</a>
+				<a href="/shop.html" style="color: #054c73 !important">Shop</a>
+				<a href="/about-us.html">About Us</a>
+			</div>
+
+			<!-- Mobile Menu -->
+			<div
+				id="mobile-menu"
+				class="hidden absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center space-y-4 py-4 md:hidden font-bold z-10"
+			>
+				<a href="/home.html">Home</a>
+				<a href="/shop.html" style="color: #054c73 !important">Shop</a>
+				<a href="/about-us.html">About Us</a>
+			</div>
+		</header>
+
+		<div class="max-w-[1440px] mx-auto py-[70px] px-[60px]">
+			<!-- Cart Title -->
+			<h2 class="text-[24px] font-[700] text-[#111111] mb-[24px]">Your Cart</h2>
+
+			<!-- Cart Content -->
+			<div class="flex flex-col gap-[24px]">
+				<div class="cart-details">
+					<div
+						class="overflow-x-auto border border-[#111111] rounded-[10px] mb-4"
+					>
+						<table class="w-full border-collapse">
+							<thead>
+								<tr>
+									<th
+										class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+									>
+										Image
+									</th>
+									<th
+										class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+									>
+										Product Name
+									</th>
+									<th
+										class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+									>
+										Unit Price
+									</th>
+									<th
+										class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+									>
+										Qty
+									</th>
+									<th
+										class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+									>
+										Subtotal
+									</th>
+									<th
+										class="font-semibold text-[#111111] uppercase text-base p-5 text-center border-b border-[#111111]"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="px-[40px] py-[40px] text-center align-middle">
+										<div class="flex justify-center">
+											<div class="relative w-[113px] aspect-square">
+												<img
+													src="images/product1.png"
+													alt="FRIDHULT"
+													class="absolute inset-0 w-full h-full object-cover rounded"
+												/>
+											</div>
+										</div>
+									</td>
+									<td class="px-[40px] py-[40px] text-center align-middle">
+										<p class="text-[14px] font-[500] text-[#111111]">
+											FRIDHULT
+										</p>
+									</td>
+									<td class="px-[40px] py-[40px] text-center align-middle">
+										<p class="text-[14px] font-[500] text-[#111111]">
+											IDR3.495.000
+										</p>
+									</td>
+									<td class="px-[40px] py-[40px] text-center align-middle">
+										<div class="flex justify-center">
+											<div
+												class="inline-flex items-center border border-[#979797]"
+											>
+												<button
+													class="w-6 h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
+												>
+													-
+												</button>
+												<span
+													class="min-w-[12px] min-h-6 flex items-center justify-center px-2 border-l border-r border-[#979797]"
+													>2</span
+												>
+												<button
+													class="w-6 h-6 flex items-center justify-center bg-transparent text-[#054C73] border-none cursor-pointer"
+												>
+													+
+												</button>
+											</div>
+										</div>
+									</td>
+									<td class="px-[40px] py-[40px] text-center align-middle">
+										<p class="text-[14px] font-[500] text-[#111111]">
+											IDR6.990.000
+										</p>
+									</td>
+									<td class="px-[40px] py-[40px] text-center align-middle">
+										<button class="bg-[#ffffff] border-none">
+											<svg
+												fill="#054C73"
+												width="50"
+												height="50"
+												viewBox="0 0 32 32"
+											>
+												<path
+													d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"
+												></path>
+											</svg>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="flex items-start justify-between mt-[10px] flex-col min-[769px]:flex-row"
+			>
+				<!-- Coupon Code -->
+				<div class="flex mb-[24px] w-[476px] max-w-full">
+					<input
+						type="text"
+						placeholder="ENTER COUPON CODE"
+						class="border border-[#111111] px-[12px] py-[12px] w-[346px] max-w-full text-sm text-[#979797] font-medium"
+					/>
+					<button
+						class="bg-[#054C73] text-[#ffffff] px-3 py-2 w-[131px] max-w-full text-sm font-semibold uppercase border-none cursor-pointer"
+					>
+						Apply
+					</button>
+				</div>
+
+				<!-- Right Column - Cart Total -->
+				<div class="w-full max-w-[714px] min-[769px]:pl-[60px]">
+					<h2 class="text-[24px] font-[700] text-[#111111] mb-[16px]">
+						Cart Total
+					</h2>
+					<div
+						class="border border-[#111111] rounded-[10px] flex justify-between flex-col uppercase"
+					>
+						<div
+							class="flex items-center justify-between px-[16px] py-[16px] text-[14px]"
+						>
+							<h3 class="font-[600]">Subtotal</h3>
+							<p class="font-[600]">IDR6.990.000</p>
+						</div>
+						<div
+							class="flex items-center justify-between px-[16px] py-[16px] text-[14px] border-t border-b border-[#111111]"
+						>
+							<h3 class="font-[600]">Tax</h3>
+							<p class="font-[600]">IDR768.900 (11%)</p>
+						</div>
+						<div
+							class="flex items-center justify-between px-[16px] py-[16px] text-[14px]"
+						>
+							<h3 class="font-[600]">Total</h3>
+							<p class="font-[600]">IDR7.758.900</p>
+						</div>
+					</div>
+					<button
+						class="checkout-btn bg-primary text-[#ffffff] w-full p-4 rounded-[10px] text-sm font-semibold uppercase mt-4 border-none cursor-pointer"
+					>
+						Proceed to Checkout
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!--Footer Section-->
+		<footer
+			class="bg-primary px-4 py-8 sm:px-8 md:px-16 lg:px-24 xl:px-[150px] text-[#ffffff]"
+		>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[30px]">
+				<div class="footer-content">
+					<p class="py-4 md:py-[20px] font-bold text-xl">Furniture</p>
+					<p class="leading-6 md:leading-[30px] text-sm md:text-base">
+						Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+						enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+					</p>
+					<p class="py-4 md:py-[20px] font-bold text-lg">Follow Us</p>
+				</div>
+				<div class="flex flex-col justify-center font-bold gap-4 md:gap-[20px]">
+					<p class="text-lg md:text-xl">Instagram Shop</p>
+					<img
+						class="h-auto w-full max-w-[500px]"
+						src="images/instagram-shop.png"
+						alt="instagram shop"
+					/>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				document
+					.querySelector(".checkout-btn")
+					.addEventListener("click", function () {
+						window.location.href = "billians.html";
+					});
+			});
+
+			const middleSection = document.querySelector(".middle-section");
+			const hamburger = document.querySelector("#hamburger-menu");
+
+			hamburger.onclick = () => {
+				middleSection.classList.toggle("open");
+			};
+			document.addEventListener("click", function (e) {
+				if (
+					!hamburger.contains(e.target) &&
+					!middleSection.contains(e.target)
+				) {
+					middleSection.classList.remove("open");
+				}
+			});
+		</script>
+	</body>
 </html>
