@@ -144,20 +144,21 @@
 					<i class="fa fa-bars"></i>
 				</a>
 			</div>
+			<!-- Desktop Nav -->
+			<div
+				class="middle-section hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2 font-bold"
+			>
+				<a href="/home.html" style="color: #054c73 !important">Home</a>
+				<a href="/shop.html">Shop</a>
+				<a href="/about-us.html">About Us</a>
+			</div>
+
 			<!-- Mobile Menu -->
 			<div
 				id="mobile-menu"
 				class="hidden absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center space-y-4 py-4 md:hidden font-bold z-10"
 			>
-				<a href="/home.html" class="text-primary">Home</a>
-				<a href="/shop.html">Shop</a>
-				<a href="/about-us.html">About Us</a>
-			</div>
-			<!-- Desktop Nav -->
-			<div
-				class="middle-section hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2 font-bold"
-			>
-				<a href="/home.html" class="text-primary">Home</a>
+				<a href="/home.html" style="color: #054c73 !important">Home</a>
 				<a href="/shop.html">Shop</a>
 				<a href="/about-us.html">About Us</a>
 			</div>
@@ -187,24 +188,24 @@
 			<!-- Service Section -->
 			<div class="bg-lightbg grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
 				<div class="flex items-center gap-3 justify-center">
-					<div><i class="fa fa-truck"></i></div>
+					<div><i class="fa fa-truck text-3xl"></i></div>
 					<div class="text-textdark">
-						<p class="font-semibold">Free Delivery</p>
-						<p class="text-sm">Lorem ipsum dolor sit amet.</p>
+						<p class="font-semibold text-xl">Free Delivery</p>
+						<p class="text-base">Lorem ipsum dolor sit amet.</p>
 					</div>
 				</div>
 				<div class="flex items-center gap-3 justify-center">
-					<div><i class="fa fa-clock-o"></i></div>
+					<div><i class="fa-regular fa-clock text-3xl"></i></div>
 					<div class="text-textdark">
-						<p class="font-semibold">Support 24/7</p>
-						<p class="text-sm">Lorem ipsum dolor sit amet.</p>
+						<p class="font-semibold text-xl">Support 24/7</p>
+						<p class="text-base">Lorem ipsum dolor sit amet.</p>
 					</div>
 				</div>
 				<div class="flex items-center gap-3 justify-center">
-					<div><i class="fa fa-thumbs-up"></i></div>
+					<div><i class="fa fa-thumbs-up text-3xl"></i></div>
 					<div class="text-textdark">
-						<p class="font-semibold">100% Authentic</p>
-						<p class="text-sm">Lorem ipsum dolor sit amet.</p>
+						<p class="font-semibold text-xl">100% Authentic</p>
+						<p class="text-base">Lorem ipsum dolor sit amet.</p>
 					</div>
 				</div>
 			</div>
@@ -231,7 +232,7 @@
 
 			<!-- Additional Section -->
 			<div
-				class="bg-lightbg flex flex-col md:flex-row justify-between items-center gap-5 p-4 md:px-14 md:py-6"
+				class="bg-lightbg flex flex-col md:flex-row justify-between items-center gap-5 p-4 md:px-20 md:py-6 lg:px-32 xl:px-56"
 			>
 				<div
 					class="flex flex-col justify-between items-center text-center md:text-left md:items-start md:w-1/2"
@@ -250,7 +251,11 @@
 					</button>
 				</div>
 
-				<img class="md:w-1/2" src="images/beautify.png" alt="additional" />
+				<img
+					class="w-full max-w-[300px] md:max-w-[400px] md:w-auto"
+					src="images/beautify.png"
+					alt="additional"
+				/>
 			</div>
 
 			<!-- Category Section -->
@@ -312,20 +317,20 @@
 
 		<!-- Footer Section -->
 		<footer
-			class="bg-primary text-white p-5 gap-5 grid grid-rows-2 md:flex md:flex-row md:justify-between md:items-start md:px-14"
+			class="bg-primary flex flex-col text-center min-[769px]:text-start py-[30px] px-[40px] min-[769px]:grid [grid-template-columns:1.5fr_2fr] items-center gap-[30px] md:px-[150px] text-[#ffffff]"
 		>
-			<div class="lg:max-w-[50%]">
-				<p class="py-4 font-bold uppercase">Furniture</p>
-				<p class="text-xs leading-[30px]">
+			<div class="footer-content">
+				<p class="py-[20px] font-bold">Furniture</p>
+				<p class="leading-[30px]">
 					Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 					ad minim veniam, quis nostrud exercitation ullamco laboris.
 				</p>
-				<p class="pt-2 font-bold">Follow Us</p>
+				<p class="py-[20px] font-bold">Follow Us</p>
 			</div>
-			<div class="flex flex-col justify-center gap-5 font-bold lg:max-w-[50%]">
+			<div class="flex flex-col justify-center font-bold gap-[20px]">
 				<p>Instagram Shop</p>
 				<img
-					class="h-auto max-w-full w-[500px]"
+					class="h-auto w-[500px] max-w-full"
 					src="images/instagram-shop.png"
 					alt="instagram shop"
 				/>
