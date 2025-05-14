@@ -14,13 +14,13 @@
 		<link rel="stylesheet" href="styles/tailwind.output.css" />
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
 	</head>
 	<body class="font-montserrat bg-[#ffffff]">
 		<!-- Header Section -->
 		<header
-			class="w-full flex justify-between items-center px-4 py-3 bg-white shadow-md fixed z-10 md:px-14"
+			class="w-full flex justify-between items-center px-4 py-3 bg-white bg-opacity-100 shadow-md fixed z-20 md:px-14"
 		>
 			<div class="left-section">
 				<h1 class="text-2xl text-primary font-bold tracking-wide">Furniture</h1>
@@ -99,399 +99,428 @@
 					class="grid grid-cols-1 sm:grid-cols-2 min-[768px]:[grid-template-columns:repeat(3,minmax(200px,1fr))] min-[1000px]:[grid-template-columns:repeat(4,minmax(200px,1fr))] gap-12 py-12 px-[30px] min-[900px]:px-[50px] max-w-full overflow-x-hidden"
 				>
 					<!-- Product 1 -->
-					<div
-						class="product-card relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
+					<a
+						href="/product-detail.html"
+						class="block relative box-border no-underline text-current"
 					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product1.png"
-							alt="FRIDHULT"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">FRIDHULT</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(24 reviews)</p>
+						<div class="flex justify-center relative">
+							<img
+								src="images/product1.png"
+								alt="FRIDHULT"
+								class="max-w-full"
+							/>
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								FRIDHULT
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(24 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 1.495.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="cart-button w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">
+									IDR 1.495.000
+								</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 
 					<!-- Product 2 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product2.png"
-							alt="IVÖSJÖN"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">IVÖSJÖN</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(36 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product2.png" alt="IVÖSJÖN" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								IVÖSJÖN
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(36 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 449.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 449.000</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 3 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product3.png"
-							alt="TRONES"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">TRONES</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(42 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product3.png" alt="TRONES" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								TRONES
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(42 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 3.495.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">
+									IDR 3.495.000
+								</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 4 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product4.png"
-							alt="OFTAST"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">OFTAST</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(18 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product4.png" alt="OFTAST" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								OFTAST
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(18 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 9.900</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 9.900</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 5 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product5.png"
-							alt="LYCKSELE HÅVET"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img
+								src="images/product5.png"
+								alt="LYCKSELE HÅVET"
+								class="max-w-full"
+							/>
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
 								LYCKSELE HÅVET
 							</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(36 reviews)</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(36 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 4.795.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">
+									IDR 4.795.000
+								</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 6 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product6.png"
-							alt="LACK"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">LACK</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(36 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product6.png" alt="LACK" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">LACK</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(36 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 199.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 199.000</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 7 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product7.png"
-							alt="LÄTTNAD"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">LÄTTNAD</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(26 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product7.png" alt="LÄTTNAD" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								LÄTTNAD
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(26 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 29.900</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 29.900</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 8 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product8.png"
-							alt="NYMÅNE"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">NYMÅNE</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(54 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product8.png" alt="NYMÅNE" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-2 right-2 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								NYMÅNE
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(54 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 999.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 999.000</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 9 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product9.png"
-							alt="TVÄRHAND"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">TVÄRHAND</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(43 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img
+								src="images/product9.png"
+								alt="TVÄRHAND"
+								class="max-w-full"
+							/>
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-2 right-2 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								TVÄRHAND
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(43 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 199.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 199.000</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 10 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product10.png"
-							alt="TORNVIKEN"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">TORNVIKEN</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(34 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img
+								src="images/product10.png"
+								alt="TORNVIKEN"
+								class="max-w-full"
+							/>
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-2 right-2 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								TORNVIKEN
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(34 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 6.999.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">
+									IDR 6.999.000
+								</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 11 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product11.png"
-							alt="RÅSKOG"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">RÅSKOG</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(14 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img src="images/product11.png" alt="RÅSKOG" class="max-w-full" />
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								RÅSKOG
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(14 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 499.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">IDR 499.000</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- Product 12 -->
-					<div
-						class="relative bg-[#f2f5ff] p-2.5 rounded-[8px] cursor-pointer shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
-					>
-						<img
-							class="absolute top-5 right-5 w-5 h-5 text-4 text-[#ff4d4d] cursor-pointer transition-transform duration-200 ease-in-out"
-							src="images/favorite.png"
-							alt="Wishlist"
-						/>
-						<img
-							src="images/product12.png"
-							alt="RISHOLMEN"
-							class="w-full h-auto mb-[5px]"
-						/>
-						<div class="flex flex-col justify-start mb-[5px]">
-							<p class="text-xl mb-[5px] text-[#111111] font-bold">RISHOLMEN</p>
-							<div class="flex justify-start items-center gap-[5px]">
-								<p class="text-[#ffd700] text-[16px]">★★★★★</p>
-								<p class="text-[12px] text-[#979797]">(56 reviews)</p>
+					<div class="relative box-border">
+						<div class="flex justify-center relative">
+							<img
+								src="images/product12.png"
+								alt="RISHOLMEN"
+								class="max-w-full"
+							/>
+							<img
+								src="images/favorite.png"
+								alt="Wishlist"
+								class="absolute top-0 right-0 w-5 h-5 text-[#ffffff]"
+								style="-webkit-text-stroke: 1px #054c73"
+							/>
+						</div>
+
+						<div class="bg-[#f2f5ff] p-[20px] rounded-b-[7px] shadow-inner">
+							<p class="font-bold text-[18px] text-[#111111] mb-[10px]">
+								RISHOLMEN
+							</p>
+							<div class="flex items-center gap-[2px] text-[#ffd700]">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="text-[#979797] text-sm">(56 reviews)</span>
 							</div>
-							<div
-								class="grid [grid-template-columns:2.7fr_1fr] gap-2.5 items-center"
-							>
-								<p class="font-bold text-[#111111]">IDR 3.455.000</p>
-								<img
-									src="images/cart.png"
-									alt="cart icon"
-									class="w-[50px] h-[50px] cursor-pointer"
-								/>
+							<div class="flex items-center justify-between gap-[20px] mt-2">
+								<p class="text-[#111111] text-[18px] font-bold">
+									IDR 3.455.000
+								</p>
+								<div class="cursor-pointer">
+									<img src="images/cart.png" alt="cart icon" class="w-[50px]" />
+								</div>
 							</div>
 						</div>
 					</div>
