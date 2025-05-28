@@ -255,30 +255,8 @@
 				</div>
 			</div>
 		</footer>
-
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				document
-					.querySelector(".checkout-btn")
-					.addEventListener("click", function () {
-						window.location.href = "billians.html";
-					});
-			});
-
-			const middleSection = document.querySelector(".middle-section");
-			const hamburger = document.querySelector("#hamburger-menu");
-
-			hamburger.onclick = () => {
-				middleSection.classList.toggle("open");
-			};
-			document.addEventListener("click", function (e) {
-				if (
-					!hamburger.contains(e.target) &&
-					!middleSection.contains(e.target)
-				) {
-					middleSection.classList.remove("open");
-				}
-			});
-		</script>
+        
+		<!-- JavaScript -->
+        <script src="script.js"></script>
 	</body>
 </html>
