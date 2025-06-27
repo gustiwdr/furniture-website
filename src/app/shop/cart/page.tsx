@@ -74,6 +74,8 @@ export default function Cart() {
 														src="/images/product1.png"
 														alt="FRIDHULT"
 														className="absolute inset-0 w-full h-full object-cover rounded"
+														width={113}
+														height={113}
 													/>
 												</div>
 											</div>

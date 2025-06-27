@@ -65,9 +65,9 @@ export default function ProductDetail() {
 							<Image
 								src="/images/product1.png"
 								alt="FRIDHULT"
-								className="w-full max-w-[400px] md:max-w-[500px] 
-								width={100}
-								height={100}lg:max-w-[600px] xl:max-w-[730px] object-cover aspect-square"
+								className="w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[730px] object-cover aspect-square"
+								width={1000}
+								height={1000}
 							/>
 						</div>
 
