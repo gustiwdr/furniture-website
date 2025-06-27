@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navigator from "../../components/Navigator";
 import Footer from "../../components/Footer";
 
@@ -69,7 +70,7 @@ export default function Cart() {
 										<td className="px-[40px] py-[40px] text-center align-middle">
 											<div className="flex justify-center">
 												<div className="relative w-[113px] aspect-square">
-													<img
+													<Image
 														src="/images/product1.png"
 														alt="FRIDHULT"
 														className="absolute inset-0 w-full h-full object-cover rounded"

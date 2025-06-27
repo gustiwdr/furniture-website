@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent, MouseEvent } from "react";
-import Link from "next/link";
+import { useState, ChangeEvent, FormEvent } from "react";
 import Navigator from "../../../components/Navigator";
 import Footer from "../../../components/Footer";
 
@@ -32,13 +31,22 @@ export default function Billing() {
 	};
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		alert("Form submitted");
-	};
+    e.preventDefault();
+    
+    console.log("Form data:", formData);
+    console.log("Payment method:", paymentMethod);
+    
+    alert("Proceeding to payment...");
+  };
 
-	const handlePaymentClick = (e: MouseEvent<HTMLButtonElement>) => {
-		alert("Proceeding to payment...");
-	};
+  const handlePaymentClick = () => {
+    if (!formData.firstName || !formData.lastName || !formData.email) {
+      alert("Please fill in all required fields");
+      return;
+    }
+    
+    alert("Proceeding to payment...");
+  };
 
 	return (
 		<div className="font-montserrat bg-white">

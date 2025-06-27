@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
-import Head from "next/head";
+import { useEffect } from "react";
 import Navigator from "../components/Navigator";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import ServiceSection from "../components/ServiceSection";
+import Image from "next/image";
 
 export default function Home() {
-	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 
 	useEffect(() => {
 		const header = document.querySelector("header");
@@ -21,19 +21,6 @@ export default function Home() {
 
 	return (
 		<>
-			<Head>
-				<title>Furniture E-Commerce</title>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link
-					rel="preconnect"
-					href="https://fonts.gstatic.com"
-					crossOrigin="anonymous"
-				/>
-				<link
-					href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-					rel="stylesheet"
-				/>
-			</Head>
 
 			<div className="overflow-x-hidden p-0 m-0 font-montserrat">
 				<Navigator activePage="home" />
@@ -56,10 +43,12 @@ export default function Home() {
 							</p>
 						</div>
 
-						<img
+						<Image
 							className="object-cover"
 							src="/images/inspiration.png"
 							alt="inspiration"
+							width={1150}
+							height={400}
 						/>
 					</div>
 
@@ -79,10 +68,12 @@ export default function Home() {
 							</button>
 						</div>
 
-						<img
+						<Image
 							className="w-full max-w-[300px] md:max-w-[400px] md:w-auto"
 							src="/images/beautify.png"
 							alt="additional"
+							width={400}
+							height={400}
 						/>
 					</div>
 
@@ -99,15 +90,33 @@ export default function Home() {
 
 						<div className="flex flex-col md:flex-row gap-5">
 							<div className="uppercase font-semibold text-textdark text-center">
-								<img className="" src="/images/dining.png" alt="dining room" />
+								<Image
+									className=""
+									src="/images/dining.png"
+									alt="dining room"
+									width={400}
+									height={400}
+								/>
 								<p className="mt-2">Dining</p>
 							</div>
 							<div className="uppercase font-semibold text-textdark text-center">
-								<img className="" src="/images/living.png" alt="living room" />
+								<Image
+									className=""
+									src="/images/living.png"
+									alt="living room"
+									width={400}
+									height={400}
+								/>
 								<p className="mt-2">Living</p>
 							</div>
 							<div className="uppercase font-semibold text-textdark text-center">
-								<img className="" src="/images/bedroom.png" alt="bedroom" />
+								<Image
+									className=""
+									src="/images/bedroom.png"
+									alt="bedroom"
+									width={400}
+									height={400}
+								/>
 								<p className="mt-2">Bedroom</p>
 							</div>
 						</div>

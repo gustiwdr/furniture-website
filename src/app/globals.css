@@ -6,6 +6,11 @@
 	--primary: #054c73;
 	--text-dark: #333333;
 	--light-bg: #f2f5ff;
+
+	/* Font variables */
+	--font-montserrat: "Montserrat", sans-serif;
+	--font-nunito: "Nunito", sans-serif;
+	--font-poppins: "Poppins", sans-serif;
 }
 
 @theme inline {

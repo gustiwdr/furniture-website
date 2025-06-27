@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Register() {
 	// Media query handler untuk responsive layout
@@ -201,10 +202,22 @@ export default function Register() {
 					{/* Right Section */}
 					<div className="right-section w-full lg:w-1/2 relative flex items-end justify-end">
 						<div className="image-container relative z-20">
-							<img
-								className="main-image w-full h-full object-cover"
+							<Image
+								className="main-image"
+								style={{
+									width: "643px",
+									height: "933px",
+									objectFit: "cover",
+									borderTopRightRadius: "75px",
+									borderTopLeftRadius: "12px",
+									borderBottomRightRadius: "12px",
+									borderBottomLeftRadius: "75px",
+									transform: "scaleX(-1)",
+								}}
 								src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D"
 								alt="Furniture"
+								width={643}
+								height={933}
 							/>
 							<div className="image-text absolute bottom-8 right-4 p-2">
 								<h2 className="text-3xl font-bold text-primary leading-tight mb-2 text-right p-1">

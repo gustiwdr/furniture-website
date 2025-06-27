@@ -14,10 +14,12 @@ const Footer = () => {
 				</div>
 				<div className="flex flex-col justify-center font-bold gap-4 md:gap-[20px]">
 					<p className="text-lg md:text-xl">Instagram Shop</p>
-					<img
+					<Image
 						className="h-auto w-full max-w-[500px]"
 						src="/images/instagram-shop.png"
 						alt="instagram shop"
+						width={500}
+						height={500}
 					/>
 				</div>
 			</div>

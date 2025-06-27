@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navigator from "../../components/Navigator";
 import Footer from "../../components/Footer";
 import ProductCard from "../../components/ProductCard";
+import Image from "next/image";
 
 const similarProducts = [
 	{
@@ -61,10 +62,12 @@ export default function ProductDetail() {
 					<div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-[70px]">
 						{/* Product Image */}
 						<div className="flex items-center justify-center w-full md:w-1/2 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-28">
-							<img
+							<Image
 								src="/images/product1.png"
 								alt="FRIDHULT"
-								className="w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[730px] object-cover aspect-square"
+								className="w-full max-w-[400px] md:max-w-[500px] 
+								width={100}
+								height={100}lg:max-w-[600px] xl:max-w-[730px] object-cover aspect-square"
 							/>
 						</div>
 
@@ -103,31 +106,39 @@ export default function ProductDetail() {
 						{/* Additional Images */}
 						<div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-[60px] items-center">
 							<div className="additional-img">
-								<img
+								<Image
 									src="/images/fridhult-add-1.png"
 									alt=""
 									className="w-full"
+									width={100}
+									height={100}
 								/>
 							</div>
 							<div className="additional-img">
-								<img
+								<Image
 									src="/images/fridhult-add-2.png"
 									alt=""
 									className="w-full"
+									width={100}
+									height={100}
 								/>
 							</div>
 							<div className="additional-img">
-								<img
+								<Image
 									src="/images/fridhult-add-3.png"
 									alt=""
 									className="w-full"
+									width={100}
+									height={100}
 								/>
 							</div>
 							<div className="additional-img">
-								<img
+								<Image
 									src="/images/fridhult-add-4.png"
 									alt=""
 									className="w-full"
+									width={100}
+									height={100}
 								/>
 							</div>
 						</div>
@@ -271,24 +282,28 @@ export default function ProductDetail() {
 							<div className="py-[10px] w-full">
 								<p className="text-[#979797] text-[14px] sm:text-[15px] font-medium leading-[25px]">
 									Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's
+									typesetting industry. Lorem Ipsum has been the industry&apos;s
 									standard dummy text ever since the 1500s, when an unknown
 									printer took a galley of type and scrambled it to make a type
 									specimen book. It has survived not only five centuries
 								</p>
 								<div className="flex gap-4 sm:gap-[15px] py-[10px] flex-wrap">
 									<div>
-										<img
+										<Image
 											src="/images/cs-img-1.png"
 											alt="image-error"
 											className="max-w-full"
+											width={100}
+											height={100}
 										/>
 									</div>
 									<div>
-										<img
+										<Image
 											src="/images/cs-img-2.png"
 											alt="image-error"
 											className="max-w-full"
+											width={100}
+											height={100}
 										/>
 									</div>
 								</div>
@@ -308,7 +323,7 @@ export default function ProductDetail() {
 							<div className="py-[10px] w-full">
 								<p className="text-[#979797] text-[14px] sm:text-[15px] font-medium leading-[25px]">
 									Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's
+									typesetting industry. Lorem Ipsum has been the industry&apos;s
 									standard dummy text ever since the 1500s, when an unknown
 									printer took a galley of type and scrambled it to make a type
 									specimen book. It has survived not only five centuries
@@ -329,7 +344,7 @@ export default function ProductDetail() {
 							<div className="py-[10px] w-full">
 								<p className="text-[#979797] text-[14px] sm:text-[15px] font-medium leading-[25px]">
 									Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's
+									typesetting industry. Lorem Ipsum has been the industry&apos;s
 									standard dummy text ever since the 1500s, when an unknown
 									printer took a galley of type and scrambled it to make a type
 									specimen book. It has survived not only five centuries

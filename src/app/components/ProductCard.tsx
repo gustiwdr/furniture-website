@@ -22,7 +22,13 @@ const ProductCard = ({
 			className="relative box-border no-underline text-current"
 		>
 			<div className="flex justify-center relative">
-				<img src={image} alt={name} className="max-w-full" />
+				<Image
+					src={image}
+					alt={name}
+					className="max-w-full"
+					width={400}
+					height={400}
+				/>
 				<span
 					className="fa fa-heart absolute top-0 right-0 text-[#ffffff]"
 					style={{ WebkitTextStroke: "1px #054c73" }}
@@ -48,10 +54,12 @@ const ProductCard = ({
 						{price}
 					</p>
 					<div className="cursor-pointer">
-						<img
+						<Image
 							src="/images/cart.png"
 							alt="cart icon"
 							className="w-[40px] sm:w-[50px]"
+							width={40}
+							height={40}
 						/>
 					</div>
 				</div>

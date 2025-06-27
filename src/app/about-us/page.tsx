@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Navigator from "../components/Navigator";
 import Footer from "../components/Footer";
+import Image from "next/image";
 
 export default function AboutUs() {
 	return (
@@ -72,10 +72,12 @@ export default function AboutUs() {
 					<div className="flex justify-center items-center gap-[20px] flex-col md:flex-row md:items-start mb-8">
 						<div className="mb-[20px]">
 							<div className="relative flex justify-center">
-								<img
+								<Image
 									src="/images/how-it-works-1.png"
 									alt="Purchase Securely"
 									className="w-[300px] md:w-[381px] max-w-[100%] object-cover object-center rounded-[10px]"
+									width={381}
+									height={300}
 								/>
 								<span className="absolute bottom-0 left-[50%] w-[80px] bg-black rounded-full aspect-square flex items-center justify-center text-white -translate-x-[50%] translate-y-[50%] border-[15px] border-white border-solid font-bold text-[18px]">
 									1
@@ -94,10 +96,12 @@ export default function AboutUs() {
 
 						<div className="mb-[20px]">
 							<div className="relative flex justify-center">
-								<img
+								<Image
 									src="/images/how-it-works-2.png"
 									alt="Ships From Warehouse"
 									className="w-[300px] md:w-[381px] max-w-[100%] object-cover object-center rounded-[10px]"
+									width={381}
+									height={300}
 								/>
 								<span className="absolute bottom-0 left-[50%] w-[80px] bg-black rounded-full aspect-square flex items-center justify-center text-white -translate-x-[50%] translate-y-[50%] border-[15px] border-white border-solid font-bold text-[18px]">
 									2
@@ -116,10 +120,12 @@ export default function AboutUs() {
 
 						<div className="mb-[20px]">
 							<div className="relative flex justify-center">
-								<img
+								<Image
 									src="/images/how-it-works-3.png"
 									alt="Style Your Room"
 									className="w-[300px] md:w-[381px] max-w-[100%] object-cover object-center rounded-[10px]"
+									width={381}
+									height={300}
 								/>
 								<span className="absolute bottom-0 left-[50%] w-[80px] bg-black rounded-full aspect-square flex items-center justify-center text-white -translate-x-[50%] translate-y-[50%] border-[15px] border-white border-solid font-bold text-[18px]">
 									3
@@ -162,7 +168,12 @@ export default function AboutUs() {
 							</div>
 							<div className="flex gap-[20px] pt-[20px] items-center">
 								<div>
-									<img src="/images/linda.png" alt="Linda" />
+									<Image
+										src="/images/linda.png"
+										alt="Linda"
+										width={50}
+										height={50}
+									/>
 								</div>
 								<div>
 									<p className="text-primary font-bold pb-[2px] text-[18px]">
@@ -188,7 +199,12 @@ export default function AboutUs() {
 							</div>
 							<div className="flex gap-[20px] pt-[20px] items-center">
 								<div>
-									<img src="/images/John.png" alt="John" />
+									<Image
+										src="/images/John.png"
+										alt="John"
+										width={50}
+										height={50}
+									/>
 								</div>
 								<div>
 									<p className="text-primary font-bold pb-[2px] text-[18px]">
@@ -214,7 +230,12 @@ export default function AboutUs() {
 							</div>
 							<div className="flex gap-[20px] pt-[20px] items-center">
 								<div>
-									<img src="/images/bruno.png" alt="Bruno" />
+									<Image
+										src="/images/bruno.png"
+										alt="Bruno"
+										width={50}
+										height={50}
+									/>
 								</div>
 								<div>
 									<p className="text-primary font-bold pb-[2px] text-[18px]">
