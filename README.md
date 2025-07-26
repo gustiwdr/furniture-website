@@ -32,7 +32,7 @@ src/app/
 │   └── about-us/
 ├── shop/             # E-commerce section (Product Listing, Cart, Billings)
 │   ├── cart/
-│   └── billings/
+│       └── billings/
 ├── product/          # Dynamic product detail pages
 │   └── [id]/
 ├── components/       # Reusable components (Navigator, Footer, ProductCard)
