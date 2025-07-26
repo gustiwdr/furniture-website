@@ -143,7 +143,15 @@ export class BigDataProductService implements ProductService {
 	): Product[] {
 		if (!sort) return products;
 
-		return [...products].sort((a, b) => {
+		// Create a copy to avoid mutating original
+		const sortedProducts = [...products];
+
+		// Always keep the FRIDHULT product (ID: "1") at the top for first page
+		const fridhultProduct = sortedProducts.find((p) => p.id === "1");
+		const otherProducts = sortedProducts.filter((p) => p.id !== "1");
+
+		// Sort other products
+		otherProducts.sort((a, b) => {
 			let aValue: any = a[sort.field];
 			let bValue: any = b[sort.field];
 
@@ -159,6 +167,11 @@ export class BigDataProductService implements ProductService {
 				return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
 			}
 		});
+
+		// Return with FRIDHULT first, then other sorted products
+		return fridhultProduct
+			? [fridhultProduct, ...otherProducts]
+			: otherProducts;
 	}
 
 	// Efficient pagination for Big Data
@@ -189,7 +202,7 @@ export class BigDataProductService implements ProductService {
 		sort?: ProductSortOptions,
 		pagination?: PaginationOptions
 	): Promise<ProductQueryResult> {
-		await this.delay(150); 
+		await this.delay(150);
 
 		if (Math.random() > 0.995) {
 			throw new Error("Big Data Service temporarily overloaded");

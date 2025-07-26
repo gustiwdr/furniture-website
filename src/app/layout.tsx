@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Nunito, Poppins } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "./context/CartContext";
 
 const montserrat = Montserrat({
 	subsets: ["latin"],
@@ -42,7 +43,11 @@ export default function RootLayout({
 					referrerPolicy="no-referrer"
 				/>
 			</head>
-			<body className={`${montserrat.variable} ${nunito.variable} ${poppins.variable} font-montserrat`}>{children}</body>
+			<body
+				className={`${montserrat.variable} ${nunito.variable} ${poppins.variable} font-montserrat`}
+			>
+				<CartProvider>{children}</CartProvider>
+			</body>
 		</html>
 	);
 }

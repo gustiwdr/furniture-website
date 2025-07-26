@@ -1,14 +1,12 @@
 "use client";
 import { useEffect } from "react";
-import Navigator from "../components/Navigator";
-import Footer from "../components/Footer";
-import HeroSection from "../components/HeroSection";
-import ServiceSection from "../components/ServiceSection";
+import Navigator from "../../components/Navigator";
+import Footer from "../../components/Footer";
+import HeroSection from "../../components/HeroSection";
+import ServiceSection from "../../components/ServiceSection";
 import Image from "next/image";
 
 export default function Home() {
-
-
 	useEffect(() => {
 		const header = document.querySelector("header");
 		const hero = document.querySelector(".hero-section") as HTMLElement;
@@ -21,7 +19,6 @@ export default function Home() {
 
 	return (
 		<>
-
 			<div className="overflow-x-hidden p-0 m-0 font-montserrat">
 				<Navigator activePage="home" />
 

@@ -3,8 +3,19 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import Navigator from "../../../components/Navigator";
 import Footer from "../../../components/Footer";
+import { useCart } from "../../../context/CartContext";
 
 export default function Billing() {
+	// Cart context
+	const {
+		items,
+		getTotalItems,
+		getSubtotal,
+		getTax,
+		getShipping,
+		getTotalPrice,
+	} = useCart();
+
 	const [formData, setFormData] = useState({
 		firstName: "",
 		lastName: "",
@@ -31,22 +42,36 @@ export default function Billing() {
 	};
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    console.log("Form data:", formData);
-    console.log("Payment method:", paymentMethod);
-    
-    alert("Proceeding to payment...");
-  };
+		e.preventDefault();
 
-  const handlePaymentClick = () => {
-    if (!formData.firstName || !formData.lastName || !formData.email) {
-      alert("Please fill in all required fields");
-      return;
-    }
-    
-    alert("Proceeding to payment...");
-  };
+		console.log("Form data:", formData);
+		console.log("Payment method:", paymentMethod);
+
+		alert("Proceeding to payment...");
+	};
+
+	const handlePaymentClick = () => {
+		if (!formData.firstName || !formData.lastName || !formData.email) {
+			alert("Please fill in all required fields");
+			return;
+		}
+
+		if (items.length === 0) {
+			alert("Your cart is empty. Please add items to cart first.");
+			return;
+		}
+
+		alert("Proceeding to payment...");
+	};
+
+	// Format price to IDR
+	const formatPrice = (price: number) => {
+		return new Intl.NumberFormat("id-ID", {
+			style: "currency",
+			currency: "IDR",
+			minimumFractionDigits: 0,
+		}).format(price);
+	};
 
 	return (
 		<div className="font-montserrat bg-white">
@@ -195,27 +220,58 @@ export default function Billing() {
 								<p className="text-textdark text-[18px] font-bold">Total</p>
 							</div>
 
-							<div className="flex justify-between border-b border-textdark py-[20px] gap-[20px]">
-								<p className="text-textdark text-[18px] font-[500]">
-									FRIDHULT X 2
-								</p>
-								<p className="text-textdark">IDR6.990.000</p>
+							{/* Cart Items */}
+							{items.length > 0 ? (
+								items.map((item) => (
+									<div
+										key={item.id}
+										className="flex justify-between border-b border-textdark py-[20px] gap-[20px]"
+									>
+										<p className="text-textdark text-[18px] font-[500]">
+											{item.name} x {item.quantity}
+										</p>
+										<p className="text-textdark">
+											{formatPrice(item.price * item.quantity)}
+										</p>
+									</div>
+								))
+							) : (
+								<div className="flex justify-center border-b border-textdark py-[20px] gap-[20px]">
+									<p className="text-gray-500 text-[16px] italic">
+										Your cart is empty
+									</p>
+								</div>
+							)}
+
+							<div className="flex justify-between pt-[20px] gap-[20px]">
+								<p className="text-textdark">Subtotal</p>
+								<p className="text-textdark">{formatPrice(getSubtotal())}</p>
 							</div>
 
 							<div className="flex justify-between pt-[20px] gap-[20px]">
-								<p className="text-textdark">Tax</p>
-								<p className="text-textdark">IDR768.900 (11%)</p>
+								<p className="text-textdark">Tax (11%)</p>
+								<p className="text-textdark">{formatPrice(getTax())}</p>
 							</div>
 
 							<div className="flex justify-between pt-[20px] gap-[20px]">
 								<p className="text-textdark">Shipping</p>
-								<p className="text-textdark">Free Shipping</p>
+								<p className="text-textdark">
+									{getShipping() === 0
+										? "Free Shipping"
+										: formatPrice(getShipping())}
+								</p>
 							</div>
 
-							<div className="flex justify-between pt-[20px] gap-[20px]">
+							<div className="flex justify-between pt-[20px] gap-[20px] border-t border-textdark mt-[10px]">
 								<p className="font-bold text-[18px] text-textdark">Total</p>
 								<p className="font-bold text-[18px] text-textdark">
-									IDR7.758.900
+									{formatPrice(getTotalPrice())}
+								</p>
+							</div>
+
+							<div className="text-center pt-[10px]">
+								<p className="text-sm text-gray-600">
+									{getTotalItems()} item(s) in cart
 								</p>
 							</div>
 

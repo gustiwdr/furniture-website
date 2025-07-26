@@ -26,7 +26,7 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 				<Link href="#" className="text-textdark hover:text-primary">
 					<i className="fas fa-search text-xl"></i>
 				</Link>
-				<Link href="#" className="text-textdark hover:text-primary">
+				<Link href="/shop/cart" className="text-textdark hover:text-primary">
 					<i className="fas fa-shopping-cart text-xl"></i>
 				</Link>
 				<Link href="#" className="text-textdark hover:text-primary">

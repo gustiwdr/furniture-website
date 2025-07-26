@@ -179,10 +179,10 @@ export default function Shop() {
 			</div>
 
 			{/* Filters & Sort */}
-			<div className="max-w-full px-[30px] md:px-[50px] py-6 bg-lightbg">
+			<div className="max-w-full px-[30px] md:px-[50px] py-6 bg-primary">
 				<div className="flex flex-wrap justify-between items-center gap-4">
 					{/* Results Info */}
-					<div className="text-sm text-gray-600">
+					<div className="text-sm text-white">
 						Showing {products.length} of {total.toLocaleString()} results
 						{filters.search && ` for "${filters.search}"`}
 					</div>
@@ -191,7 +191,7 @@ export default function Shop() {
 					<div className="flex items-center gap-4">
 						{/* Category Dropdown */}
 						<div className="flex items-center gap-2">
-							<label className="text-sm font-medium text-textdark">
+							<label className="text-sm font-medium text-white">
 								Category:
 							</label>
 							<select
@@ -215,9 +215,7 @@ export default function Shop() {
 
 						{/* Sort Dropdown */}
 						<div className="flex items-center gap-2">
-							<label className="text-sm font-medium text-textdark">
-								Sort by:
-							</label>
+							<label className="text-sm font-medium text-white">Sort by:</label>
 							<select
 								value={`${sort.field}-${sort.direction}`}
 								onChange={(e) => handleSortChange(e.target.value)}
@@ -272,7 +270,7 @@ export default function Shop() {
 									<ProductCard
 										key={product.id}
 										{...product}
-										price={formatPrice(product.price)}
+										price={product.price}
 										onAddToCart={(id) => console.log("Add to cart:", id)}
 										onToggleFavorite={(id) =>
 											console.log("Toggle favorite:", id)

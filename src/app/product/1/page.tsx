@@ -6,6 +6,7 @@ import Navigator from "../../components/Navigator";
 import Footer from "../../components/Footer";
 import ProductCard from "../../components/ProductCard";
 import Image from "next/image";
+import { useCart } from "../../context/CartContext";
 
 const similarProducts = [
 	{
@@ -40,6 +41,7 @@ const similarProducts = [
 
 export default function ProductDetail() {
 	const [quantity, setQuantity] = useState(2);
+	const { addToCart } = useCart();
 
 	const increaseQuantity = () => {
 		setQuantity(quantity + 1);
@@ -49,6 +51,18 @@ export default function ProductDetail() {
 		if (quantity > 1) {
 			setQuantity(quantity - 1);
 		}
+	};
+
+	const handleAddToCart = () => {
+		const productToAdd = {
+			id: "1",
+			name: "FRIDHULT",
+			price: 3495000, // Numeric price
+			image: "/images/product1.png",
+			brand: "IKEA",
+			category: "living",
+		};
+		addToCart(productToAdd, quantity);
 	};
 
 	return (
@@ -168,6 +182,7 @@ export default function ProductDetail() {
 									<Link href="/shop/cart" className="w-full block">
 										<button
 											type="button"
+											onClick={handleAddToCart}
 											className="add-to-cart-btn w-full block p-3 bg-[#054C73] text-[#ffffff] font-bold border-none rounded-[8px] text-base sm:text-lg text-center cursor-pointer"
 										>
 											Add to Cart

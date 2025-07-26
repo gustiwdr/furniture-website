@@ -1,18 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Product } from "../types/product";
+import { useCart } from "../context/CartContext";
 
 interface ProductCardProps {
 	id: string;
 	name: string;
 	image: string;
-	price: string | number; // Support both formats
+	price: string | number;
 	reviewCount: number;
 	rating?: number;
-	// Optional Product fields
 	category?: string;
 	brand?: string;
-	// Event handlers
 	onAddToCart?: (productId: string) => void;
 	onToggleFavorite?: (productId: string) => void;
 }
@@ -23,12 +23,45 @@ const ProductCard = ({
 	image,
 	price,
 	reviewCount,
-	rating,
+	rating = 5,
+	category,
+	brand,
 	onAddToCart,
 	onToggleFavorite,
 }: ProductCardProps) => {
+	const { addToCart } = useCart();
+
 	const handleCartClick = (e: React.MouseEvent) => {
 		e.preventDefault(); // Prevent Link navigation
+
+		// Ensure price is always a number - more robust conversion
+		let numericPrice: number;
+
+		if (typeof price === "number") {
+			numericPrice = price;
+		} else {
+			// Remove all non-digit characters to get a clean number string
+			const cleanedPrice = String(price).replace(/\\D/g, "");
+			numericPrice = parseInt(cleanedPrice, 10) || 0;
+		}
+
+		if (numericPrice > 0) {
+			addToCart({
+				id,
+				name,
+				image,
+				price: numericPrice,
+				category,
+				brand,
+			});
+		} else {
+			console.error("Could not add to cart due to invalid price", {
+				name,
+				price,
+			});
+		}
+
+		// Call custom handler if provided
 		onAddToCart?.(id);
 	};
 
@@ -39,10 +72,13 @@ const ProductCard = ({
 
 	// Format price display
 	const displayPrice =
-		typeof price === "string" ? price : `IDR ${price.toLocaleString()}`;
-
-	// Display rating stars
-	const displayRating = rating || 5; // Default to 5 if not provided
+		typeof price === "number"
+			? new Intl.NumberFormat("id-ID", {
+					style: "currency",
+					currency: "IDR",
+					minimumFractionDigits: 0,
+			  }).format(price)
+			: price;
 	return (
 		<Link
 			href={`/product/${id}`}
@@ -67,32 +103,31 @@ const ProductCard = ({
 				<p className="font-bold text-[16px] sm:text-[18px] text-[#111111] mb-[10px]">
 					{name}
 				</p>
-				<div className="flex items-center gap-[2px] text-[#FFC800]">
-					{[1, 2, 3, 4, 5].map((star) => (
+				<div className="flex items-center gap-[2px] text-[#FFC800] mb-2">
+					{[...Array(5)].map((_, i) => (
 						<span
-							key={star}
+							key={i}
 							className={`fa fa-star ${
-								star <= displayRating ? "text-[#FFC800]" : "text-gray-300"
+								i < rating ? "text-[#FFC800]" : "text-gray-300"
 							}`}
 						></span>
 					))}
-					<span className="text-[#979797] text-sm">
+					<span className="text-[#979797] text-sm ml-2">
 						({reviewCount} reviews)
 					</span>
 				</div>
 				<div className="flex items-center justify-between gap-[20px] mt-2">
-					<div className="flex flex-col">
-						<p className="text-[#333333] text-[16px] sm:text-[18px] font-bold">
-							{displayPrice}
-						</p>
-					</div>
+					<p className="text-[#333333] text-[16px] sm:text-[18px] font-bold">
+						{displayPrice}
+					</p>
 					<div
 						className="cursor-pointer hover:scale-110 transition-transform"
 						onClick={handleCartClick}
+						title="Add to Cart"
 					>
 						<Image
 							src="/images/cart.png"
-							alt="cart icon"
+							alt="Add to cart"
 							className="w-[40px] sm:w-[50px]"
 							width={40}
 							height={40}

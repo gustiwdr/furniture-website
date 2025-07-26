@@ -235,7 +235,7 @@ export class BigDataGenerator {
 		return {
 			id: id.toString(),
 			name: `${baseName} ${variant}`,
-			image: `/images/product${(id % 12) + 1}.png`, // Cycle through existing images
+			image: `/images/product${(id % 12) + 1}.png`,
 			price,
 			originalPrice: hasDiscount ? basePrice : undefined,
 			discount: hasDiscount ? discount : undefined,
@@ -275,78 +275,39 @@ export class BigDataGenerator {
 		console.log(`🔥 Generating Big Data: ${count} products...`);
 		const products: Product[] = [];
 
-		for (let i = 1; i <= count; i++) {
-			products.push(this.generateProduct(i));
-
-			// Log progress for big data feeling
-			if (i % 100 === 0) {
-				console.log(
-					`📊 Generated ${i}/${count} products (${Math.round(
-						(i / count) * 100
-					)}%)`
-				);
-			}
-		}
-
-		console.log(`✅ Big Data Generation Complete: ${count} products ready!`);
-		return products;
-	}
-
-	// Generate analytics from dataset
-	public generateAnalytics(products: Product[]): any {
-		const analytics = {
-			totalProducts: products.length,
-			categoriesCount: {} as { [key: string]: number },
-			brandsCount: {} as { [key: string]: number },
-			averagePrice: 0,
-			priceRange: { min: Infinity, max: 0 },
-			averageRating: 0,
-			totalSales: 0,
-			stockStatus: { inStock: 0, outOfStock: 0 },
+		const fixedFirstProduct: Product = {
+			id: "1",
+			name: "FRIDHULT",
+			description:
+				"Comfortable sofa with premium cushioning and modern design. Perfect for living room relaxation and entertaining guests.",
+			price: 3495000,
+			image: "/images/product1.png",
+			category: "living",
+			subcategory: "sofa",
+			brand: "IKEA",
+			rating: 4.8,
+			reviewCount: 1234,
+			inStock: true,
+			stockQuantity: 25,
+			material: ["Fabric", "Wood"],
+			colors: ["Gray", "Blue", "Beige"],
+			dimensions: { width: 200, height: 85, depth: 90 },
+			weight: 45,
+			tags: ["comfortable", "modern", "living-room", "sofa"],
+			sales: 2856,
+			views: 45623,
+			discount: 0,
+			createdAt: "2024-01-01T00:00:00.000Z",
+			updatedAt: "2024-12-01T00:00:00.000Z",
 		};
 
-		let totalPrice = 0;
-		let totalRating = 0;
+		products.push(fixedFirstProduct);
 
-		products.forEach((product) => {
-			// Categories
-			analytics.categoriesCount[product.category] =
-				(analytics.categoriesCount[product.category] || 0) + 1;
+		for (let i = 2; i <= count; i++) {
+			products.push(this.generateProduct(i));
+		}
 
-			// Brands
-			analytics.brandsCount[product.brand] =
-				(analytics.brandsCount[product.brand] || 0) + 1;
-
-			// Price analytics
-			totalPrice += product.price;
-			analytics.priceRange.min = Math.min(
-				analytics.priceRange.min,
-				product.price
-			);
-			analytics.priceRange.max = Math.max(
-				analytics.priceRange.max,
-				product.price
-			);
-
-			// Rating
-			totalRating += product.rating;
-
-			// Sales
-			analytics.totalSales += product.sales;
-
-			// Stock
-			if (product.inStock) {
-				analytics.stockStatus.inStock++;
-			} else {
-				analytics.stockStatus.outOfStock++;
-			}
-		});
-
-		analytics.averagePrice = Math.round(totalPrice / products.length);
-		analytics.averageRating =
-			Math.round((totalRating / products.length) * 10) / 10;
-
-		return analytics;
+		return products;
 	}
 }
 
