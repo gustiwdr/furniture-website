@@ -40,6 +40,7 @@ src/app/
 ├── services/         # Business logic and data services (ProductService)
 └── utils/            # Utility functions (BigDataGenerator)
 └── hooks/            # Custom hooks
+└── types/            # Type definitions
 ```
 
 ## Getting Started
