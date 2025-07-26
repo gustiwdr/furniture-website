@@ -3,7 +3,7 @@ export interface Product {
 	id: string;
 	name: string;
 	image: string;
-	price: number; // Changed to number for better data processing
+	price: number;
 	originalPrice?: number;
 	discount?: number;
 	reviewCount: number;
