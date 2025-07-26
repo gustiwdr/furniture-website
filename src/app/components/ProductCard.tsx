@@ -1,12 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Product } from "../types/product";
 
 interface ProductCardProps {
 	id: string;
 	name: string;
 	image: string;
-	price: string;
+	price: string | number; // Support both formats
 	reviewCount: number;
+	rating?: number;
+	// Optional Product fields
+	category?: string;
+	brand?: string;
+	// Event handlers
+	onAddToCart?: (productId: string) => void;
+	onToggleFavorite?: (productId: string) => void;
 }
 
 const ProductCard = ({
@@ -15,7 +23,26 @@ const ProductCard = ({
 	image,
 	price,
 	reviewCount,
+	rating,
+	onAddToCart,
+	onToggleFavorite,
 }: ProductCardProps) => {
+	const handleCartClick = (e: React.MouseEvent) => {
+		e.preventDefault(); // Prevent Link navigation
+		onAddToCart?.(id);
+	};
+
+	const handleHeartClick = (e: React.MouseEvent) => {
+		e.preventDefault(); // Prevent Link navigation
+		onToggleFavorite?.(id);
+	};
+
+	// Format price display
+	const displayPrice =
+		typeof price === "string" ? price : `IDR ${price.toLocaleString()}`;
+
+	// Display rating stars
+	const displayRating = rating || 5; // Default to 5 if not provided
 	return (
 		<Link
 			href={`/product/${id}`}
@@ -30,8 +57,9 @@ const ProductCard = ({
 					height={400}
 				/>
 				<span
-					className="fa fa-heart absolute top-0 right-0 text-[#ffffff]"
+					className="fa fa-heart absolute top-0 right-0 text-[#ffffff] cursor-pointer hover:scale-110 transition-transform"
 					style={{ WebkitTextStroke: "1px #054c73" }}
+					onClick={handleHeartClick}
 				></span>
 			</div>
 
@@ -40,20 +68,28 @@ const ProductCard = ({
 					{name}
 				</p>
 				<div className="flex items-center gap-[2px] text-[#FFC800]">
-					<span className="fa fa-star"></span>
-					<span className="fa fa-star"></span>
-					<span className="fa fa-star"></span>
-					<span className="fa fa-star"></span>
-					<span className="fa fa-star"></span>
+					{[1, 2, 3, 4, 5].map((star) => (
+						<span
+							key={star}
+							className={`fa fa-star ${
+								star <= displayRating ? "text-[#FFC800]" : "text-gray-300"
+							}`}
+						></span>
+					))}
 					<span className="text-[#979797] text-sm">
 						({reviewCount} reviews)
 					</span>
 				</div>
 				<div className="flex items-center justify-between gap-[20px] mt-2">
-					<p className="text-[#333333] text-[16px] sm:text-[18px] font-bold">
-						{price}
-					</p>
-					<div className="cursor-pointer">
+					<div className="flex flex-col">
+						<p className="text-[#333333] text-[16px] sm:text-[18px] font-bold">
+							{displayPrice}
+						</p>
+					</div>
+					<div
+						className="cursor-pointer hover:scale-110 transition-transform"
+						onClick={handleCartClick}
+					>
 						<Image
 							src="/images/cart.png"
 							alt="cart icon"
