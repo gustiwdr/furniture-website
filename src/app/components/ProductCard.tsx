@@ -80,27 +80,11 @@ const ProductCard = ({
 			href={`/product/${id}`}
 			className="relative box-border no-underline text-current group block w-full"
 			aria-label={`View details for ${name}`}
-			style={{
-				contain: "layout style size",
-				contentVisibility: "auto",
-				minHeight: "420px",
-				maxHeight: "420px",
-				overflow: "hidden",
-			}}
+			style={{ contain: "layout style" }}
 		>
-			<div
-				className="flex flex-col bg-white rounded-[7px] shadow-lg overflow-hidden"
-				style={{ height: "420px" }}
-			>
-				<div
-					className="relative bg-gray-100 overflow-hidden"
-					style={{
-						height: "256px",
-						minHeight: "256px",
-						maxHeight: "256px",
-						aspectRatio: "1 / 1",
-					}}
-				>
+			{" "}
+			<div className="product-card flex flex-col bg-white rounded-[7px] shadow-lg overflow-hidden h-full">
+				<div className="product-image-container relative w-full bg-gray-100 overflow-hidden">
 					<Image
 						src={image}
 						alt={`${name} - ${category} furniture`}
@@ -134,14 +118,7 @@ const ProductCard = ({
 						</svg>
 					</button>
 				</div>
-				<div
-					className="bg-lightbg p-[20px] rounded-b-[7px] shadow-inner flex-1"
-					style={{
-						height: "164px",
-						minHeight: "164px",
-						maxHeight: "164px",
-					}}
-				>
+				<div className="bg-lightbg p-[20px] rounded-b-[7px] shadow-inner flex-1 min-h-[160px]">
 					<h3 className="font-bold text-[16px] sm:text-[18px] text-[#111111] mb-[10px] line-clamp-2">
 						{name}
 					</h3>

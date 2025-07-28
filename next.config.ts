@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 // Bundle analyzer untuk production analysis
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-	enabled: process.env.ANALYZE === "true",
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
 });
 
 const nextConfig: NextConfig = {
