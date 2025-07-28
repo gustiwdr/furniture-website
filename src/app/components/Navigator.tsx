@@ -22,10 +22,10 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 				</h1>
 			</div>
 			{/* Icons */}
-			<div className="right-section flex items-center space-x-4">
+			<div className="right-section flex items-center space-x-1 sm:space-x-2 md:space-x-4">
 				<Link
 					href="#"
-					className="text-textdark hover:text-primary p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					className="text-textdark hover:text-primary p-1 sm:p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
 					aria-label="Search"
 				>
 					<svg
@@ -45,7 +45,7 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 				</Link>
 				<Link
 					href="/shop/cart"
-					className="text-textdark hover:text-primary p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					className="text-textdark hover:text-primary p-1 sm:p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
 					aria-label="Shopping cart"
 				>
 					<svg
@@ -65,7 +65,7 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 				</Link>
 				<Link
 					href="#"
-					className="text-textdark hover:text-primary p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					className="text-textdark hover:text-primary p-1 sm:p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
 					aria-label="User account"
 				>
 					<svg
@@ -85,7 +85,7 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 				</Link>
 				<button
 					onClick={toggleMobileMenu}
-					className="block md:hidden text-textdark hover:text-primary border-none bg-transparent cursor-pointer p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					className="block md:hidden text-textdark hover:text-primary border-none bg-transparent cursor-pointer p-1 sm:p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
 					aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
 				>
 					<svg
