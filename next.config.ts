@@ -12,9 +12,14 @@ const nextConfig: NextConfig = {
 			},
 		],
 		minimumCacheTTL: 60,
+		formats: ["image/webp", "image/avif"],
 	},
 	compiler: {
 		removeConsole: process.env.NODE_ENV === "production",
+	},
+	transpilePackages: [],
+	experimental: {
+		optimizePackageImports: ["react-icons"],
 	},
 };
 

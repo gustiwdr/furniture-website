@@ -1,11 +1,21 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
+import dynamic from "next/dynamic";
 import { useBigDataProducts } from "../hooks/useBigDataProducts";
 import { ProductFilters, ProductSortOptions } from "../types/product";
-import ProductCard from "../components/ProductCard";
 import Navigator from "../components/Navigator";
-import Footer from "../components/Footer";
+
+// Dynamic imports untuk mengurangi initial bundle
+const ProductCard = dynamic(() => import("../components/ProductCard"), {
+	loading: () => (
+		<div className="animate-pulse bg-gray-200 h-96 rounded-lg"></div>
+	),
+});
+
+const Footer = dynamic(() => import("../components/Footer"), {
+	ssr: false,
+});
 
 const ITEMS_PER_PAGE = 16;
 
@@ -304,15 +314,21 @@ export default function Shop() {
 								className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-4 md:px-[50px] max-w-full overflow-x-hidden"
 							>
 								{products.map((product) => (
-									<ProductCard
+									<Suspense
 										key={product.id}
-										{...product}
-										price={product.price}
-										onAddToCart={(id) => console.log("Add to cart:", id)}
-										onToggleFavorite={(id) =>
-											console.log("Toggle favorite:", id)
+										fallback={
+											<div className="animate-pulse bg-gray-200 h-96 rounded-lg"></div>
 										}
-									/>
+									>
+										<ProductCard
+											{...product}
+											price={product.price}
+											onAddToCart={(id) => console.log("Add to cart:", id)}
+											onToggleFavorite={(id) =>
+												console.log("Toggle favorite:", id)
+											}
+										/>
+									</Suspense>
 								))}
 							</section>
 
