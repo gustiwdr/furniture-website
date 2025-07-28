@@ -9,7 +9,14 @@ import Navigator from "../components/Navigator";
 // Dynamic imports untuk mengurangi initial bundle
 const ProductCard = dynamic(() => import("../components/ProductCard"), {
 	loading: () => (
-		<div className="animate-pulse bg-gray-200 h-96 rounded-lg"></div>
+		<div className="animate-pulse bg-gray-200 rounded-lg min-h-[420px] flex flex-col">
+			<div className="h-64 bg-gray-300 rounded-t-lg"></div>
+			<div className="p-4 flex-1 space-y-3">
+				<div className="h-4 bg-gray-300 rounded w-3/4"></div>
+				<div className="h-3 bg-gray-300 rounded w-1/2"></div>
+				<div className="h-4 bg-gray-300 rounded w-1/4"></div>
+			</div>
+		</div>
 	),
 });
 
@@ -311,24 +318,40 @@ export default function Shop() {
 						<div className="w-full">
 							<section
 								aria-label="Product listing"
-								className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-4 md:px-[50px] max-w-full overflow-x-hidden"
+								className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-12 px-4 md:px-[50px] max-w-full overflow-x-hidden"
+								style={{
+									minHeight: "1680px", // Prevent layout shift for 16 items * 420px + gaps
+									gridTemplateRows: "repeat(auto-fit, minmax(420px, 1fr))",
+								}}
 							>
 								{products.map((product) => (
-									<Suspense
+									<div
 										key={product.id}
-										fallback={
-											<div className="animate-pulse bg-gray-200 h-96 rounded-lg"></div>
-										}
+										className="w-full"
+										style={{ minHeight: "420px" }}
 									>
-										<ProductCard
-											{...product}
-											price={product.price}
-											onAddToCart={(id) => console.log("Add to cart:", id)}
-											onToggleFavorite={(id) =>
-												console.log("Toggle favorite:", id)
+										<Suspense
+											fallback={
+												<div className="animate-pulse bg-gray-200 rounded-lg min-h-[420px] flex flex-col">
+													<div className="h-64 bg-gray-300 rounded-t-lg"></div>
+													<div className="p-4 flex-1 space-y-3">
+														<div className="h-4 bg-gray-300 rounded w-3/4"></div>
+														<div className="h-3 bg-gray-300 rounded w-1/2"></div>
+														<div className="h-4 bg-gray-300 rounded w-1/4"></div>
+													</div>
+												</div>
 											}
-										/>
-									</Suspense>
+										>
+											<ProductCard
+												{...product}
+												price={product.price}
+												onAddToCart={(id) => console.log("Add to cart:", id)}
+												onToggleFavorite={(id) =>
+													console.log("Toggle favorite:", id)
+												}
+											/>
+										</Suspense>
+									</div>
 								))}
 							</section>
 

@@ -1,28 +1,15 @@
 import type { Metadata } from "next";
-import { Montserrat, Nunito, Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 
+// Gunakan hanya satu font untuk mengurangi render blocking
 const montserrat = Montserrat({
 	subsets: ["latin"],
 	display: "swap",
 	variable: "--font-montserrat",
 	preload: true,
-});
-
-const nunito = Nunito({
-	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-nunito",
-	preload: false,
-});
-
-const poppins = Poppins({
-	subsets: ["latin"],
-	weight: ["400", "500", "600", "700"],
-	display: "swap",
-	variable: "--font-poppins",
-	preload: false,
+	fallback: ["system-ui", "-apple-system", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -52,11 +39,12 @@ export const metadata: Metadata = {
 			"max-snippet": -1,
 		},
 	},
-	viewport: {
-		width: "device-width",
-		initialScale: 1,
-		maximumScale: 1,
-	},
+};
+
+export const viewport = {
+	width: "device-width",
+	initialScale: 1,
+	maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -67,12 +55,26 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link rel="preconnect" href="https://images.unsplash.com" />
+				<link
+					rel="preconnect"
+					href="https://images.unsplash.com"
+					crossOrigin="anonymous"
+				/>
 				<link rel="dns-prefetch" href="https://images.unsplash.com" />
+				<link rel="preload" as="style" href="/critical.css" />
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							if ('serviceWorker' in navigator) {
+								window.addEventListener('load', function() {
+									navigator.serviceWorker.register('/sw.js');
+								});
+							}
+						`,
+					}}
+				/>
 			</head>
-			<body
-				className={`${montserrat.variable} ${nunito.variable} ${poppins.variable} font-montserrat`}
-			>
+			<body className={`${montserrat.variable} font-montserrat antialiased`}>
 				<CartProvider>{children}</CartProvider>
 			</body>
 		</html>

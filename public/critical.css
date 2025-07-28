@@ -1,0 +1,103 @@
+/* Critical CSS for above-the-fold content */
+/* Inline critical styles to prevent render blocking */
+
+.font-montserrat {
+	font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+}
+
+/* Layout fundamentals */
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Critical navigation styles */
+nav {
+	position: relative;
+	z-index: 50;
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Critical grid and layout */
+.grid {
+	display: grid;
+}
+
+.grid-cols-1 {
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+	.sm\:grid-cols-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 768px) {
+	.md\:grid-cols-3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 1024px) {
+	.lg\:grid-cols-4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+/* Critical background and spacing */
+.bg-white {
+	background-color: white;
+}
+
+.bg-primary {
+	background-color: #2563eb;
+}
+
+.p-4 {
+	padding: 1rem;
+}
+
+.py-12 {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+.gap-6 {
+	gap: 1.5rem;
+}
+
+/* Critical sizing to prevent CLS */
+.min-h-\[420px\] {
+	min-height: 420px;
+}
+
+.h-64 {
+	height: 16rem;
+}
+
+/* Critical flex utilities */
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.items-center {
+	align-items: center;
+}
+
+/* Aspect ratio to prevent image CLS */
+.aspect-square {
+	aspect-ratio: 1 / 1;
+}

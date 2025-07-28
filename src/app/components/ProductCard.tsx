@@ -80,21 +80,21 @@ const ProductCard = ({
 			href={`/product/${id}`}
 			className="relative box-border no-underline text-current group block w-full"
 			aria-label={`View details for ${name}`}
+			style={{ contain: "layout style" }}
 		>
-			<div className="flex flex-col bg-white rounded-[7px] shadow-lg overflow-hidden h-full min-h-[400px]">
-				{" "}
-				<div className="flex justify-center relative aspect-square">
+			{" "}
+			<div className="product-card flex flex-col bg-white rounded-[7px] shadow-lg overflow-hidden h-full">
+				<div className="product-image-container relative w-full bg-gray-100 overflow-hidden">
 					<Image
 						src={image}
 						alt={`${name} - ${category} furniture`}
-						className="max-w-full object-cover rounded-t-[7px]"
-						width={400}
-						height={400}
+						className="object-cover rounded-t-[7px]"
+						fill
 						sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 22vw"
 						priority={false}
 						loading="lazy"
 						placeholder="blur"
-						quality={75}
+						quality={85}
 						blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
 					/>
 					<button
@@ -118,7 +118,7 @@ const ProductCard = ({
 						</svg>
 					</button>
 				</div>
-				<div className="bg-lightbg p-[20px] rounded-b-[7px] shadow-inner flex-1">
+				<div className="bg-lightbg p-[20px] rounded-b-[7px] shadow-inner flex-1 min-h-[160px]">
 					<h3 className="font-bold text-[16px] sm:text-[18px] text-[#111111] mb-[10px] line-clamp-2">
 						{name}
 					</h3>
