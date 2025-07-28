@@ -23,20 +23,85 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 			</div>
 			{/* Icons */}
 			<div className="right-section flex items-center space-x-4">
-				<Link href="#" className="text-textdark hover:text-primary">
-					<i className="fas fa-search text-xl"></i>
+				<Link
+					href="#"
+					className="text-textdark hover:text-primary p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					aria-label="Search"
+				>
+					<svg
+						className="w-5 h-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+						/>
+					</svg>
 				</Link>
-				<Link href="/shop/cart" className="text-textdark hover:text-primary">
-					<i className="fas fa-shopping-cart text-xl"></i>
+				<Link
+					href="/shop/cart"
+					className="text-textdark hover:text-primary p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					aria-label="Shopping cart"
+				>
+					<svg
+						className="w-5 h-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 7a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"
+						/>
+					</svg>
 				</Link>
-				<Link href="#" className="text-textdark hover:text-primary">
-					<i className="fas fa-user text-xl"></i>
+				<Link
+					href="#"
+					className="text-textdark hover:text-primary p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					aria-label="User account"
+				>
+					<svg
+						className="w-5 h-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+						/>
+					</svg>
 				</Link>
 				<button
 					onClick={toggleMobileMenu}
-					className="block md:hidden text-textdark hover:text-primary border-none bg-transparent cursor-pointer"
+					className="block md:hidden text-textdark hover:text-primary border-none bg-transparent cursor-pointer p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+					aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
 				>
-					<i className="fas fa-bars text-xl"></i>
+					<svg
+						className="w-5 h-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M4 6h16M4 12h16M4 18h16"
+						/>
+					</svg>
 				</button>
 			</div>
 

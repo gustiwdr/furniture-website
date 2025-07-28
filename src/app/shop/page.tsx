@@ -6,6 +6,7 @@ import { ProductFilters, ProductSortOptions } from "../types/product";
 import ProductCard from "../components/ProductCard";
 import Navigator from "../components/Navigator";
 import Footer from "../components/Footer";
+import Head from "next/head";
 
 const ITEMS_PER_PAGE = 16;
 
@@ -137,27 +138,40 @@ export default function Shop() {
 			<Navigator activePage="shop" />
 
 			{/* Search Bar */}
-			<div className="max-w-4xl mx-auto pt-20 px-4">
-				<form onSubmit={handleSearch} className="mb-6">
+			<section
+				className="max-w-4xl mx-auto pt-20 px-4"
+				aria-label="Product Search"
+			>
+				<form onSubmit={handleSearch} className="mb-6" role="search">
 					<div className="relative">
+						<label htmlFor="product-search" className="sr-only">
+							Search furniture products
+						</label>
 						<input
+							id="product-search"
 							type="text"
 							value={searchQuery}
 							onChange={(e) => setSearchQuery(e.target.value)}
 							placeholder="Search furniture products..."
+							aria-describedby="search-help"
 							className="w-full px-4 py-3 pr-20 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
 						/>
+						<span id="search-help" className="sr-only">
+							Enter keywords to search for furniture products
+						</span>
 						{searchQuery && (
 							<button
 								type="button"
 								onClick={clearSearch}
-								className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+								aria-label="Clear search"
+								className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
 							>
 								<svg
 									className="w-5 h-5"
 									fill="none"
 									stroke="currentColor"
 									viewBox="0 0 24 24"
+									aria-hidden="true"
 								>
 									<path
 										strokeLinecap="round"
@@ -170,19 +184,27 @@ export default function Shop() {
 						)}
 						<button
 							type="submit"
-							className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded hover:bg-blue-700 transition-colors"
+							aria-label="Search products"
+							className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
 						>
 							Search
 						</button>
 					</div>
 				</form>
-			</div>
+			</section>
 
 			{/* Filters & Sort */}
-			<div className="max-w-full px-4 md:px-[50px] py-6 bg-primary">
+			<section
+				className="max-w-full px-4 md:px-[50px] py-6 bg-primary"
+				aria-label="Product filters and sorting"
+			>
 				<div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4">
 					{/* Results Info */}
-					<div className="text-sm text-white w-full md:w-auto text-center md:text-left">
+					<div
+						className="text-sm text-white w-full md:w-auto text-center md:text-left"
+						role="status"
+						aria-live="polite"
+					>
 						Showing {products.length} of {total.toLocaleString()} results
 						{filters.search && ` for "${filters.search}"`}
 					</div>
@@ -191,13 +213,18 @@ export default function Shop() {
 					<div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
 						{/* Category Dropdown */}
 						<div className="flex items-center gap-2 w-full sm:w-auto">
-							<label className="text-sm font-medium text-white flex-shrink-0">
+							<label
+								htmlFor="category-select"
+								className="text-sm font-medium text-white flex-shrink-0"
+							>
 								Category:
 							</label>
 							<select
+								id="category-select"
 								value={filters.category || "all"}
 								onChange={(e) => handleCategoryClick(e.target.value)}
-								className="w-full sm:w-48 px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer"
+								aria-label="Filter products by category"
+								className="w-full sm:w-48 px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent appearance-none cursor-pointer"
 								style={{
 									backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
 									backgroundPosition: "right 8px center",
@@ -215,11 +242,18 @@ export default function Shop() {
 
 						{/* Sort Dropdown */}
 						<div className="flex items-center gap-2 w-full sm:w-auto">
-							<label className="text-sm font-medium text-white">Sort by:</label>
+							<label
+								htmlFor="sort-select"
+								className="text-sm font-medium text-white flex-shrink-0"
+							>
+								Sort by:
+							</label>
 							<select
+								id="sort-select"
 								value={`${sort.field}-${sort.direction}`}
 								onChange={(e) => handleSortChange(e.target.value)}
-								className="flex-grow px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer min-w-[140px]"
+								aria-label="Sort products by different criteria"
+								className="w-full sm:w-48 px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent appearance-none cursor-pointer"
 								style={{
 									backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
 									backgroundPosition: "right 8px center",
@@ -236,7 +270,7 @@ export default function Shop() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			{/* Main Content */}
 			<main>
@@ -251,11 +285,12 @@ export default function Shop() {
 
 					{/* Error State */}
 					{error && (
-						<div className="w-full text-center py-12">
+						<div className="w-full text-center py-12" role="alert">
 							<p className="text-red-600 mb-4">{error}</p>
 							<button
 								onClick={refetch}
-								className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700"
+								aria-label="Retry loading products"
+								className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors"
 							>
 								Try Again
 							</button>
@@ -265,7 +300,10 @@ export default function Shop() {
 					{/* Products Grid */}
 					{!loading && !error && (
 						<div className="w-full">
-							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-4 md:px-[50px] max-w-full overflow-x-hidden">
+							<section
+								aria-label="Product listing"
+								className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-4 md:px-[50px] max-w-full overflow-x-hidden"
+							>
 								{products.map((product) => (
 									<ProductCard
 										key={product.id}
@@ -277,21 +315,25 @@ export default function Shop() {
 										}
 									/>
 								))}
-							</div>
+							</section>
 
 							{/* Pagination */}
 							{totalPages > 1 && (
-								<div className="py-8 px-4 md:px-[50px]">
+								<nav
+									aria-label="Product pagination"
+									className="py-8 px-4 md:px-[50px]"
+								>
 									<div className="flex justify-center items-center space-x-1 sm:space-x-2 mb-4">
 										{/* Previous Button */}
 										<button
 											onClick={prevPage}
 											disabled={!hasPrev}
-											className={`px-4 py-2 rounded ${
+											aria-label="Go to previous page"
+											className={`px-4 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
 												hasPrev
 													? "bg-primary text-white hover:bg-blue-700"
 													: "bg-gray-300 text-gray-500 cursor-not-allowed"
-											} transition-colors`}
+											}`}
 										>
 											Previous
 										</button>
@@ -301,11 +343,15 @@ export default function Shop() {
 											<button
 												key={pageNum}
 												onClick={() => goToPage(pageNum)}
-												className={`px-2 sm:px-3 py-2 rounded ${
+												aria-label={`Go to page ${pageNum}`}
+												aria-current={
+													pageNum === currentPage ? "page" : undefined
+												}
+												className={`px-2 sm:px-3 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm sm:text-base ${
 													pageNum === currentPage
 														? "bg-primary text-white"
 														: "bg-gray-200 text-gray-700 hover:bg-gray-300"
-												} transition-colors text-sm sm:text-base`}
+												}`}
 											>
 												{pageNum}
 											</button>
@@ -315,22 +361,26 @@ export default function Shop() {
 										<button
 											onClick={nextPage}
 											disabled={!hasNext}
-											className={`px-4 py-2 rounded ${
+											aria-label="Go to next page"
+											className={`px-4 py-2 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
 												hasNext
 													? "bg-primary text-white hover:bg-blue-700"
 													: "bg-gray-300 text-gray-500 cursor-not-allowed"
-											} transition-colors`}
+											}`}
 										>
 											Next
 										</button>
 									</div>
 
 									{/* Pagination Info */}
-									<div className="text-center text-sm text-gray-600">
+									<div
+										className="text-center text-sm text-gray-600"
+										aria-live="polite"
+									>
 										Page {currentPage} of {totalPages} •{" "}
 										{total.toLocaleString()} total items
 									</div>
-								</div>
+								</nav>
 							)}
 						</div>
 					)}

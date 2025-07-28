@@ -7,24 +7,56 @@ const montserrat = Montserrat({
 	subsets: ["latin"],
 	display: "swap",
 	variable: "--font-montserrat",
+	preload: true,
 });
 
 const nunito = Nunito({
 	subsets: ["latin"],
 	display: "swap",
 	variable: "--font-nunito",
+	preload: false,
 });
 
 const poppins = Poppins({
 	subsets: ["latin"],
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+	weight: ["400", "500", "600", "700"],
 	display: "swap",
 	variable: "--font-poppins",
+	preload: false,
 });
 
 export const metadata: Metadata = {
-	title: "Furniture E-Commerce",
-	description: "Find the best furniture for your home",
+	title: "Furniture E-Commerce - Modern Home Furniture Collection",
+	description:
+		"Discover our extensive collection of modern furniture for your home. Shop living room, bedroom, dining room, and office furniture with fast shipping and great prices.",
+	keywords:
+		"furniture, home furniture, modern furniture, living room, bedroom, dining room, office furniture, home decor",
+	authors: [{ name: "Furniture Store Team" }],
+	creator: "Furniture E-Commerce",
+	publisher: "Furniture E-Commerce",
+	openGraph: {
+		title: "Furniture E-Commerce - Modern Home Furniture Collection",
+		description:
+			"Discover our extensive collection of modern furniture for your home.",
+		type: "website",
+		locale: "en_US",
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
+	viewport: {
+		width: "device-width",
+		initialScale: 1,
+		maximumScale: 1,
+	},
 };
 
 export default function RootLayout({
@@ -34,15 +66,6 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<head>
-				<link
-					rel="stylesheet"
-					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-					integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-					crossOrigin="anonymous"
-					referrerPolicy="no-referrer"
-				/>
-			</head>
 			<body
 				className={`${montserrat.variable} ${nunito.variable} ${poppins.variable} font-montserrat`}
 			>
