@@ -179,25 +179,25 @@ export default function Shop() {
 			</div>
 
 			{/* Filters & Sort */}
-			<div className="max-w-full px-[30px] md:px-[50px] py-6 bg-primary">
-				<div className="flex flex-wrap justify-between items-center gap-4">
+			<div className="max-w-full px-4 md:px-[50px] py-6 bg-primary">
+				<div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4">
 					{/* Results Info */}
-					<div className="text-sm text-white">
+					<div className="text-sm text-white w-full md:w-auto text-center md:text-left">
 						Showing {products.length} of {total.toLocaleString()} results
 						{filters.search && ` for "${filters.search}"`}
 					</div>
 
-					{/* Filters */}
-					<div className="flex items-center gap-4">
+					{/* Filters Container */}
+					<div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
 						{/* Category Dropdown */}
-						<div className="flex items-center gap-2">
-							<label className="text-sm font-medium text-white">
+						<div className="flex items-center gap-2 w-full sm:w-auto">
+							<label className="text-sm font-medium text-white flex-shrink-0">
 								Category:
 							</label>
 							<select
 								value={filters.category || "all"}
 								onChange={(e) => handleCategoryClick(e.target.value)}
-								className="px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer min-w-[140px]"
+								className="w-full sm:w-48 px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer"
 								style={{
 									backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
 									backgroundPosition: "right 8px center",
@@ -214,12 +214,12 @@ export default function Shop() {
 						</div>
 
 						{/* Sort Dropdown */}
-						<div className="flex items-center gap-2">
+						<div className="flex items-center gap-2 w-full sm:w-auto">
 							<label className="text-sm font-medium text-white">Sort by:</label>
 							<select
 								value={`${sort.field}-${sort.direction}`}
 								onChange={(e) => handleSortChange(e.target.value)}
-								className="px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer min-w-[140px]"
+								className="flex-grow px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer min-w-[140px]"
 								style={{
 									backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
 									backgroundPosition: "right 8px center",
@@ -265,7 +265,7 @@ export default function Shop() {
 					{/* Products Grid */}
 					{!loading && !error && (
 						<div className="w-full">
-							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-[30px] md:px-[50px] max-w-full overflow-x-hidden">
+							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 px-4 md:px-[50px] max-w-full overflow-x-hidden">
 								{products.map((product) => (
 									<ProductCard
 										key={product.id}
@@ -281,8 +281,8 @@ export default function Shop() {
 
 							{/* Pagination */}
 							{totalPages > 1 && (
-								<div className="py-8 px-[30px] md:px-[50px]">
-									<div className="flex justify-center items-center space-x-2 mb-4">
+								<div className="py-8 px-4 md:px-[50px]">
+									<div className="flex justify-center items-center space-x-1 sm:space-x-2 mb-4">
 										{/* Previous Button */}
 										<button
 											onClick={prevPage}
@@ -301,11 +301,11 @@ export default function Shop() {
 											<button
 												key={pageNum}
 												onClick={() => goToPage(pageNum)}
-												className={`px-3 py-2 rounded ${
+												className={`px-2 sm:px-3 py-2 rounded ${
 													pageNum === currentPage
 														? "bg-primary text-white"
 														: "bg-gray-200 text-gray-700 hover:bg-gray-300"
-												} transition-colors`}
+												} transition-colors text-sm sm:text-base`}
 											>
 												{pageNum}
 											</button>

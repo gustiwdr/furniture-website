@@ -136,42 +136,35 @@ export class BigDataProductService implements ProductService {
 		});
 	}
 
-	// Advanced sorting for Big Data
 	private sortProducts(
 		products: Product[],
 		sort?: ProductSortOptions
 	): Product[] {
 		if (!sort) return products;
 
-		// Create a copy to avoid mutating original
+		// Make a mutable copy to sort
 		const sortedProducts = [...products];
 
-		// Always keep the FRIDHULT product (ID: "1") at the top for first page
-		const fridhultProduct = sortedProducts.find((p) => p.id === "1");
-		const otherProducts = sortedProducts.filter((p) => p.id !== "1");
+		sortedProducts.sort((a, b) => {
+			const field = sort.field as keyof Product;
 
-		// Sort other products
-		otherProducts.sort((a, b) => {
-			let aValue: any = a[sort.field];
-			let bValue: any = b[sort.field];
+			let aValue = a[field];
+			let bValue = b[field];
 
-			// Handle different data types
-			if (typeof aValue === "string") {
-				aValue = aValue.toLowerCase();
-				bValue = bValue.toLowerCase();
+			if (typeof aValue === "string" && typeof bValue === "string") {
+				return sort.direction === "asc"
+					? aValue.localeCompare(bValue)
+					: bValue.localeCompare(aValue);
 			}
 
-			if (sort.direction === "asc") {
-				return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
-			} else {
-				return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
+			if (typeof aValue === "number" && typeof bValue === "number") {
+				return sort.direction === "asc" ? aValue - bValue : bValue - aValue;
 			}
+
+			return 0;
 		});
 
-		// Return with FRIDHULT first, then other sorted products
-		return fridhultProduct
-			? [fridhultProduct, ...otherProducts]
-			: otherProducts;
+		return sortedProducts;
 	}
 
 	// Efficient pagination for Big Data
@@ -215,10 +208,28 @@ export class BigDataProductService implements ProductService {
 		let filteredProducts = this.filterProducts(this.products, filters);
 		console.log(`🔍 After filtering: ${filteredProducts.length} products`);
 
-		let sortedProducts = this.sortProducts(filteredProducts, sort);
-		console.log(`📈 After sorting: ${sortedProducts.length} products`);
+		let finalProducts;
+		const isAllCategories = !filters?.category || filters.category === "all";
 
-		return this.paginateProducts(sortedProducts, pagination);
+		if (isAllCategories) {
+			// Special logic: Pin FRIDHULT to the top only for "All Categories"
+			const fridhultProduct = filteredProducts.find((p) => p.id === "1");
+			const otherProducts = filteredProducts.filter((p) => p.id !== "1");
+
+			const sortedOtherProducts = this.sortProducts(otherProducts, sort);
+
+			// Prepend FRIDHULT if it exists in the filtered list
+			finalProducts = fridhultProduct
+				? [fridhultProduct, ...sortedOtherProducts]
+				: sortedOtherProducts;
+		} else {
+			// For specific categories, just sort normally
+			finalProducts = this.sortProducts(filteredProducts, sort);
+		}
+
+		console.log(`📈 After sorting: ${finalProducts.length} products`);
+
+		return this.paginateProducts(finalProducts, pagination);
 	}
 
 	async getProductById(id: string): Promise<Product | null> {
