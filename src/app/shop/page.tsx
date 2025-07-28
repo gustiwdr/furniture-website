@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useBigDataProducts } from "../hooks/useBigDataProducts";
 import { ProductFilters, ProductSortOptions } from "../types/product";
 import ProductCard from "../components/ProductCard";
 import Navigator from "../components/Navigator";
 import Footer from "../components/Footer";
-import Head from "next/head";
 
 const ITEMS_PER_PAGE = 16;
 
@@ -116,8 +115,8 @@ export default function Shop() {
 		}).format(price);
 	};
 
-	// Generate page numbers for pagination
-	const getPageNumbers = () => {
+	// Generate page numbers for pagination - memoized untuk performance
+	const getPageNumbers = useMemo(() => {
 		const pages = [];
 		const maxPagesToShow = 5;
 		let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
@@ -131,7 +130,7 @@ export default function Shop() {
 			pages.push(i);
 		}
 		return pages;
-	};
+	}, [currentPage, totalPages]);
 
 	return (
 		<div className="font-montserrat bg-white">
@@ -339,7 +338,7 @@ export default function Shop() {
 										</button>
 
 										{/* Page Numbers */}
-										{getPageNumbers().map((pageNum) => (
+										{getPageNumbers.map((pageNum: number) => (
 											<button
 												key={pageNum}
 												onClick={() => goToPage(pageNum)}

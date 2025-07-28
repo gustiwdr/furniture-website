@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
 				pathname: "/**",
 			},
 		],
+		minimumCacheTTL: 60,
+	},
+	compiler: {
+		removeConsole: process.env.NODE_ENV === "production",
 	},
 };
 
