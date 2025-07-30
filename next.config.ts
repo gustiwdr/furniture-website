@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 // Bundle analyzer untuk production analysis
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-	enabled: process.env.ANALYZE === 'true',
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+	enabled: process.env.ANALYZE === "true",
 });
 
 const nextConfig: NextConfig = {
@@ -26,11 +26,14 @@ const nextConfig: NextConfig = {
 	},
 	compiler: {
 		removeConsole: process.env.NODE_ENV === "production",
+		styledComponents: false,
 	},
 	transpilePackages: [],
 	experimental: {
-		optimizePackageImports: ["react-icons"],
+		optimizePackageImports: ["react-icons", "next", "react", "react-dom"],
+		typedRoutes: false,
 	},
+	serverExternalPackages: [],
 	webpack: (config: any, { dev, isServer }: any) => {
 		// SVG optimization
 		config.module.rules.push({
@@ -38,30 +41,57 @@ const nextConfig: NextConfig = {
 			use: ["@svgr/webpack"],
 		});
 
-		// Bundle analyzer untuk production
+		// Aggressive bundle splitting untuk mengurangi unused JS
 		if (!dev && !isServer) {
-			config.optimization.splitChunks = {
-				chunks: "all",
-				cacheGroups: {
-					default: false,
-					vendors: false,
-					// Vendor chunk
-					vendor: {
-						name: "vendor",
-						chunks: "all",
-						test: /node_modules/,
-						priority: 20,
-					},
-					// Common chunk
-					common: {
-						name: "common",
-						minChunks: 2,
-						chunks: "all",
-						priority: 10,
-						reuseExistingChunk: true,
-						enforce: true,
+			config.optimization = {
+				...config.optimization,
+				splitChunks: {
+					chunks: "all",
+					minSize: 0,
+					maxSize: 244000, // 244KB chunks
+					cacheGroups: {
+						default: false,
+						vendors: false,
+						// React and Next.js vendor chunk
+						framework: {
+							name: "framework",
+							chunks: "all",
+							test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+							priority: 40,
+							enforce: true,
+						},
+						// Other vendor libraries
+						vendor: {
+							name: "vendor",
+							chunks: "all",
+							test: /[\\/]node_modules[\\/]/,
+							priority: 30,
+							minChunks: 1,
+							enforce: true,
+						},
+						// Commons chunk
+						common: {
+							name: "common",
+							chunks: "all",
+							minChunks: 2,
+							priority: 20,
+							reuseExistingChunk: true,
+							enforce: true,
+						},
+						// App specific chunks
+						app: {
+							name: "app",
+							chunks: "all",
+							test: /[\\/]src[\\/]/,
+							priority: 10,
+							minChunks: 1,
+							enforce: true,
+						},
 					},
 				},
+				// Tree shaking optimization
+				usedExports: true,
+				sideEffects: false,
 			};
 		}
 

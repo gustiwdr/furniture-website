@@ -15,10 +15,15 @@ const Navigator: React.FC<NavigatorProps> = ({ activePage }) => {
 	};
 
 	return (
-		<header className="w-full flex justify-between items-center px-4 py-3 bg-white shadow-md fixed z-10 md:px-14">
+		<header
+			className="w-full flex justify-between items-center px-4 py-3 bg-white shadow-md fixed z-10 md:px-14"
+			role="banner"
+		>
 			<div className="left-section">
 				<h1 className="text-2xl text-primary font-bold tracking-wide">
-					Furniture
+					<Link href="/" aria-label="Furniture - Home">
+						Furniture
+					</Link>
 				</h1>
 			</div>
 			{/* Icons */}

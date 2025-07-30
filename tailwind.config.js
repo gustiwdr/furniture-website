@@ -14,8 +14,6 @@ module.exports = {
 			},
 			fontFamily: {
 				montserrat: ["var(--font-montserrat)", "sans-serif"],
-				nunito: ["var(--font-nunito)", "sans-serif"],
-				poppins: ["var(--font-poppins)", "sans-serif"],
 			},
 			height: {
 				933: "933px",
