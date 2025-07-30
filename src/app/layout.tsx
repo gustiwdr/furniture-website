@@ -3,7 +3,6 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 
-// Gunakan hanya satu font untuk mengurangi render blocking
 const montserrat = Montserrat({
 	subsets: ["latin"],
 	display: "swap",
@@ -62,7 +61,9 @@ export default function RootLayout({
 				/>
 				<link rel="dns-prefetch" href="https://images.unsplash.com" />
 				<link rel="preload" as="style" href="/critical.css" />
+				{/* Service Worker Registration - Required for PWA functionality */}
 				<script
+					// eslint-disable-next-line react/no-danger
 					dangerouslySetInnerHTML={{
 						__html: `
 							if ('serviceWorker' in navigator) {

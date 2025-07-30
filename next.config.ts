@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
-// Bundle analyzer untuk production analysis
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
 	enabled: process.env.ANALYZE === "true",
 });
 
 const nextConfig: NextConfig = {
-	/* config options here */
 	reactStrictMode: true,
 	poweredByHeader: false,
 	images: {
@@ -41,7 +39,6 @@ const nextConfig: NextConfig = {
 			use: ["@svgr/webpack"],
 		});
 
-		// Aggressive bundle splitting untuk mengurangi unused JS
 		if (!dev && !isServer) {
 			config.optimization = {
 				...config.optimization,

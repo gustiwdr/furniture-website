@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useMemo, Suspense } from "react";
+import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { useBigDataProducts } from "../hooks/useBigDataProducts";
 import { ProductFilters, ProductSortOptions } from "../types/product";
 import Navigator from "../components/Navigator";
 
-// Optimized dynamic imports dengan aggressive loading
 const ProductCard = dynamic(() => import("../components/ProductCard"), {
 	loading: () => (
 		<div
@@ -37,16 +36,15 @@ const ProductCard = dynamic(() => import("../components/ProductCard"), {
 			</div>
 		</div>
 	),
-	ssr: false, // Disable SSR untuk mengurangi bundle
+	ssr: false,
 });
 
-// Lazy load Footer hanya ketika dibutuhkan
 const Footer = dynamic(() => import("../components/Footer"), {
 	ssr: false,
 	loading: () => <div style={{ height: "200px" }} />,
 });
 
-const ITEMS_PER_PAGE = 30;
+const ITEMS_PER_PAGE = 40;
 
 const categories = [
 	{ id: "all", name: "All Products" },
@@ -106,7 +104,6 @@ export default function Shop() {
 	});
 	const [searchQuery, setSearchQuery] = useState("");
 
-	// Big Data Products Hook with Pagination
 	const {
 		products,
 		total,
@@ -146,20 +143,12 @@ export default function Shop() {
 		setFilters({ ...filters, search: undefined });
 	};
 
-	const formatPrice = (price: number) => {
-		return new Intl.NumberFormat("id-ID", {
-			style: "currency",
-			currency: "IDR",
-			minimumFractionDigits: 0,
-		}).format(price);
-	};
-
-	// Generate page numbers for pagination - memoized untuk performance
+	// Pagination calculation
 	const getPageNumbers = useMemo(() => {
 		const pages = [];
 		const maxPagesToShow = 5;
 		let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-		let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+		const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
 		if (endPage - startPage + 1 < maxPagesToShow) {
 			startPage = Math.max(1, endPage - maxPagesToShow + 1);
@@ -264,7 +253,8 @@ export default function Shop() {
 								aria-label="Filter products by category"
 								className="w-full sm:w-48 px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent appearance-none cursor-pointer"
 								style={{
-									backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+									backgroundImage:
+										"url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e\")",
 									backgroundPosition: "right 8px center",
 									backgroundRepeat: "no-repeat",
 									backgroundSize: "16px",
@@ -293,7 +283,8 @@ export default function Shop() {
 								aria-label="Sort products by different criteria"
 								className="w-full sm:w-48 px-4 py-2.5 pr-10 border border-gray-300 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent appearance-none cursor-pointer"
 								style={{
-									backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+									backgroundImage:
+										"url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e\")",
 									backgroundPosition: "right 8px center",
 									backgroundRepeat: "no-repeat",
 									backgroundSize: "16px",
@@ -335,34 +326,34 @@ export default function Shop() {
 						</div>
 					)}
 
-					{/* Products Grid - Optimized for CLS */}
+					{/* Products Grid */}
 					{!loading && !error && (
 						<div className="w-full">
 							<section
 								aria-label="Product listing"
-								className="shop-grid-container py-12 px-4 md:px-[50px] max-w-full"
+								className="shop-grid-container py-8 px-4 md:px-[50px] max-w-full"
 								style={{
 									contain: "layout style",
 								}}
 							>
 								<div className="products-grid">
-									{products.map((product, index) => (
+									{products.map((product) => (
 										<div
 											key={product.id}
 											className="w-full"
 											style={{
-												height: "420px",
+												height: "380px", 
 												contain: "layout style size",
-												transform: "translateZ(0)", // Force GPU acceleration
+												transform: "translateZ(0)",
 											}}
 										>
 											<ProductCard
 												{...product}
 												price={product.price}
-												onAddToCart={(id) => console.log("Add to cart:", id)}
-												onToggleFavorite={(id) =>
-													console.log("Toggle favorite:", id)
-												}
+												onAddToCart={() => {
+												}}
+												onToggleFavorite={() => {
+												}}
 											/>
 										</div>
 									))}

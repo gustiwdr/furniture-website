@@ -16,7 +16,6 @@ export default function Cart() {
 		getTax,
 		getShipping,
 		getTotalPrice,
-		clearCart,
 	} = useCart();
 
 	// Format price to IDR
@@ -29,7 +28,9 @@ export default function Cart() {
 	};
 
 	const handleQuantityChange = (productId: string, newQuantity: number) => {
-		if (newQuantity < 1) return;
+		if (newQuantity < 1) {
+			return;
+		}
 		updateQuantity(productId, newQuantity);
 	};
 

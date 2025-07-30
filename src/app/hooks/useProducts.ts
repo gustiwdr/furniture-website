@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { productService } from "../services/productService";
 
-// Legacy Product interface untuk backward compatibility
 interface LegacyProduct {
 	id: string;
 	name: string;
@@ -18,7 +17,6 @@ interface UseProductsResult {
 	refetch: () => void;
 }
 
-// Custom hook untuk mengelola state produk
 export const useProducts = (category: string = "all"): UseProductsResult => {
 	const [products, setProducts] = useState<LegacyProduct[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
@@ -40,6 +38,7 @@ export const useProducts = (category: string = "all"): UseProductsResult => {
 
 	useEffect(() => {
 		fetchProducts();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [category]);
 
 	return {

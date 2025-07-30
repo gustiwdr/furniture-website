@@ -1,4 +1,3 @@
-// Enhanced Product types untuk Big Data
 export interface Product {
 	id: string;
 	name: string;

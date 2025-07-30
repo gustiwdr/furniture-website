@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
 	Product,
 	ProductFilters,
@@ -64,8 +64,6 @@ export const useBigDataProducts = (
 			setError(null);
 
 			try {
-				console.log(`🔍 Big Data Query - Page ${page}, Filters:`, filters);
-
 				const pagination: PaginationOptions = { page, limit: pageSize };
 				const data = await bigDataProductService.getAllProducts(
 					filters,
@@ -78,10 +76,6 @@ export const useBigDataProducts = (
 				// Update dataset info
 				setDatasetSize(bigDataProductService.getDatasetSize());
 				setMemoryUsage(bigDataProductService.getMemoryUsage());
-
-				console.log(
-					`✅ Big Data Results: ${data.products.length}/${data.total} products loaded`
-				);
 			} catch (err) {
 				const errorMessage =
 					err instanceof Error
@@ -90,13 +84,11 @@ export const useBigDataProducts = (
 
 				// Auto-retry once if service is overloaded
 				if (errorMessage.includes("overloaded") && retryCount < 1) {
-					console.log("🔄 Retrying Big Data request...");
 					setTimeout(() => fetchProducts(page, retryCount + 1), 1000);
 					return;
 				}
 
 				setError(errorMessage);
-				console.error("Big Data Service Error:", errorMessage);
 			} finally {
 				setLoading(false);
 			}
@@ -109,14 +101,12 @@ export const useBigDataProducts = (
 		setAnalyticsLoading(true);
 
 		try {
-			console.log("📊 Fetching Big Data Analytics...");
 			const analyticsData = await bigDataProductService.getProductAnalytics(
 				filters
 			);
 			setAnalytics(analyticsData);
-			console.log("✅ Analytics loaded:", analyticsData);
-		} catch (err) {
-			console.error("Analytics Error:", err);
+		} catch {
+			// Analytics error handled silently
 		} finally {
 			setAnalyticsLoading(false);
 		}
@@ -185,7 +175,7 @@ export const useBigDataProducts = (
 // Hook for search functionality
 export const useBigDataSearch = (pageSize: number = 20) => {
 	const [searchQuery, setSearchQuery] = useState<string>("");
-	const [searchFilters, setSearchFilters] = useState<ProductFilters>({});
+	const [, setSearchFilters] = useState<ProductFilters>({});
 	const [searchLoading, setSearchLoading] = useState<boolean>(false);
 	const [searchResults, setSearchResults] = useState<ProductQueryResult>({
 		products: [],
@@ -198,31 +188,26 @@ export const useBigDataSearch = (pageSize: number = 20) => {
 
 	const performSearch = useCallback(
 		async (query: string, filters?: ProductFilters, page: number = 1) => {
-			if (!query.trim()) return;
+			if (!query.trim()) {
+				return;
+			}
 
 			setSearchLoading(true);
 
 			try {
-				console.log(`🔍 Big Data Search: "${query}"`);
 
 				const pagination: PaginationOptions = { page, limit: pageSize };
 				const results = await bigDataProductService.searchProducts(
 					query,
 					filters,
 					pagination
-				);
-
-				setSearchResults(results);
-				setSearchQuery(query);
-				setSearchFilters(filters || {});
-
-				console.log(
-					`✅ Search Results: ${results.products.length}/${results.total} found`
-				);
-			} catch (err) {
-				console.error("Search Error:", err);
-			} finally {
-				setSearchLoading(false);
+				);			setSearchResults(results);
+			setSearchQuery(query);
+			setSearchFilters(filters || {});
+		} catch {
+			// Search error handled silently
+		} finally {
+			setSearchLoading(false);
 			}
 		},
 		[pageSize]

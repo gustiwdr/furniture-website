@@ -7,6 +7,10 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+		"lint:fix": "next lint --fix",
+		"lint:report": "next lint --format json --output-file eslint-report.json",
+		"lint:detailed": "next lint --format stylish",
+		"sqa:test": "npm run lint:detailed && npm run lint:report",
 		"analyze": "ANALYZE=true npm run build",
 		"build:prod": "NODE_ENV=production next build && next export"
 	},

@@ -1,6 +1,5 @@
 import { Product } from "../types/product";
 
-// Big Data Generator - 1000+ Products untuk mata kuliah Big Data
 export class BigDataGenerator {
 	private furnitureNames = [
 		"FRIDHULT",
@@ -272,7 +271,6 @@ export class BigDataGenerator {
 
 	// Generate big dataset - 1500 products
 	public generateBigDataset(count: number = 1500): Product[] {
-		console.log(`🔥 Generating Big Data: ${count} products...`);
 		const products: Product[] = [];
 
 		const fixedFirstProduct: Product = {

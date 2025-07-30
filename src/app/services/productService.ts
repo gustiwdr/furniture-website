@@ -1,23 +1,18 @@
-import { Product } from "../types/product";
-
-// Legacy Product interface untuk backward compatibility
 interface LegacyProduct {
 	id: string;
 	name: string;
 	image: string;
-	price: string; // Keep as string for legacy compatibility
+	price: string;
 	reviewCount: number;
 	category?: string;
 }
 
-// Legacy Service interface
 interface LegacyProductService {
 	getAllProducts(): Promise<LegacyProduct[]>;
 	getProductById(id: string): Promise<LegacyProduct | null>;
 	getProductsByCategory(category: string): Promise<LegacyProduct[]>;
 }
 
-// Mock data - dalam aplikasi nyata ini akan diganti dengan API call
 const mockLegacyProducts: LegacyProduct[] = [
 	{
 		id: "1",
@@ -117,18 +112,14 @@ const mockLegacyProducts: LegacyProduct[] = [
 	},
 ];
 
-// Service implementation - mensimulasikan REST API (Legacy Version)
 export class ProductServiceImpl implements LegacyProductService {
-	// Simulasi API delay
 	private delay(ms: number): Promise<void> {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	}
 
 	async getAllProducts(): Promise<LegacyProduct[]> {
-		// Simulasi network delay
 		await this.delay(100);
 
-		// Simulasi kemungkinan error (untuk testing error handling)
 		if (Math.random() > 0.95) {
 			throw new Error("Service temporarily unavailable");
 		}
@@ -154,5 +145,4 @@ export class ProductServiceImpl implements LegacyProductService {
 	}
 }
 
-// Service instance - dalam aplikasi nyata bisa menggunakan dependency injection
 export const productService = new ProductServiceImpl();

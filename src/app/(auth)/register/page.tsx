@@ -5,12 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Register() {
-	// Media query handler untuk responsive layout
 	useEffect(() => {
 		const updateLayout = () => {
 			const width = window.innerWidth;
 
-			// Media queries untuk responsive
 			if (width <= 992) {
 				document.querySelector(".main-content")?.classList.remove("flex");
 				document.querySelector(".main-content")?.classList.add("block");

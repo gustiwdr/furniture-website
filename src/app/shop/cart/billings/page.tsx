@@ -44,9 +44,6 @@ export default function Billing() {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		console.log("Form data:", formData);
-		console.log("Payment method:", paymentMethod);
-
 		alert("Proceeding to payment...");
 	};
 

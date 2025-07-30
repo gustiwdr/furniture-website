@@ -35,14 +35,12 @@
 		padding: 0;
 	}
 
-	/* Prevent layout shift for images */
 	img {
 		max-width: 100%;
 		height: auto;
 		display: block;
 	}
 
-	/* Force hardware acceleration for specific elements */
 	.product-card,
 	.product-image-container {
 		transform: translateZ(0);
@@ -71,7 +69,6 @@
 		border-color: var(--primary);
 	}
 
-	/* Consistent card sizing to prevent CLS */
 	.product-card {
 		height: 420px;
 		contain: layout style size;
@@ -80,63 +77,61 @@
 
 	.product-image-container {
 		aspect-ratio: 1 / 1;
-		height: 240px; /* Increased from 220px to 240px for better proportion */
+		height: 240px;
 		contain: layout size;
 		transform: translateZ(0);
-		padding: 16px; /* Increased padding for better frame */
+		padding: 16px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: #f8fafc; /* Light background */
+		background-color: #f8fafc;
 	}
 
-	/* Grid optimization dengan 4 kolom konsisten */
 	.products-grid {
 		contain: layout style;
-		grid-template-rows: repeat(auto-fit, 420px);
+		grid-template-rows: repeat(auto-fit, 380px);
 		display: grid;
-		gap: 1.5rem;
-		grid-template-columns: repeat(1, 1fr); /* Mobile: 1 kolom */
+		gap: 2.5rem;
+		grid-template-columns: repeat(1, 1fr);
 	}
 
 	@media (min-width: 640px) {
 		.products-grid {
-			grid-template-columns: repeat(2, 1fr); /* Small: 2 kolom */
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
 	@media (min-width: 768px) {
 		.products-grid {
-			grid-template-columns: repeat(3, 1fr); /* Medium: 3 kolom */
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 
 	@media (min-width: 1024px) {
 		.products-grid {
-			grid-template-columns: repeat(4, 1fr); /* Large: 4 kolom */
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 
-	/* Responsive grid heights - Updated for 30 items, 4 per row */
 	.shop-grid-container {
-		min-height: 13000px; /* Mobile: 1 kolom, 30 rows */
+		min-height: 13000px;
 	}
 
 	@media (min-width: 640px) {
 		.shop-grid-container {
-			min-height: 6500px; /* Small: 2 kolom, 15 rows */
+			min-height: 6500px;
 		}
 	}
 
 	@media (min-width: 768px) {
 		.shop-grid-container {
-			min-height: 4400px; /* Medium: 3 kolom, 10 rows */
+			min-height: 4400px;
 		}
 	}
 
 	@media (min-width: 1024px) {
 		.shop-grid-container {
-			min-height: 3400px; /* Large: 4 kolom, 8 rows (30/4 = 7.5 rounded up) */
+			min-height: 3400px;
 		}
 	}
 
@@ -149,7 +144,6 @@
 		overflow: hidden;
 	}
 
-	/* Image optimization untuk product cards */
 	.product-image {
 		object-fit: contain !important;
 		max-width: 85%;

@@ -9,7 +9,6 @@ import {
 } from "../types/product";
 import { bigDataGenerator } from "../utils/bigDataGenerator";
 
-// Big Data Service Implementation - Handling 1500+ products
 export class BigDataProductService implements ProductService {
 	private products: Product[] = [];
 	private isInitialized = false;
@@ -18,17 +17,11 @@ export class BigDataProductService implements ProductService {
 		this.initializeBigData();
 	}
 
-	// Initialize big dataset
 	private initializeBigData(): void {
-		console.log("🚀 Initializing Big Data Service...");
 		this.products = bigDataGenerator.generateBigDataset(1500);
 		this.isInitialized = true;
-		console.log(
-			`✅ Big Data Service Ready: ${this.products.length} products loaded`
-		);
 	}
 
-	// Simulasi network delay untuk realism
 	private delay(ms: number): Promise<void> {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	}
@@ -38,7 +31,9 @@ export class BigDataProductService implements ProductService {
 		products: Product[],
 		filters?: ProductFilters
 	): Product[] {
-		if (!filters) return products;
+		if (!filters) {
+			return products;
+		}
 
 		return products.filter((product) => {
 			// Category filter
@@ -109,7 +104,9 @@ export class BigDataProductService implements ProductService {
 						productTag.toLowerCase().includes(tag.toLowerCase())
 					)
 				);
-				if (!hasMatchingTag) return false;
+				if (!hasMatchingTag) {
+					return false;
+				}
 			}
 
 			// Materials filter
@@ -119,7 +116,9 @@ export class BigDataProductService implements ProductService {
 						productMaterial.toLowerCase().includes(material.toLowerCase())
 					)
 				);
-				if (!hasMatchingMaterial) return false;
+				if (!hasMatchingMaterial) {
+					return false;
+				}
 			}
 
 			// Colors filter
@@ -129,7 +128,9 @@ export class BigDataProductService implements ProductService {
 						productColor.toLowerCase().includes(color.toLowerCase())
 					)
 				);
-				if (!hasMatchingColor) return false;
+				if (!hasMatchingColor) {
+					return false;
+				}
 			}
 
 			return true;
@@ -140,7 +141,9 @@ export class BigDataProductService implements ProductService {
 		products: Product[],
 		sort?: ProductSortOptions
 	): Product[] {
-		if (!sort) return products;
+		if (!sort) {
+			return products;
+		}
 
 		// Make a mutable copy to sort
 		const sortedProducts = [...products];
@@ -148,8 +151,8 @@ export class BigDataProductService implements ProductService {
 		sortedProducts.sort((a, b) => {
 			const field = sort.field as keyof Product;
 
-			let aValue = a[field];
-			let bValue = b[field];
+			const aValue = a[field];
+			const bValue = b[field];
 
 			if (typeof aValue === "string" && typeof bValue === "string") {
 				return sort.direction === "asc"
@@ -201,12 +204,7 @@ export class BigDataProductService implements ProductService {
 			throw new Error("Big Data Service temporarily overloaded");
 		}
 
-		console.log(
-			`📊 Processing Big Data Query: ${this.products.length} products`
-		);
-
-		let filteredProducts = this.filterProducts(this.products, filters);
-		console.log(`🔍 After filtering: ${filteredProducts.length} products`);
+		const filteredProducts = this.filterProducts(this.products, filters);
 
 		let finalProducts;
 		const isAllCategories = !filters?.category || filters.category === "all";
@@ -226,8 +224,6 @@ export class BigDataProductService implements ProductService {
 			// For specific categories, just sort normally
 			finalProducts = this.sortProducts(filteredProducts, sort);
 		}
-
-		console.log(`📈 After sorting: ${finalProducts.length} products`);
 
 		return this.paginateProducts(finalProducts, pagination);
 	}
@@ -278,7 +274,9 @@ export class BigDataProductService implements ProductService {
 			stockStatus: { inStock: 0, outOfStock: 0 },
 		};
 
-		if (filteredProducts.length === 0) return analytics;
+		if (filteredProducts.length === 0) {
+			return analytics;
+		}
 
 		let totalPrice = 0;
 		let totalRating = 0;
@@ -321,9 +319,6 @@ export class BigDataProductService implements ProductService {
 		analytics.averageRating =
 			Math.round((totalRating / filteredProducts.length) * 10) / 10;
 
-		console.log(
-			`📈 Analytics processed for ${filteredProducts.length} products`
-		);
 		return analytics;
 	}
 
