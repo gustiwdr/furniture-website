@@ -1,22 +1,11 @@
 "use client";
-import { useEffect } from "react";
-import Navigator from "../../components/Navigator";
-import Footer from "../../components/Footer";
-import HeroSection from "../../components/HeroSection";
-import ServiceSection from "../../components/ServiceSection";
+import Navigator from "../components/Navigator";
+import Footer from "../components/Footer";
+import HeroSection from "../components/HeroSection";
+import ServiceSection from "../components/ServiceSection";
 import Image from "next/image";
 
 export default function Home() {
-	useEffect(() => {
-		const header = document.querySelector("header");
-		const hero = document.querySelector(".hero-section") as HTMLElement;
-
-		if (header instanceof HTMLElement && hero) {
-			const headerHeight = header.offsetHeight;
-			hero.style.height = `calc(100vh - ${headerHeight}px)`;
-		}
-	}, []);
-
 	return (
 		<>
 			<div className="overflow-x-hidden p-0 m-0 font-montserrat">
@@ -40,13 +29,19 @@ export default function Home() {
 							</p>
 						</div>
 
-						<Image
-							className="object-cover"
-							src="/images/inspiration.png"
-							alt="inspiration"
-							width={1150}
-							height={400}
-						/>
+						<div className="relative w-full max-w-[1150px] aspect-[1150/400]">
+							<Image
+								className="object-cover"
+								src="/images/inspiration.png"
+								alt="inspiration"
+								fill
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1150px"
+								priority={false}
+								style={{
+									objectFit: "cover",
+								}}
+							/>
+						</div>
 					</div>
 
 					{/* Additional Section */}
@@ -65,13 +60,18 @@ export default function Home() {
 							</button>
 						</div>
 
-						<Image
-							className="w-full max-w-[300px] md:max-w-[400px] md:w-auto"
-							src="/images/beautify.png"
-							alt="additional"
-							width={400}
-							height={400}
-						/>
+						<div className="relative w-full max-w-[300px] md:max-w-[400px] aspect-square">
+							<Image
+								src="/images/beautify.png"
+								alt="Beautify your space with modern furniture"
+								fill
+								sizes="(max-width: 768px) 300px, 400px"
+								priority={false}
+								style={{
+									objectFit: "cover",
+								}}
+							/>
+						</div>
 					</div>
 
 					{/* Category Section */}
@@ -87,33 +87,48 @@ export default function Home() {
 
 						<div className="flex flex-col md:flex-row gap-5">
 							<div className="uppercase font-semibold text-textdark text-center">
-								<Image
-									className=""
-									src="/images/dining.png"
-									alt="dining room"
-									width={400}
-									height={400}
-								/>
+								<div className="relative w-full max-w-[400px] aspect-square mx-auto">
+									<Image
+										src="/images/dining.png"
+										alt="dining room furniture collection"
+										fill
+										sizes="(max-width: 768px) 90vw, 400px"
+										priority={false}
+										style={{
+											objectFit: "cover",
+										}}
+									/>
+								</div>
 								<p className="mt-2">Dining</p>
 							</div>
 							<div className="uppercase font-semibold text-textdark text-center">
-								<Image
-									className=""
-									src="/images/living.png"
-									alt="living room"
-									width={400}
-									height={400}
-								/>
+								<div className="relative w-full max-w-[400px] aspect-square mx-auto">
+									<Image
+										src="/images/living.png"
+										alt="living room furniture collection"
+										fill
+										sizes="(max-width: 768px) 90vw, 400px"
+										priority={false}
+										style={{
+											objectFit: "cover",
+										}}
+									/>
+								</div>
 								<p className="mt-2">Living</p>
 							</div>
 							<div className="uppercase font-semibold text-textdark text-center">
-								<Image
-									className=""
-									src="/images/bedroom.png"
-									alt="bedroom"
-									width={400}
-									height={400}
-								/>
+								<div className="relative w-full max-w-[400px] aspect-square mx-auto">
+									<Image
+										src="/images/bedroom.png"
+										alt="bedroom furniture collection"
+										fill
+										sizes="(max-width: 768px) 90vw, 400px"
+										priority={false}
+										style={{
+											objectFit: "cover",
+										}}
+									/>
+								</div>
 								<p className="mt-2">Bedroom</p>
 							</div>
 						</div>

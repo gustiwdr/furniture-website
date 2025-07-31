@@ -79,16 +79,17 @@ export default function Register() {
 				<div className="main-content flex gap-12 p-12 bg-white rounded-xl shadow-lg">
 					{/* Left Section */}
 					<div className="left-section w-full lg:w-1/2">
-						<div className="form-container w-full bg-lightbg h-933 p-16 rounded-3xl">
-							<h1 className="text-3xl font-bold text-primary mb-3 text-center">
+						<div className="form-container w-full bg-lightbg p-16 rounded-3xl">
+							<h1 className="text-3xl font-bold text-primary mt-12 mb-3 text-center">
 								Create your account
 							</h1>
-							<p className="subtitle text-lg text-textdark mb-8 text-center">
+							<p className="subtitle text-lg text-textdark mb-4 text-center">
 								Join us to access the latest collection
 								<br />
 								and product catalog
 							</p>
 
+							{/* Google Register Button */}
 							<button
 								type="button"
 								className="google-btn w-full flex justify-center items-center py-3 px-4 border border-gray-300 rounded-2xl text-sm font-bold text-textdark bg-white hover:bg-gray-50 transition"
@@ -117,7 +118,7 @@ export default function Register() {
 										d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
 									></path>
 								</svg>
-								Login With Google
+								Register With Google
 							</button>
 
 							{/* Divider */}
@@ -128,7 +129,7 @@ export default function Register() {
 							</div>
 
 							{/* Form */}
-							<form className="register-form flex flex-col gap-5">
+							<form className="register-form flex flex-col gap-5 mt-6">
 								<div className="form-group mb-2">
 									<label className="font-bold text-lg text-textdark block mb-1">
 										Name<span className="required text-red-500">*</span>
@@ -169,7 +170,7 @@ export default function Register() {
 										className="w-4 h-4 mt-1 border border-black border-opacity-20 rounded"
 									/>
 									<label className="font-bold text-textdark text-lg leading-tight">
-										I agree to all Term, Privacy Policy and Fees
+										I agree to all Terms, Privacy Policy and Fees
 									</label>
 								</div>
 
@@ -189,7 +190,7 @@ export default function Register() {
 								Already have an account?
 								<Link
 									href="/login"
-									className="login-link-text text-primary no-underline ml-1"
+									className="text-primary no-underline ml-1"
 								>
 									Sign In
 								</Link>
@@ -217,18 +218,18 @@ export default function Register() {
 								width={643}
 								height={933}
 							/>
-							<div className="image-text absolute bottom-8 right-4 p-2">
-								<h2 className="text-3xl font-bold text-primary leading-tight mb-2 text-right p-1">
+							<div className="image-text absolute bottom-8 left-8 p-2">
+								<h2 className="text-3xl font-bold text-primary leading-tight mb-2">
 									Discovering the Best
 									<br />
 									Furniture for your Home
 								</h2>
-								<p className="text-lg text-primary text-center p-1">
+								<p className="text-lg text-primary">
 									Stylish, comfortable, and functional
 								</p>
 							</div>
 						</div>
-						<div className="right-section-bg absolute z-10 -top-12 -right-12 rounded-xl"></div>
+						<div className="right-section-bg"></div>
 					</div>
 				</div>
 			</div>
@@ -240,6 +241,7 @@ export default function Register() {
 					border-bottom-right-radius: 12px;
 					border-bottom-left-radius: 75px;
 					transform: scaleX(-1);
+					object-fit: cover;
 					width: 643px;
 					height: 933px;
 				}
@@ -252,12 +254,22 @@ export default function Register() {
 					);
 					width: 643px;
 					height: 933px;
+					position: absolute;
+					z-index: 10;
+					top: -48px;
+					left: -48px;
+					border-radius: 0.75rem;
 				}
 
 				.image-text h2,
 				.image-text p {
 					background-color: white;
 					display: inline-block;
+					padding: 4px 8px;
+				}
+
+				.form-container {
+					height: 933px;
 				}
 
 				@media (max-width: 1200px) {
@@ -272,6 +284,11 @@ export default function Register() {
 				@media (max-width: 992px) {
 					.right-section {
 						display: none;
+					}
+
+					.form-container {
+						max-width: 600px;
+						margin: 0 auto;
 					}
 				}
 			`}</style>

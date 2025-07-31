@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Critical styles loaded first */
 @layer base {
 	:root {
 		--background: #ffffff;
@@ -45,6 +44,48 @@
 	.product-image-container {
 		transform: translateZ(0);
 		will-change: auto;
+	}
+
+	.aspect-square {
+		aspect-ratio: 1 / 1;
+	}
+
+	.aspect-\[1150\/400\] {
+		aspect-ratio: 1150 / 400;
+	}
+
+	.hero-section {
+		height: calc(100vh - 80px);
+		min-height: 600px;
+	}
+
+	.font-montserrat {
+		font-display: swap;
+	}
+
+	.aspect-ratio-container {
+		position: relative;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.aspect-ratio-container img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.main-content {
+		min-height: 100vh;
+		contain: layout style;
+	}
+
+	.font-display-swap {
+		font-display: swap;
 	}
 }
 
@@ -135,7 +176,6 @@
 		}
 	}
 
-	/* Line clamp utilities */
 	.line-clamp-2 {
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
@@ -153,7 +193,6 @@
 		margin: auto;
 	}
 
-	/* Ensure consistent button sizes */
 	.cart-button,
 	.favorite-button {
 		min-width: 40px;

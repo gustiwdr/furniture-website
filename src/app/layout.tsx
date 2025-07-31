@@ -61,6 +61,9 @@ export default function RootLayout({
 				/>
 				<link rel="dns-prefetch" href="https://images.unsplash.com" />
 				<link rel="preload" as="style" href="/critical.css" />
+				{/* Preload critical images to prevent CLS */}
+				<link rel="preload" as="image" href="/images/hero.png" />
+				<link rel="preload" as="image" href="/images/inspiration.png" />
 				{/* Service Worker Registration - Required for PWA functionality */}
 				<script
 					// eslint-disable-next-line react/no-danger

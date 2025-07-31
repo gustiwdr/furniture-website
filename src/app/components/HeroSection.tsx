@@ -4,13 +4,18 @@ import Image from "next/image";
 const HeroSection: React.FC = () => {
 	return (
 		<div className="relative w-full">
-			<div className="hero-section">
+			<div className="hero-section relative overflow-hidden">
 				<Image
 					src="/images/hero.png"
-					alt="hero image"
+					alt="Modern furniture collection - hero banner"
 					fill
 					priority
 					className="w-full h-full object-cover"
+					sizes="100vw"
+					quality={90}
+					style={{
+						objectFit: "cover",
+					}}
 				/>
 			</div>
 
