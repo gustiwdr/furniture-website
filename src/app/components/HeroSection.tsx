@@ -4,7 +4,16 @@ import Image from "next/image";
 const HeroSection: React.FC = () => {
 	return (
 		<div className="relative w-full">
-			<div className="hero-section relative overflow-hidden">
+			<div
+				className="hero-section relative overflow-hidden"
+				style={{
+					aspectRatio: "16 / 9",
+					width: "100%",
+					height: "clamp(400px, 60vh, 700px)",
+					minHeight: "400px",
+					maxHeight: "700px",
+				}}
+			>
 				<Image
 					src="/images/hero.png"
 					alt="Modern furniture collection - hero banner"
@@ -26,8 +35,8 @@ const HeroSection: React.FC = () => {
 					New Collection
 				</p>
 				<p className="description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-					doloribus soluta temporibus? Nobis, dolore aliquam.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, dolore
+					aliquam.
 				</p>
 				<button>Buy Now</button>
 			</div>
@@ -35,19 +44,25 @@ const HeroSection: React.FC = () => {
 			<style jsx>{`
 				.hero-section {
 					width: 100%;
-					height: 65vh;
-					min-height: 500px;
+					aspect-ratio: 16 / 9;
+					min-height: 400px;
+					max-height: 700px;
+					height: clamp(400px, 60vh, 700px);
 				}
 
 				.content-overlay {
 					position: absolute;
-					top: 150px;
-					left: 350px;
+					top: 15%;
+					left: 5%;
 					background-color: #dfe9f4;
-					width: 400px;
+					width: min(400px, 90%);
 					padding: 24px;
 					border-radius: 4px;
 					z-index: 5;
+					transform: translateZ(0);
+					max-height: none;
+					overflow: visible;
+					min-height: fit-content;
 				}
 
 				.content-overlay p.title {
@@ -72,7 +87,8 @@ const HeroSection: React.FC = () => {
 				}
 
 				.content-overlay button {
-					margin-top: 16px;
+					margin-top: 20px; /* Increased top margin */
+					margin-bottom: 8px; /* Added bottom margin */
 					padding: 12px 24px;
 					background-color: #054c73;
 					font-weight: 700;
@@ -82,19 +98,30 @@ const HeroSection: React.FC = () => {
 					border: none;
 					border-radius: 999px;
 					cursor: pointer;
+					display: block; /* Ensure button is displayed */
+					width: fit-content; /* Button width based on content */
+					transition: background-color 0.3s ease;
+				}
+
+				.content-overlay button:hover {
+					background-color: #043a5a;
 				}
 
 				@media (max-width: 768px) {
 					.hero-section {
-						height: 45vh;
-						min-height: 400px;
+						aspect-ratio: 4 / 3;
+						min-height: 300px;
+						height: clamp(300px, 50vh, 500px);
 					}
 
 					.content-overlay {
-						top: 80px;
-						left: 45px;
-						width: 260px;
-						padding: 16px;
+						top: 10%;
+						left: 5%;
+						width: min(280px, 90%);
+						padding: 16px 16px 24px 16px; /* Added extra bottom padding for mobile */
+						max-height: none; /* Remove height constraint */
+						overflow: visible; /* Show all content */
+						min-height: fit-content;
 					}
 
 					.content-overlay p.main-title {
@@ -104,20 +131,28 @@ const HeroSection: React.FC = () => {
 					.content-overlay button {
 						padding: 10px 20px;
 						font-size: 0.75rem;
+						margin-top: 16px; /* Increased margin for mobile */
+						margin-bottom: 6px; /* Added bottom margin for mobile */
+						display: block; /* Ensure button is displayed */
+						width: fit-content; /* Button width based on content */
 					}
 				}
 
 				@media (min-width: 1024px) {
 					.hero-section {
-						height: 70vh;
-						min-height: 600px;
+						aspect-ratio: 16 / 9;
+						min-height: 500px;
+						height: clamp(500px, 65vh, 700px);
 					}
 
 					.content-overlay {
 						width: 400px;
 						padding: 28px;
-						top: 160px;
-						left: 580px;
+						top: 12%;
+						left: 50%;
+						max-height: none;
+						overflow: visible;
+						min-height: fit-content;
 					}
 
 					.content-overlay p.main-title {
